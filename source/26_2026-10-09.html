@@ -1,0 +1,311 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Midterm Digest</title>
+<style>
+/* layout: single-column newsletter, masthead + dated sections, scoreboard table for the seat-change log */
+:root{
+  --bg:#f6f3ec;
+  --paper:#ffffff;
+  --fg:#1c1b19;
+  --muted:#6b6660;
+  --border:#dfd9cc;
+  --accent:#2d4356;
+  --dem:#3a6ea5;
+  --rep:#a0453c;
+  --flat:#9a9488;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15171a;
+    --paper:#1d2023;
+    --fg:#eae6dd;
+    --muted:#9a948a;
+    --border:#33363a;
+    --accent:#7fa8c9;
+    --dem:#6fa0d6;
+    --rep:#d07c72;
+    --flat:#7d7a74;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15171a;
+  --paper:#1d2023;
+  --fg:#eae6dd;
+  --muted:#9a948a;
+  --border:#33363a;
+  --accent:#7fa8c9;
+  --dem:#6fa0d6;
+  --rep:#d07c72;
+  --flat:#7d7a74;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:'Source Serif 4', Georgia, 'Times New Roman', serif;
+  padding-inline:16px;
+  padding-block:28px;
+}
+.wrap{max-width:720px;margin:0 auto;}
+
+.masthead{
+  border-bottom:3px solid var(--fg);
+  padding-bottom:14px;
+  margin-bottom:24px;
+}
+.eyebrow{
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:11px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 6px;
+}
+h1{
+  font-family:'Source Serif 4', Georgia, serif;
+  font-size:clamp(28px,6vw,38px);
+  font-weight:700;
+  margin:0 0 8px;
+  text-wrap:balance;
+  letter-spacing:-0.01em;
+}
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 16px;
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:13px;
+  color:var(--muted);
+}
+.meta strong{color:var(--fg);font-weight:600;}
+.dek{
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:14.5px;
+  color:var(--muted);
+  margin-top:10px;
+  max-width:62ch;
+  line-height:1.5;
+}
+
+section.block{margin-bottom:32px;}
+.sec-head{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  border-bottom:1px solid var(--border);
+  padding-bottom:8px;
+  margin-bottom:16px;
+}
+.sec-num{
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:12px;
+  color:var(--muted);
+  font-weight:600;
+}
+.sec-head h2{
+  font-family:'Source Serif 4',serif;
+  font-size:21px;
+  font-weight:700;
+  margin:0;
+  letter-spacing:-0.01em;
+}
+
+.card{
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-radius:3px;
+  padding:16px 18px;
+  margin-bottom:12px;
+}
+.card h3{
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:15px;
+  font-weight:700;
+  margin:0 0 6px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.tag{
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:10.5px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  font-weight:700;
+  padding:2px 7px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  color:var(--muted);
+}
+.card p{
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:14.5px;
+  line-height:1.55;
+  margin:0 0 8px;
+  color:var(--fg);
+}
+.card p:last-of-type{margin-bottom:0;}
+.src{
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:12px;
+  color:var(--muted);
+}
+.src a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--border);}
+.src a:hover{border-color:var(--accent);}
+
+.note{
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--muted);
+  padding:14px 16px;
+  border-left:3px solid var(--border);
+  background:var(--paper);
+  margin-bottom:12px;
+}
+.note strong{color:var(--fg);}
+.note.flag{border-left-color:var(--rep);}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:13.5px;
+}
+.tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:3px;}
+th,td{
+  text-align:left;
+  padding:10px 12px;
+  border-bottom:1px solid var(--border);
+  vertical-align:top;
+}
+th{
+  font-size:11px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--muted);
+  font-weight:600;
+  background:var(--paper);
+}
+tr:last-child td{border-bottom:none;}
+td.date{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--muted);}
+td.score{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap;}
+.score.pos{color:var(--dem);}
+.score.neg{color:var(--rep);}
+.score.flat{color:var(--flat);}
+.score.today{text-decoration:underline;text-decoration-color:var(--border);text-decoration-thickness:2px;}
+.bar{display:inline-block;height:8px;border-radius:2px;vertical-align:middle;margin-right:8px;}
+
+.trend{
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--fg);
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid var(--border);
+}
+
+footer{
+  margin-top:36px;
+  padding-top:16px;
+  border-top:1px solid var(--border);
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.6;
+}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap">
+
+<div class="wrap">
+
+  <div class="masthead">
+    <p class="eyebrow">Midterm Digest · Nonpartisan daily briefing</p>
+    <h1>Issue No. 26</h1>
+    <div class="meta">
+      <span><strong>Friday, October 9, 2026</strong></span>
+      <span>AP · Reuters · Cook Political Report · Sabato's Crystal Ball · Inside Elections · official state sources</span>
+    </div>
+    <p class="dek">Developments from roughly the last 24&ndash;48 hours. Where a search came up empty or a source blocked access, that's noted plainly rather than skipped over.</p>
+  </div>
+
+  <section class="block">
+    <div class="sec-head"><span class="sec-num">01</span><h2>Race developments</h2></div>
+
+    <div class="card">
+      <h3>New York governor <span class="tag">rally</span></h3>
+      <p>President Trump headlines a midterm rally tonight at Syracuse's OnCenter for Republican gubernatorial nominee Bruce Blakeman, who is challenging Gov. Kathy Hochul. It's his campaign swing into a state Republicans rarely contest at this level. The visit lands right after the most recent independent poll: Marist, fielding October 1&ndash;4 and released October 7, has Hochul leading 53% to 42%, a result in line with her lead all summer.</p>
+      <p class="src">Sources: <a href="https://www.fingerlakesdailynews.com/local/president-trump-to-campaign-for-blakeman-in-syracuse/" target="_blank" rel="noopener">Finger Lakes Daily News</a> (Oct. 7) · <a href="https://maristpoll.marist.edu/polls/midterm-elections-in-new-york-october-2026/" target="_blank" rel="noopener">Marist Poll</a> (Oct. 7, fielded Oct. 1&ndash;4)</p>
+    </div>
+
+    <div class="card">
+      <h3>Texas governor <span class="tag">poll</span></h3>
+      <p>A YouGov poll of 3,622 likely voters (fielded Sept. 28&ndash;Oct. 5) has Democrat Gina Hinojosa at 48% to Gov. Greg Abbott's 47%, essentially a tie. It continues a tightening trend first flagged in this digest Oct. 8: no public poll since mid-September has shown Abbott ahead by more than 5 points, after he led comfortably all summer.</p>
+      <p class="src">Source: <a href="https://www.newsweek.com/gina-hinojosa-chance-of-beating-greg-abbott-flips-with-pollsters-12537296" target="_blank" rel="noopener">Newsweek</a> (published Oct. 7, updated Oct. 8)</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Polling &amp; forecasts</h2></div>
+
+    <div class="note">
+      <strong>Cook ratings, re-checked:</strong> Direct fetches of Cook Political Report's Senate and House pages today show no new movement. Senate ratings are unchanged since the three-race Oct. 6 batch (Kansas, New Hampshire, North Carolina, already scored in Wednesday's issue); House ratings are unchanged since the Sept. 25&ndash;26 batch.
+    </div>
+
+    <div class="note">
+      <strong>Generic ballot:</strong> No fresh, reliable reading today. Two direct fetches of Nate Silver's Silver Bulletin tracker returned conflicting cached snapshots (D+6.4 dated July 31; D+6.6 dated Sept. 8), both older and lower than the D+8.9 (D+9.6 among likely voters) figure this tracker already confirmed as of Oct. 7. Rather than report a number that may be stale, the Oct. 7 figure stands as the latest reliable one &mdash; no movement confirmed today.
+    </div>
+
+    <div class="note flag">
+      <strong>Flagged, not scored &mdash; Inside Elections Senate ratings:</strong> Inside Elections' own ratings data file still carries an Oct. 1 timestamp. One automated read of it returned what looked like seven Senate-rating moves dated Oct. 1 (Texas, North Carolina, Nebraska, Minnesota, Michigan, Alaska, Georgia), six of them Democratic-leaning. That read couldn't be verified: direct access to the raw file was blocked today, and spot-checking individual races against news coverage turned up older or conflicting dates for several (the Georgia and Minnesota moves on record trace to articles from April 2026 and February 2025, not October). Treating this as unconfirmed and not scoring it &mdash; worth a cleaner check with a different method next run.
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Election administration &amp; security</h2></div>
+    <div class="card">
+      <p>No new rulings, hearings, or verified incidents turned up in the last 24&ndash;48 hours. Two previously reported suits remain pending with nothing scheduled: the DNC's challenge to the revised overseas-citizen ballot form (filed Oct. 1), and the LULAC/UnidosUS/Common Cause/City and County of Denver suit seeking to bar armed federal agents from polling places (filed Sept. 10, after DHS Secretary Markwayne Mullin said ICE agents could respond to a threat or serve a warrant at a polling site). DHS has said it isn't planning polling-place operations.</p>
+      <p class="src">Sources: <a href="https://www.coloradopolitics.com/2026/10/02/administrations-move-makes-it-harder-for-us-citizens-abroad-to-vote-2/" target="_blank" rel="noopener">Colorado Politics</a> (Oct. 2) · <a href="https://www.inquirer.com/news/nation-world/ice-armed-agents-polling-places-election-lawsuit-20260910.html" target="_blank" rel="noopener">Washington Post via Philadelphia Inquirer</a> (Sept. 10)</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Seat-change score</h2></div>
+    <div class="note">
+      Scores one point per individual race-rating move from a named nonpartisan rater (Cook, Sabato, Inside Elections) &mdash; +1 toward Democrats, &minus;1 toward Republicans, flat regardless of how many notches. Polls, fundraising, endorsements, and aggregate forecast numbers don't count. <strong>Today's score: 0</strong> &mdash; no confirmed new rating change found and verified (the Inside Elections item above is excluded pending verification).
+    </div>
+
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Score</th><th>What drove it</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="date">Oct 3</td><td class="score flat">0</td><td>None confirmed.</td></tr>
+          <tr><td class="date">Oct 4</td><td class="score flat">0</td><td>None confirmed.</td></tr>
+          <tr><td class="date">Oct 5</td><td class="score flat">0</td><td>None confirmed.</td></tr>
+          <tr><td class="date">Oct 6</td><td class="score flat">0</td><td>None confirmed at the time &mdash; later revealed to be a miss (see Oct 7).</td></tr>
+          <tr><td class="date">Oct 7</td><td class="score pos">+5</td><td>Cook Senate (KS, NH, NC) + Sabato Senate (AK, SC), all D-ward, dated Oct. 6 and caught the next day.</td></tr>
+          <tr><td class="date">Oct 8</td><td class="score pos">+4</td><td>Inside Elections House batch (MI-04, CA-22, IA-01, IA-03), all D-ward, dated Oct. 1&ndash;2 and caught two runs late.</td></tr>
+          <tr><td class="date">Oct 9</td><td class="score flat today">0</td><td>No new confirmed moves today.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="trend">Net <strong>+9</strong> over the trailing week, all of it from two "catch-up" days (Oct. 7, Oct. 8) where moves that had already happened days earlier were first confirmed, rather than from fresh same-day movement. Every qualifying move logged so far this cycle has run toward Democrats; none has run toward Republicans.</p>
+  </section>
+
+  <footer>
+    Built from AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, Inside Elections, official state election offices, and court dockets. No partisan outlets or opinion pieces used as primary sources. This digest does not produce, and will not produce, any score or estimate of the likelihood that an election will be "stolen" &mdash; the seat-change score above is strictly about confirmed, named-rater race-rating movement.
+  </footer>
+
+</div>
+
+</body></html>

@@ -1,0 +1,329 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Midterm Digest</title>
+<style>
+/*
+  Layout concept: a wire-service dispatch sheet — a fixed masthead strip,
+  numbered dispatches with a left rule and a small-caps dateline/source tag
+  on each item, and a ledger-style table for the seat-change score so the
+  one quantitative thread in the page reads like a tape, not a blog post.
+*/
+:root{
+  --paper:#f3f1ec;
+  --ink:#1c2230;
+  --ink-dim:#5b6373;
+  --rule:#c7c2b6;
+  --accent:#2f5d62;
+  --accent-soft:#e3ebe9;
+  --d-color:#2a5aa0;
+  --r-color:#a0392a;
+  --warn-bg:#ece6d8;
+  --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-body:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#15181f;
+    --ink:#e8e6df;
+    --ink-dim:#9aa1ad;
+    --rule:#343a46;
+    --accent:#6fb3ac;
+    --accent-soft:#1d2b2a;
+    --d-color:#6fa0e0;
+    --r-color:#d97a67;
+    --warn-bg:#242621;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15181f;
+  --ink:#e8e6df;
+  --ink-dim:#9aa1ad;
+  --rule:#343a46;
+  --accent:#6fb3ac;
+  --accent-soft:#1d2b2a;
+  --d-color:#6fa0e0;
+  --r-color:#d97a67;
+  --warn-bg:#242621;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  padding-inline:0;
+  padding-block:0;
+  line-height:1.5;
+}
+.wrap{
+  max-width:720px;
+  margin:0 auto;
+  padding-inline:20px;
+  padding-block:28px 56px;
+}
+.masthead{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:12px;
+  flex-wrap:wrap;
+  border-bottom:3px solid var(--ink);
+  padding-bottom:14px;
+  margin-bottom:6px;
+}
+.masthead h1{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(1.9rem,6vw,2.6rem);
+  letter-spacing:-0.01em;
+  margin:0;
+  text-wrap:balance;
+}
+.masthead .meta{
+  font-family:var(--font-mono);
+  font-size:0.72rem;
+  color:var(--ink-dim);
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  text-align:right;
+}
+.masthead .meta .issue{color:var(--accent);font-weight:600}
+.standfirst{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:1rem;
+  color:var(--ink-dim);
+  margin:14px 0 36px;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--rule);
+}
+section{margin-bottom:40px}
+.section-head{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  margin-bottom:16px;
+}
+.section-num{
+  font-family:var(--font-mono);
+  font-size:0.75rem;
+  color:var(--paper);
+  background:var(--ink);
+  border-radius:3px;
+  padding:2px 7px;
+  flex-shrink:0;
+}
+.section-head h2{
+  font-family:var(--font-display);
+  font-size:1.3rem;
+  font-weight:600;
+  margin:0;
+  letter-spacing:-0.005em;
+}
+.item{
+  border-left:2px solid var(--rule);
+  padding-left:16px;
+  margin-bottom:20px;
+}
+.item:last-child{margin-bottom:0}
+.item .tag{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:0.68rem;
+  text-transform:uppercase;
+  letter-spacing:0.07em;
+  color:var(--accent);
+  margin-bottom:5px;
+}
+.item p{margin:0 0 6px;max-width:65ch}
+.item .src{
+  font-size:0.78rem;
+  color:var(--ink-dim);
+}
+.item .src a{color:var(--ink-dim);text-decoration:underline;text-decoration-color:var(--rule)}
+.item .src a:hover{color:var(--accent)}
+.note{
+  background:var(--warn-bg);
+  border-radius:6px;
+  padding:12px 14px;
+  font-size:0.85rem;
+  color:var(--ink-dim);
+  margin-top:8px;
+}
+.pill{
+  display:inline-block;
+  font-family:var(--font-mono);
+  font-size:0.68rem;
+  letter-spacing:0.04em;
+  padding:1px 7px;
+  border-radius:999px;
+  margin-left:6px;
+  vertical-align:middle;
+}
+.pill.d{background:var(--accent-soft);color:var(--d-color)}
+.pill.r{background:var(--warn-bg);color:var(--r-color)}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-family:var(--font-mono);
+  font-size:0.82rem;
+  margin-top:4px;
+}
+caption{
+  text-align:left;
+  font-family:var(--font-body);
+  font-size:0.8rem;
+  color:var(--ink-dim);
+  margin-bottom:10px;
+  caption-side:top;
+}
+th,td{
+  text-align:left;
+  padding:7px 8px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+th{
+  font-size:0.68rem;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  color:var(--ink-dim);
+  font-weight:500;
+}
+td.score{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+td.score.pos{color:var(--d-color)}
+td.score.zero{color:var(--ink-dim)}
+td.note-col{color:var(--ink-dim);font-family:var(--font-body);font-size:0.8rem}
+.score-today td{background:var(--accent-soft)}
+.table-wrap{overflow-x:auto}
+.trend-line{
+  margin-top:14px;
+  font-size:0.88rem;
+  color:var(--ink-dim);
+  border-top:1px solid var(--rule);
+  padding-top:12px;
+}
+.trend-line strong{color:var(--ink);font-family:var(--font-mono)}
+footer{
+  margin-top:48px;
+  padding-top:18px;
+  border-top:1px solid var(--rule);
+  font-size:0.76rem;
+  color:var(--ink-dim);
+}
+footer p{margin:0 0 6px;max-width:68ch}
+.empty-note{font-style:italic;color:var(--ink-dim)}
+</style>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <h1>Midterm Digest</h1>
+    <div class="meta">Issue No. 20<br><span class="issue">October 3, 2026</span></div>
+  </div>
+  <p class="standfirst">Nonpartisan developments from the last 24&ndash;48 hours in the fight for the House, Senate, and governors' mansions &mdash; sourced, dated, and scored.</p>
+
+  <section>
+    <div class="section-head"><span class="section-num">01</span><h2>Race developments</h2></div>
+
+    <div class="item">
+      <span class="tag">TX Senate</span>
+      <p>A new Fox News poll (field Sept 24&ndash;28, 881 LV, &plusmn;3) has James Talarico (D) edging Ken Paxton (R) 51&ndash;49 &mdash; within the margin of error, and close to the Texas Tribune's own 2-point tracker. Despite $200M+ in outside spending this cycle, the race hasn't moved much in either direction. The <em>Washington Post</em> reports both campaigns launched new dueling ad flights this week.</p>
+      <p class="src">Fox 7 Austin, Oct 2 &middot; Washington Post, Oct 2</p>
+    </div>
+
+    <div class="item">
+      <span class="tag">NC Senate</span>
+      <p>The Senate Leadership Fund &mdash; which had pledged $71M to defend the seat and already spent $30M &mdash; is pulling its remaining $18M in North Carolina ad reserves entirely and shifting it to Kansas (see below). A smaller GOP group, Old North Action, already moved $6.5M out in September. Roy Cooper (D) led Michael Whatley (R) 53&ndash;41 in a mid-September YouGov poll.</p>
+      <p class="src">NC Newsline, Oct 2 &middot; reporting cites Semafor</p>
+    </div>
+
+    <div class="item">
+      <span class="tag">KS Senate</span>
+      <p>A seat Roger Marshall (R) won by 11 points in 2020, in a state Trump carried by 16, is drawing real defensive money for the first time: SLF has booked $8.2M and Marshall's campaign $2.3M, against $590K from Adam Hamilton (D) and $556K in outside Democratic support. Two former Republican governors, Mike Hayden and Bill Graves, have endorsed Hamilton; the state Democratic chair points to diesel-price pain from the Iran war hitting Kansas farmers, including Republican ones.</p>
+      <p class="src">KCTV5, Oct 2</p>
+    </div>
+
+    <div class="item">
+      <span class="tag">Early voting</span>
+      <p>A CNN analysis of ballot-request data across 30+ states finds Democrats running ahead of their 2024 pace in several battlegrounds: Iowa (67% vs. 54%), Pennsylvania (66% vs. 62%), Maine (57% vs. 53%), and North Carolina (42% vs. 36%). The gap is widest in Virginia, where heavily Harris-voting localities are at 78% of 2024 turnout versus 61% in Trump-voting areas. CNN is explicit that request data can't reveal who anyone actually voted for, and that early voters skew older and more Democratic than the eventual electorate &mdash; a signal, not a forecast.</p>
+      <p class="src">CNN, Oct 1</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">02</span><h2>Polling &amp; forecasts</h2></div>
+
+    <div class="item">
+      <span class="tag">Aggregate &middot; Silver Bulletin</span>
+      <p>Nate Silver's generic-ballot average has moved to <strong>D+9.0</strong> as of Oct 2 (D+9.6 with a likely-voter adjustment applied) &mdash; up from D+6.7 entering September and, per Silver's own write-up, a high point for Democrats this cycle. This is an aggregate trend line, not a race-rating change, so it doesn't feed the seat-change score below.</p>
+      <p class="src">Silver Bulletin, Oct 2</p>
+    </div>
+
+    <div class="item">
+      <span class="tag">ME Senate &middot; poll</span>
+      <p>CBS News/YouGov (field Sept 23&ndash;Oct 1, 1,144 RV, &plusmn;4.7) has Susan Collins (R) and Troy Jackson (D) tied, with Collins helped by voters who say they're focused on state rather than national issues. That's the fourth different read on this race this month &mdash; Jackson has led by anywhere from 4 to 5 points elsewhere, Collins by 3 in one NYT/Siena poll &mdash; which continues to look like pollster-to-pollster noise rather than a real trend in either direction.</p>
+      <p class="src">CBS News, Oct 2</p>
+    </div>
+
+    <div class="item">
+      <span class="tag">Ratings</span>
+      <p>No confirmed Cook, Sabato, or Inside Elections rating changes today. Cook's Senate page is unchanged since Sept 23, its House page unchanged since the Sept 25 batch, and its governors' page unchanged since the Oct 1 Texas/Florida move already logged. No new Sabato pieces turned up beyond the already-scored Sept 29&ndash;30 House batch.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">03</span><h2>Election administration &amp; security</h2></div>
+
+    <div class="item">
+      <span class="tag">Litigation</span>
+      <p>The DNC sued the Trump administration over a Defense Department change to the overseas-voter registration postcard that removes a checkbox, in place since 2013, used by U.S. citizens who've never lived stateside but qualify to vote in 38 states through a parent or spouse. The suit alleges the change was pushed through under an emergency declaration that bypassed normal rulemaking. Roughly 11,500 voters used that checkbox in 2016; the number has likely grown since.</p>
+      <p class="src">Reporting on the DNC complaint, Oct 1</p>
+    </div>
+
+    <div class="item">
+      <span class="tag">No update</span>
+      <p>Nothing new since yesterday's issue on the ICE-at-polling-places dispute: DHS's denial that agents will be stationed at voting sites, and the civil-rights coalition's suits to block that and run voter-confidence programs in battlegrounds, remain the latest word. No new ruling has come down. Similarly, no new developments found on the Georgia voter-roll cases or the Missouri redistricting fight beyond what's already been covered this week.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">04</span><h2>Worth sharing</h2></div>
+    <div class="item">
+      <span class="tag">KS Senate</span>
+      <p>Two former Republican governors of Kansas &mdash; Mike Hayden and Bill Graves &mdash; just endorsed the Democrat running for a seat their own party has held safely for decades, in a state Trump won by 16. It's a small story next to the bigger spending numbers above, but it's the kind of quietly remarkable crossover that's easy to miss in the headline-chasing coverage.</p>
+      <p class="src">KCTV5, Oct 2</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">05</span><h2>Seat-change score</h2></div>
+    <div class="table-wrap">
+    <table>
+      <caption>Confirmed nonpartisan race-rating moves only &mdash; +1 per race toward Democrats, &minus;1 per race toward Republicans, flat regardless of how many notches. Polls, fundraising, endorsements, and generic-ballot numbers don't count.</caption>
+      <thead>
+        <tr><th>Date</th><th>Score</th><th>What drove it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sep 27</td><td class="score zero">0</td><td class="note-col">None confirmed</td></tr>
+        <tr><td>Sep 28</td><td class="score zero">0</td><td class="note-col">None confirmed</td></tr>
+        <tr><td>Sep 29</td><td class="score zero">0</td><td class="note-col">None confirmed</td></tr>
+        <tr><td>Sep 30</td><td class="score zero">0</td><td class="note-col">None confirmed (Sabato's Sept 29&ndash;30 batch was missed this day, caught Oct 1)</td></tr>
+        <tr><td>Oct 1</td><td class="score pos">+11</td><td class="note-col">Sabato's Crystal Ball, 11 House seats, all D-ward</td></tr>
+        <tr><td>Oct 2</td><td class="score pos">+1</td><td class="note-col">Cook moved TX Governor Likely R &rarr; Lean R</td></tr>
+        <tr class="score-today"><td>Oct 3</td><td class="score zero">0</td><td class="note-col">None confirmed &mdash; Cook Senate/House/Governor pages all unchanged today</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="trend-line">Net over the trailing 7 days: <strong>+12</strong>, all toward Democrats. The pattern stays lumpy rather than steady &mdash; raters publish in occasional batches, so most days read zero until the next one lands.</p>
+  </section>
+
+  <footer>
+    <p>Sources: AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, Silver Bulletin, CNN, CBS News, Fox News, Washington Post, NC Newsline, KCTV5, and official court filings. Partisan outlets and opinion pieces are excluded as primary sources.</p>
+    <p>This digest does not and will not attempt to quantify the odds of fraud or a "stolen" election &mdash; the administration/security section reports only what officials, courts, and credible reporting have actually found.</p>
+  </footer>
+
+</div>
+
+</body></html>

@@ -1,0 +1,364 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Midterm Digest Sept 21</title>
+<style>
+  :root{
+    --bg:#f7f6f2;
+    --surface:#ffffff;
+    --border:#e2ded4;
+    --ink:#1e1c18;
+    --ink-soft:#57534a;
+    --ink-faint:#8a8577;
+    --accent:#8a6d3b;
+    --accent-soft:#f1e9d8;
+    --d:#2c5b96;
+    --d-soft:#e7eef7;
+    --r:#a5342b;
+    --r-soft:#f8e9e7;
+    --flat:#7d7867;
+    --flat-soft:#efede6;
+    --rule:#d8d3c5;
+    --shadow: 0 1px 2px rgba(30,28,24,0.05), 0 8px 24px -12px rgba(30,28,24,0.12);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#17150f;
+      --surface:#211e17;
+      --border:#3a3527;
+      --ink:#efeade;
+      --ink-soft:#c6c0ae;
+      --ink-faint:#948d78;
+      --accent:#d3ad6c;
+      --accent-soft:#3a2f1a;
+      --d:#7fa8dc;
+      --d-soft:#20293a;
+      --r:#e08076;
+      --r-soft:#3a2321;
+      --flat:#a8a290;
+      --flat-soft:#2a2719;
+      --rule:#3a3527;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#17150f;
+    --surface:#211e17;
+    --border:#3a3527;
+    --ink:#efeade;
+    --ink-soft:#c6c0ae;
+    --ink-faint:#948d78;
+    --accent:#d3ad6c;
+    --accent-soft:#3a2f1a;
+    --d:#7fa8dc;
+    --d-soft:#20293a;
+    --r:#e08076;
+    --r-soft:#3a2321;
+    --flat:#a8a290;
+    --flat-soft:#2a2719;
+    --rule:#3a3527;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    padding:0 16px;
+    padding-block: 28px 56px;
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+
+  header.masthead{
+    border-bottom:3px solid var(--ink);
+    padding-bottom:16px;
+    margin-bottom:28px;
+  }
+  .eyebrow{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:0.72rem;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:10px;
+  }
+  h1{
+    font-family:"Source Serif 4",Georgia,serif;
+    font-size:clamp(1.7rem,5vw,2.35rem);
+    line-height:1.12;
+    margin:0 0 8px 0;
+    text-wrap:balance;
+    font-weight:700;
+  }
+  .dek{
+    color:var(--ink-soft);
+    font-size:0.95rem;
+    margin:0;
+    max-width:60ch;
+  }
+
+  section{margin-bottom:34px;}
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:14px;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:8px;
+  }
+  .sec-num{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:0.75rem;
+    color:var(--ink-faint);
+  }
+  h2{
+    font-family:"Source Serif 4",Georgia,serif;
+    font-size:1.25rem;
+    margin:0;
+    font-weight:700;
+  }
+
+  .item{
+    padding:14px 0;
+    border-bottom:1px dashed var(--rule);
+  }
+  .item:last-child{border-bottom:none;padding-bottom:0;}
+  .item-head{
+    display:flex;
+    gap:8px;
+    align-items:baseline;
+    flex-wrap:wrap;
+    margin-bottom:5px;
+  }
+  .tag{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:2px 7px;
+    border-radius:3px;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  .tag.d{background:var(--d-soft);color:var(--d);}
+  .tag.r{background:var(--r-soft);color:var(--r);}
+  .tag.flat{background:var(--flat-soft);color:var(--flat);}
+  .item-title{font-weight:600;font-size:1rem;}
+  .item p{margin:0 0 6px 0;font-size:0.94rem;line-height:1.5;color:var(--ink);}
+  .src{
+    font-size:0.78rem;
+    color:var(--ink-faint);
+    font-family:"IBM Plex Mono",monospace;
+  }
+  .src a{color:var(--ink-faint);}
+  .src a:hover{color:var(--accent);}
+
+  .empty-note{
+    font-size:0.9rem;
+    color:var(--ink-soft);
+    font-style:italic;
+    padding:10px 0;
+  }
+
+  .callout{
+    background:var(--accent-soft);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:16px 18px;
+    box-shadow:var(--shadow);
+  }
+  .callout p{margin:0 0 6px 0;font-size:0.94rem;line-height:1.5;}
+  .callout .item-title{color:var(--accent);}
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:0.88rem;
+  }
+  th,td{
+    text-align:left;
+    padding:8px 10px;
+    border-bottom:1px solid var(--rule);
+    font-variant-numeric: tabular-nums;
+  }
+  th{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--ink-faint);
+    font-weight:600;
+  }
+  td.score{font-weight:700;font-family:"IBM Plex Mono",monospace;}
+  td.score.pos{color:var(--d);}
+  td.score.neg{color:var(--r);}
+  td.score.zero{color:var(--ink-faint);}
+  td.note{color:var(--ink-soft);font-size:0.85rem;}
+  .table-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:8px;}
+  .table-scroll table{min-width:520px;}
+  .table-scroll .surface-pad{background:var(--surface);}
+
+  .trend-line{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-top:14px;
+    padding:12px 14px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    box-shadow:var(--shadow);
+  }
+  .trend-num{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:1.3rem;
+    font-weight:700;
+    color:var(--d);
+  }
+  .trend-label{font-size:0.82rem;color:var(--ink-soft);line-height:1.4;}
+
+  .methodology{
+    font-size:0.8rem;
+    color:var(--ink-faint);
+    margin-top:12px;
+    line-height:1.5;
+  }
+
+  footer{
+    margin-top:40px;
+    padding-top:16px;
+    border-top:1px solid var(--rule);
+    font-size:0.78rem;
+    color:var(--ink-faint);
+    font-family:"IBM Plex Mono",monospace;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  @media (max-width:480px){
+    .eyebrow{font-size:0.66rem;}
+    h1{font-size:1.5rem;}
+  }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">
+      <span>Issue No. 8 · Nonpartisan digest</span>
+      <span>Monday–Saturday</span>
+    </div>
+    <h1>Midterm Election Digest — September 21, 2026</h1>
+    <p class="dek">Developments from the last 24–48 hours, drawn only from nonpartisan wire services, official election offices, court dockets, and named nonpartisan raters. No speculation, no rigging scores.</p>
+  </header>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">01</span><h2>Race developments</h2></div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">Kansas Senate — first competitive numbers logged for this seat</span></div>
+      <p>A new Emerson College poll (fielded Sept 15–16, published Sept 18) shows Democrat Adam Hamilton at 45% to Republican incumbent Roger Marshall's 43% — within the margin of error in a seat neither party has treated as competitive this cycle. Same survey has the governor's race at Masterson (R) 51%, Holscher (D) 44%. Both Cook and Sabato still rate the Senate seat Likely/Solid Republican; this is one poll, not a rating change.</p>
+      <div class="src">Emerson College Polling, Sept 18 · MOE ±3.6, n=750 LV</div>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">Texas Governor — real movement, forecasters still skeptical</span></div>
+      <p>A ReconMR/Siena University poll (released Sept 17) gave Democrat Gina Hinojosa her first outright lead of the cycle over Gov. Greg Abbott, 49–45%, built on a 65–27 edge among independents. A same-week Emerson poll still had Abbott up 49–46, and other recent surveys are mixed. Prediction markets have moved too: Kalshi and Polymarket both cut Abbott's implied win probability from 87% a month ago to 76% now. Cook and Sabato still rate the race Likely Republican.</p>
+      <div class="src">Newsweek (reporting ReconMR/Siena, Emerson, Kalshi, Polymarket), Sept 17</div>
+    </div>
+
+    <p class="empty-note">Nothing meeting the bar surfaced today in Ohio, Michigan, Georgia, North Carolina, or New Hampshire beyond what was already covered in recent issues — those races are being tracked and will be reported again when something actually moves.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">02</span><h2>Polling &amp; forecasts</h2></div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">Silver Bulletin: Democratic Senate-control odds hit a cycle high, 65%</span></div>
+      <p>Nate Silver's Deluxe forecast put Democrats' probability of winning Senate control at 65% as of the Sept 20 update — up from 59% on Sept 18 and, per the model, "the highest they've been this cycle." The move tracks a run of strong generic-ballot numbers: NYT/Siena at D+8, YouGov/Economist at D+12 among likely voters.</p>
+      <div class="src">Silver Bulletin, Sept 20</div>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">Cook's Battleground District poll: D+2 on the generic ballot in Trump-won turf</span></div>
+      <p>Across the 37 House districts Cook rates as competitive (median Trump+5 in 2024), a Cook/New River Strategies/GS Strategy Group poll (fielded Sept 8–11) found Democrats leading the generic ballot 49–47 — roughly a 7-point swing from those districts' 2024 baseline. Trump's approval within these specific battlegrounds sits at 42% favorable / 58% unfavorable. This is a poll of competitive turf, not a set of individual rating changes.</p>
+      <div class="src">Cook Political Report, Battleground District Project, Sept 17</div>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">No new confirmed rating changes since Sept 20</span></div>
+      <p>Cook's Senate and House rating pages remain dated Sept 15 and Sept 11 respectively — no additional move since the Iowa Senate shift reported in Friday's issue. Sabato's Crystal Ball has not posted a new weekly ratings piece since Sept 17's "Seven Weeks to Go" (already reflected in this digest's score log).</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">03</span><h2>Election administration &amp; security</h2></div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">Vermont wins dismissal of DOJ's voter-roll lawsuit — 23rd of 31 nationwide</span></div>
+      <p>A federal judge (Mary Kay Lanthier) dismissed the Justice Department's suit demanding Vermont's full voter file — including home addresses, birthdates, and partial Social Security numbers — ruling the administration exceeded its authority; Vermont's Secretary of State had refused the request on privacy grounds. Per a University of Wisconsin Law School tracker, this is the 23rd of 31 state DOJ voter-data suits dismissed at the district-court level nationwide; no court, at any level, has yet ruled for the DOJ (one appellate court, the 6th Circuit, affirmed a dismissal in Michigan back in June).</p>
+      <div class="src"><a href="https://www.vermontpublic.org/local-news/2026-09-18/federal-judge-dismisses-doj-lawsuit-seeking-vermont-voter-rolls" target="_blank" rel="noopener">Vermont Public, Sept 18</a> · State Democracy Research Initiative tracker (Univ. of Wisconsin Law School)</div>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">SAVE database case — still pending, no ruling</span></div>
+      <p>The DHS v. League of Women Voters fight over the SAVE citizenship-check database remains before the Supreme Court with no ruling since it became fully briefed on Sept 15. The lower-court injunction blocking DHS from running bulk citizenship checks against state voter rolls stays in effect in the meantime.</p>
+      <div class="src">SCOTUSblog, as of Sept 20</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">04</span><h2>Worth sharing</h2></div>
+    <div class="callout">
+      <div class="item-head"><span class="item-title">A federal court has sided with states over the DOJ on voter privacy 23 times running — zero losses</span></div>
+      <p>Every one of 24 courts to rule so far — from Colorado to Vermont, red states and blue — has told the Trump DOJ it can't have states' unredacted voter files just for the asking. Vermont is this week's addition to a genuinely unbroken record: 23 dismissals, 0 wins for the government, at every level that's ruled. Worth knowing the courts are functioning here, whatever the underlying politics.</p>
+      <div class="src">State Democracy Research Initiative tracker · Vermont Public, Sept 18</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">05</span><h2>Seat-change score</h2></div>
+    <p style="font-size:0.9rem;color:var(--ink-soft);margin:0 0 12px 0;">Counts only <em>confirmed</em> individual race-rating moves from a named nonpartisan rater (Cook, Sabato) — flat ±1 per race regardless of how many notches it moved. Polls, fundraising, endorsements, and aggregate probabilities don't count.</p>
+
+    <div class="table-scroll">
+      <div class="surface-pad">
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Score</th><th>What drove it</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sept 15</td><td class="score zero">—</td><td class="note">predates this feature — no score recorded</td></tr>
+          <tr><td>Sept 16</td><td class="score neg">−1</td><td class="note">NH Senate: Lean D → Toss-up (Cook)</td></tr>
+          <tr><td>Sept 17</td><td class="score zero">0</td><td class="note">no confirmed rating change</td></tr>
+          <tr><td>Sept 18</td><td class="score zero">0</td><td class="note">Sabato's 8-race House move flagged but not yet confirmed</td></tr>
+          <tr><td>Sept 19</td><td class="score pos">+5</td><td class="note">Sabato confirmed: NJ-7, MI-4, IA-1, IA-2, CO-5 all moved D-ward (weekly batch, not a daily signal)</td></tr>
+          <tr><td>Sept 20</td><td class="score pos">+1</td><td class="note">IA Senate: Lean R → Toss-up (Cook)</td></tr>
+          <tr><td>Sept 21</td><td class="score zero">0</td><td class="note">no confirmed rating change today</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="trend-line">
+      <div class="trend-num">+5</div>
+      <div class="trend-label">Net trailing-7-day movement (6 scored days) — all of it D-ward, none R-ward beyond the single Sept 16 NH move. Almost entirely one event: Sabato's Sept 19 weekly batch. Treat this as a lumpy, source-driven signal, not a smooth daily trend.</div>
+    </div>
+
+    <p class="methodology">Score log retroactively reconstructed for days before Sept 20 (when MK requested this feature) from what was actually surfaced in each day's issue — may be incomplete for those earlier days.</p>
+  </section>
+
+  <footer>
+    <span>Compiled from AP, Reuters, Cook Political Report, Sabato's Crystal Ball, Silver Bulletin, SCOTUSblog, and state election offices.</span>
+    <span>Issue No. 8</span>
+  </footer>
+
+</div>
+
+</body></html>

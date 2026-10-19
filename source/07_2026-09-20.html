@@ -1,0 +1,452 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Midterm Wire</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #f6f4ef;
+    --surface: #ffffff;
+    --surface-2: #efeae0;
+    --ink: #1c2126;
+    --ink-muted: #5c6570;
+    --ink-faint: #8b929b;
+    --accent: #7a4a1f;
+    --accent-2: #2e5266;
+    --rule: #ddd5c4;
+    --tag-senate-bg: #ece3d3;
+    --tag-senate-fg: #7a4a1f;
+    --tag-house-bg: #dfe7ea;
+    --tag-house-fg: #2e5266;
+    --tag-gov-bg: #e6e0ec;
+    --tag-gov-fg: #4b3a72;
+    --tag-admin-bg: #e2e8de;
+    --tag-admin-fg: #3f5a3a;
+    --shadow: 0 1px 2px rgba(28,33,38,.05), 0 6px 20px rgba(28,33,38,.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14171a;
+      --surface: #1b1f23;
+      --surface-2: #22262b;
+      --ink: #ece8e0;
+      --ink-muted: #a4aab1;
+      --ink-faint: #737a82;
+      --accent: #d3a468;
+      --accent-2: #8fb6c9;
+      --rule: #33383e;
+      --tag-senate-bg: #332a1c;
+      --tag-senate-fg: #e0b986;
+      --tag-house-bg: #1e2c33;
+      --tag-house-fg: #a9cbdb;
+      --tag-gov-bg: #2a2438;
+      --tag-gov-fg: #c4b3e6;
+      --tag-admin-bg: #23301f;
+      --tag-admin-fg: #a9c79e;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14171a;
+    --surface: #1b1f23;
+    --surface-2: #22262b;
+    --ink: #ece8e0;
+    --ink-muted: #a4aab1;
+    --ink-faint: #737a82;
+    --accent: #d3a468;
+    --accent-2: #8fb6c9;
+    --rule: #33383e;
+    --tag-senate-bg: #332a1c;
+    --tag-senate-fg: #e0b986;
+    --tag-house-bg: #1e2c33;
+    --tag-house-fg: #a9cbdb;
+    --tag-gov-bg: #2a2438;
+    --tag-gov-fg: #c4b3e6;
+    --tag-admin-bg: #23301f;
+    --tag-admin-fg: #a9c79e;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    margin: 0;
+    padding-inline: 20px;
+    padding-block: 28px 48px;
+    font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+
+  /* masthead */
+  header.masthead {
+    border-bottom: 3px double var(--rule);
+    padding-bottom: 16px;
+    margin-bottom: 22px;
+  }
+  .kicker {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  h1.title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(34px, 8vw, 46px);
+    line-height: 1.02;
+    margin: 0 0 8px;
+    letter-spacing: -.01em;
+    text-wrap: balance;
+  }
+  .dek {
+    color: var(--ink-muted);
+    font-size: 15px;
+    max-width: 54ch;
+  }
+
+  /* section index */
+  nav.toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin: 20px 0 30px;
+  }
+  nav.toc a {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 6px 12px;
+    white-space: nowrap;
+  }
+  nav.toc a:hover { border-color: var(--accent-2); color: var(--accent-2); }
+
+  section.block { margin-bottom: 38px; }
+  section.block:last-of-type { margin-bottom: 8px; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    scroll-margin-top: 12px;
+  }
+  .section-num {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+  h2.section-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 22px;
+    margin: 0;
+    letter-spacing: -.005em;
+  }
+
+  .items { display: flex; flex-direction: column; gap: 14px; }
+  .item {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+  }
+  .item-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .tag {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+  .tag.senate { background: var(--tag-senate-bg); color: var(--tag-senate-fg); }
+  .tag.house  { background: var(--tag-house-bg);  color: var(--tag-house-fg); }
+  .tag.gov    { background: var(--tag-gov-bg);    color: var(--tag-gov-fg); }
+  .tag.admin  { background: var(--tag-admin-bg);  color: var(--tag-admin-fg); }
+  .item-race {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 15px;
+  }
+  .item-body { color: var(--ink); font-size: 15.5px; }
+  .item-body p { margin: 0 0 6px; }
+  .item-body p:last-child { margin-bottom: 0; }
+  .item-source {
+    margin-top: 10px;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+  .item-source a { color: var(--accent-2); text-decoration: none; border-bottom: 1px solid currentColor; }
+  .item-source a:hover { color: var(--accent); }
+
+  .note {
+    font-size: 14.5px;
+    color: var(--ink-muted);
+    font-style: italic;
+    padding: 14px 18px;
+    background: var(--surface-2);
+    border-radius: 10px;
+    border: 1px solid var(--rule);
+  }
+
+  /* seat-change score */
+  .score-summary {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+    margin-bottom: 14px;
+  }
+  .score-today-label {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .score-today-value {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .score-today-value.pos { color: var(--accent-2); }
+  .score-today-value.neg { color: var(--accent); }
+  .score-today-value.zero { color: var(--ink-muted); }
+  .score-note { color: var(--ink-muted); font-size: 14px; flex: 1 1 220px; min-width: 180px; }
+
+  .score-table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); box-shadow: var(--shadow); }
+  table.score-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 480px; }
+  table.score-table th, table.score-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--rule); }
+  table.score-table th {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 500;
+  }
+  table.score-table tr:last-child td { border-bottom: none; }
+  table.score-table tr.is-today { background: var(--surface-2); }
+  td.score-cell { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 500; font-variant-numeric: tabular-nums; }
+  td.score-cell.pos { color: var(--accent-2); }
+  td.score-cell.neg { color: var(--accent); }
+  td.score-cell.zero { color: var(--ink-faint); }
+  td.score-bar-cell { width: 120px; }
+  .score-bar-track { position: relative; height: 8px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+  .score-bar-fill { position: absolute; top: 0; bottom: 0; border-radius: 999px; }
+  .score-bar-fill.pos { background: var(--accent-2); left: 50%; }
+  .score-bar-fill.neg { background: var(--accent); right: 50%; }
+  .score-methodology { margin-top: 10px; font-size: 13px; color: var(--ink-faint); }
+
+  footer {
+    margin-top: 36px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  @media (max-width: 480px) {
+    h1.title { font-size: 30px; }
+    .item { padding: 14px 14px; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="kicker">
+      <span>Issue No. 7</span>
+      <span>Sunday, September 20, 2026</span>
+    </div>
+    <h1 class="title">Midterm Wire</h1>
+    <p class="dek">A daily read on the 2026 U.S. midterms — race movement, polling &amp; forecasts, and election administration, drawn only from nonpartisan wire, forecaster, and official sources.</p>
+  </header>
+
+  <nav class="toc">
+    <a href="#races">Race developments</a>
+    <a href="#polling">Polling &amp; forecasts</a>
+    <a href="#admin">Election administration &amp; security</a>
+    <a href="#score">Seat-change score</a>
+  </nav>
+
+  <section class="block" id="races">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Race developments</h2>
+    </div>
+    <div class="items">
+
+      <article class="item">
+        <div class="item-head">
+          <span class="tag senate">Senate · Iowa</span>
+        </div>
+        <div class="item-race">Cook Political Report moves open Iowa seat to Toss-up</div>
+        <div class="item-body">
+          <p>The race to succeed retiring Sen. Joni Ernst (R) shifted from Lean Republican to Toss-up. A new Emerson College poll has Rep. Ashley Hinson (R) at 50% to Josh Turek (D) at 45% — within the margin of error — with Libertarian Thomas Laehn at 1%. Democrats are treating Iowa as a real reach opportunity in a state Republicans have carried comfortably in recent cycles; Turek, a former Paralympian and state lawmaker, is running on anti-corruption and campaign-finance themes.</p>
+        </div>
+        <div class="item-source"><a href="https://www.iowapublicradio.org/political-news/2026-09-18/democrats-iowa-senate-race-ashley-hinson-josh-turek-midterm-election" target="_blank" rel="noopener">Iowa Public Radio</a> · Sept 18, 2026</div>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
+          <span class="tag senate">Senate · North Carolina</span>
+        </div>
+        <div class="item-race">ECU poll: Cooper leads Whatley by 7, widens to 8 forcing a choice</div>
+        <div class="item-body">
+          <p>An East Carolina University Center for Survey Research poll has Roy Cooper (D) leading Michael Whatley (R) 46%–39% among likely voters, 14% undecided; when undecideds are pushed to pick, Cooper's lead grows to 52%–44%. Cooper leads heavily, 58%–25%, among voters who name the economy and cost of living their top issue. Note: this poll was fielded Aug. 31–Sept. 3 and published Sept. 15 — a bit older than our usual 24–48 hour window, but it's the first appearance of hard NC Senate numbers in this digest, so it's included for the data point.</p>
+        </div>
+        <div class="item-source"><a href="https://wcti12.com/news/local/ecu-poll-shows-cooper-leading-whatley-in-north-carolina-senate-race" target="_blank" rel="noopener">WCTI/ABC 12</a> · published Sept 15, 2026 (field dates Aug 31–Sept 3) · ±4.4 MOE</div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="block" id="polling">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Polling &amp; forecasts</h2>
+    </div>
+    <div class="items">
+
+      <article class="item">
+        <div class="item-head">
+          <span class="tag senate">Ratings move</span>
+        </div>
+        <div class="item-race">Iowa Senate is the one confirmed ratings change since yesterday</div>
+        <div class="item-body">
+          <p>Cook's move of Iowa from Lean R to Toss-up (above) is the only race-rating change we can confirm moved in the last day. Cook's House ratings page still carries a Sept 11 last-updated stamp and its Senate page a Sept 15 stamp — no other races moved beyond Iowa. Silver Bulletin's Democratic Senate-control probability is holding at 59%, unchanged from Sept 18 (its cycle high, up from 50.6% on Sept 6). No new generic-ballot releases since the NYT/Siena (D+8.5) and YouGov/Economist (D+12) numbers already in hand.</p>
+        </div>
+        <div class="item-source"><a href="https://www.cookpolitical.com/ratings/senate-race-ratings" target="_blank" rel="noopener">Cook Political Report</a> &amp; <a href="https://www.natesilver.net/" target="_blank" rel="noopener">Silver Bulletin</a> · checked Sept 20, 2026</div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="block" id="admin">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Election administration &amp; security</h2>
+    </div>
+    <p class="note">No new developments in the last 24–48 hours. The SAVE voter-database case (DHS v. League of Women Voters/EPIC) remains the one to watch — it's been fully briefed at the Supreme Court since the League/EPIC opposition filing on Sept 15, and SCOTUSblog says a decision "could come at any time," but none had been issued as of this morning. The injunction blocking the database's use stays in effect in the meantime. Nothing to report otherwise: no new rulings, no new official statements, no verified incidents.</p>
+  </section>
+
+  <section class="block" id="score">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Seat-change score</h2>
+    </div>
+
+    <div class="score-summary">
+      <div>
+        <div class="score-today-label">Today (Sept 20)</div>
+        <div class="score-today-value pos">+1</div>
+      </div>
+      <p class="score-note">One confirmed race-rating move today: Cook shifted the open Iowa Senate seat from Lean R to Toss-up — a move toward Democrats. Net over the 5 days we have data for: <strong>+5</strong>, trending Democratic — though that's almost entirely one batch update (see Sept 19 below), not five separate days of movement.</p>
+    </div>
+
+    <div class="score-table-wrap">
+      <table class="score-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Score</th>
+            <th></th>
+            <th>What drove it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sept 14</td>
+            <td class="score-cell zero">—</td>
+            <td></td>
+            <td class="score-note">No data — before this metric started</td>
+          </tr>
+          <tr>
+            <td>Sept 15</td>
+            <td class="score-cell zero">—</td>
+            <td></td>
+            <td class="score-note">No data — before this metric started</td>
+          </tr>
+          <tr>
+            <td>Sept 16</td>
+            <td class="score-cell neg">−1</td>
+            <td class="score-bar-cell"><div class="score-bar-track"><div class="score-bar-fill neg" style="width:10%"></div></div></td>
+            <td>Cook: NH Senate Lean D → Toss-up (1 race, R-ward)</td>
+          </tr>
+          <tr>
+            <td>Sept 17</td>
+            <td class="score-cell zero">0</td>
+            <td class="score-bar-cell"><div class="score-bar-track"></div></td>
+            <td>No confirmed rating change</td>
+          </tr>
+          <tr>
+            <td>Sept 18</td>
+            <td class="score-cell zero">0</td>
+            <td class="score-bar-cell"><div class="score-bar-track"></div></td>
+            <td>Sabato's 8-race House move reported but unconfirmed that day</td>
+          </tr>
+          <tr>
+            <td>Sept 19</td>
+            <td class="score-cell pos">+5</td>
+            <td class="score-bar-cell"><div class="score-bar-track"><div class="score-bar-fill pos" style="width:50%"></div></div></td>
+            <td>Sabato confirmed 5 races moving D-ward: NJ-7, MI-4, IA-1, IA-2, CO-5</td>
+          </tr>
+          <tr class="is-today">
+            <td>Sept 20</td>
+            <td class="score-cell pos">+1</td>
+            <td class="score-bar-cell"><div class="score-bar-track"><div class="score-bar-fill pos" style="width:10%"></div></div></td>
+            <td>Cook: IA Senate Lean R → Toss-up (1 race, D-ward)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="score-methodology">Methodology: each CONFIRMED race-rating or toss-up designation change from a nonpartisan rater (Cook Political Report, Sabato's Crystal Ball) scores +1 if it moved toward Democrats, −1 if toward Republicans — a flat ±1 per race regardless of how many rating notches it crossed. Polls, fundraising, endorsements, and aggregate probability or generic-ballot numbers don't count toward this score. Daily score is the sum of that day's qualifying moves; days with none score 0. This is a new metric as of this issue, so Sept 14–15 have no data, and note that raters like Sabato update in periodic batches rather than daily, which can make a single day's score spike.</p>
+  </section>
+
+  <footer>
+    <span>Sources: AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, SCOTUSblog, official election offices</span>
+    <span>Compiled for MK</span>
+  </footer>
+
+</div>
+
+</body></html>

@@ -1,0 +1,339 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!--
+Design plan:
+Layout: single-column digest, max-width ~680px reading column, sticky date/issue header band, each section a labeled block with hairline divider, score table as a proper data table with sparkline-style trend row.
+Color tokens: --bg (paper), --fg (ink), --muted (secondary ink), --accent (deep blue, civic/newsprint feel), --accent-d (dem blue tint for score-up), --accent-r (rep red tint for score-down), --line (hairline)
+Type tokens: --font-display (serif, for headline/section labels), --font-body (humanist sans, body text), --font-mono (tabular numerals for the score table)
+-->
+<title>Midterm Election Digest</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --surface: #ffffff;
+    --fg: #1c1a16;
+    --muted: #65605a;
+    --faint: #9a948c;
+    --accent: #1f3a5f;
+    --accent-ink: #16294a;
+    --dem: #2b5597;
+    --dem-bg: #e8edf5;
+    --rep: #a6392f;
+    --rep-bg: #f6e9e6;
+    --flat-bg: #ece9e1;
+    --line: #ddd8cc;
+    --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --font-body: 'Source Sans 3', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171614;
+      --surface: #201f1c;
+      --fg: #ece8e0;
+      --muted: #aba49a;
+      --faint: #726c62;
+      --accent: #7fa0c9;
+      --accent-ink: #cddcef;
+      --dem: #7fa0c9;
+      --dem-bg: #1e2a3c;
+      --rep: #d48a80;
+      --rep-bg: #35211d;
+      --flat-bg: #272521;
+      --line: #39362f;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171614;
+    --surface: #201f1c;
+    --fg: #ece8e0;
+    --muted: #aba49a;
+    --faint: #726c62;
+    --accent: #7fa0c9;
+    --accent-ink: #cddcef;
+    --dem: #7fa0c9;
+    --dem-bg: #1e2a3c;
+    --rep: #d48a80;
+    --rep-bg: #35211d;
+    --flat-bg: #272521;
+    --line: #39362f;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 0 48px;
+  }
+  .wrap { max-width: 700px; margin: 0 auto; }
+
+  header.masthead {
+    padding-top: 28px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--fg);
+    margin-bottom: 28px;
+  }
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 7vw, 40px);
+    line-height: 1.05;
+    margin: 0 0 8px;
+    text-wrap: balance;
+  }
+  .subhead {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 58ch;
+  }
+
+  section.block { margin-bottom: 36px; }
+  .section-label {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .section-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--faint);
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+  }
+  .section-rule { border: none; border-top: 1px solid var(--line); margin: 0 0 18px; }
+
+  .item {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .item:last-child { border-bottom: none; }
+  .item-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    background: var(--flat-bg);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .tag.dem { background: var(--dem-bg); color: var(--dem); }
+  .tag.rep { background: var(--rep-bg); color: var(--rep); }
+  .item-title { font-weight: 600; font-size: 15.5px; }
+  .item p { margin: 4px 0 6px; font-size: 14.5px; color: var(--fg); }
+  .item p.muted-note { color: var(--muted); font-size: 13.5px; }
+  .src {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--faint);
+  }
+  .src a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; }
+  .src a:hover { color: var(--accent-ink); }
+
+  .empty-note {
+    font-size: 14.5px;
+    color: var(--muted);
+    font-style: italic;
+    padding: 10px 0;
+  }
+
+  .score-wrap { overflow-x: auto; }
+  table.score {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 480px;
+  }
+  table.score caption { text-align: left; font-size: 12px; color: var(--faint); margin-bottom: 8px; }
+  table.score th, table.score td {
+    text-align: left;
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  table.score th {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  table.score td.date { font-family: var(--font-mono); white-space: nowrap; color: var(--muted); }
+  table.score td.score-val {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  table.score td.score-val.pos { color: var(--dem); }
+  table.score td.score-val.zero { color: var(--faint); }
+  table.score td.note { color: var(--fg); font-size: 13.5px; }
+  tr.today td { background: var(--flat-bg); }
+
+  .trend-summary {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  .trend-summary strong { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+  .methodology {
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: var(--faint);
+    line-height: 1.5;
+  }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px;
+    color: var(--faint);
+    font-family: var(--font-mono);
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 26px; }
+    .item-title { font-size: 14.5px; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="kicker">
+      <span>Issue No. 36 — Daily Digest</span>
+      <span>Monday, October 19, 2026</span>
+    </div>
+    <h1>Midterm Election Digest</h1>
+    <p class="subhead">Nonpartisan developments in the 2026 U.S. midterms, pulled from AP, Reuters, Cook Political Report, Sabato's Crystal Ball, Inside Elections, official election offices, and court dockets.</p>
+  </header>
+
+  <section class="block">
+    <div class="section-label"><span class="section-num">01</span><h2>Race developments</h2></div>
+    <hr class="section-rule">
+
+    <div class="item">
+      <div class="item-head"><span class="tag">Fundraising · Q3</span><span class="item-title">Red-state Senate money race: Democrats dominate most Q3 hauls, but Paxton sets a GOP record and Minnesota goes the other way</span></div>
+      <p>Third-quarter FEC filings (due Oct. 15) show Democratic Senate challengers outraising Republican incumbents and nominees by wide margins in most of the cycle's reddest contests: Kansas — Adam Hamilton (D) $9.9M raised / $3.2M cash-on-hand vs. Sen. Roger Marshall (R) $866K / $922K; South Carolina — Annie Andrews (D) $9.4M / $2.3M vs. Sen. Lindsey Graham (R) $1.8M since a July 23 launch / $610K; Texas — James Talarico (D) $60.2M / $14.6M vs. Ken Paxton (R) $10.2M / ~$5M, with Paxton's haul the <em>highest Q3 total of any GOP Senate candidate this cycle</em>; Maine — Troy Jackson (D) $20.4M / ~$4M vs. Sen. Susan Collins (R) $5.2M / $5.4M; Nebraska — independent Dan Osborn $4.1M / $2.2M vs. Sen. Pete Ricketts (R) $2.2M (incl. $1M self-funded) / $1.1M. The one red/contested seat bucking the trend: Minnesota's open seat, where Republican Michele Tafoya ($1.7M / $2.1M) out-raised DFL's Peggy Flanagan ($1.2M / $1.5M).</p>
+      <p class="src">Roll Call, Oct 16 · Axios, Oct 16 — <a href="https://rollcall.com/2026/10/16/senate-democrats-fundraising-third-quarter-elections/" target="_blank" rel="noopener">rollcall.com</a>, <a href="https://axios.com/2026/10/16/democrats-midterms-fundraising-senate" target="_blank" rel="noopener">axios.com</a></p>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="tag rep">Michigan Senate</span><span class="item-title">Lifelong Democratic sheriff defects, endorses Rogers and James over crime concerns</span></div>
+      <p>Saginaw County Sheriff William Federspiel left the Democratic Party and endorsed Republicans Mike Rogers for Senate and John James for governor, saying the party has moved too far left on public safety and criticizing Abdul El-Sayed's support for early prison releases: "Every time they release people early, they create more victims."</p>
+      <p class="src">Sinclair/WJLA, Oct 14 — <a href="https://wjla.com/news/nation-world/lifelong-michigan-democrat-sheriff-exits-party-backs-gop-candidates-cites-public-safety-abdul-el-sayed-mike-rogers-senate-crime" target="_blank" rel="noopener">wjla.com</a></p>
+    </div>
+
+    <p class="muted-note" style="margin-top:4px;">No new retirements, recruitment news, or special-election results surfaced in the last 24–48 hours beyond what's above; Kansas's planned Trump rally for Sen. Marshall (Heartland Credit Union Arena, Wichita) is unchanged from prior reporting — still no firm date, so not repeated here.</p>
+  </section>
+
+  <section class="block">
+    <div class="section-label"><span class="section-num">02</span><h2>Polling &amp; forecasts</h2></div>
+    <hr class="section-rule">
+
+    <div class="item">
+      <div class="item-head"><span class="tag">Generic ballot</span><span class="item-title">Silver Bulletin average holds flat at D+8.9</span></div>
+      <p>Nate Silver's generic-ballot average is unchanged from the prior reading at <strong>D+8.9</strong> (D+9.6 among likely voters) as of Oct 18 — Democrats' September surge has "leveled off," per Silver, sitting just below the cycle's D+9.1 high but with GOP support still drifting down since late September. Not a meaningful shift; flagged here only to confirm it hasn't moved.</p>
+      <p class="src">Silver Bulletin, updated Oct 18 — <a href="https://www.natesilver.net/p/generic-ballot-average-2026-nate-silver-bulletin-congress-polls" target="_blank" rel="noopener">natesilver.net</a></p>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="tag dem">Iowa</span><span class="item-title">Marist poll: Turek leads Hinson for Senate, Sand leads Lahn for governor</span></div>
+      <p>A Marist Poll (Oct 8–11, 1,100 registered voters, ±4.5 pts RV / ±6.6 pts LV) has Democrat Josh Turek ahead of Republican Ashley Hinson 48–45 among likely voters for Iowa's open Senate seat (a 7-point lead among registered voters), and Democrat Rob Sand leading Republican Zach Lahn 52–45 for governor among likely voters. Caveat: Iowa's Senate race has otherwise been a volatile string of smaller, often partisan-aligned polls swinging the reported "leader" back and forth almost daily through October — treat any single number here as one data point, not a trend.</p>
+      <p class="src">Marist Poll, released ~Oct 14 — <a href="https://maristpoll.marist.edu/polls/2026-midterm-elections-in-iowa-october-2026/" target="_blank" rel="noopener">maristpoll.marist.edu</a></p>
+    </div>
+
+    <p class="muted-note" style="margin-top:4px;">No confirmed Cook/Sabato/Inside Elections rating changes today — see Section 05.</p>
+  </section>
+
+  <section class="block">
+    <div class="section-label"><span class="section-num">03</span><h2>Election administration &amp; security</h2></div>
+    <hr class="section-rule">
+
+    <div class="item">
+      <div class="item-head"><span class="tag">Update</span><span class="item-title">Threatening-letter campaign against election offices is broader than first reported</span></div>
+      <p>The nationwide wave of suspicious letters mailed to election and congressional offices — first reported Oct 15 with evacuations in Louisiana and Oklahoma and letters to three U.S. Senate offices — turns out to have reached more states than initial coverage captured. Follow-on reporting adds <strong>Minnesota</strong> (Sens. Amy Klobuchar and Tina Smith, Rep. Kelly Morrison, and Secretary of State Steve Simon all targeted; USPIS intercepted the letters before delivery) and <strong>Wyoming</strong> (a letter aimed at Secretary of State Chuck Gray, no powder, with the FBI telling state police it appears to be a hoax), on top of previously-named Arizona, Nebraska, Maryland, Mississippi, and South Dakota, where similar packages were intercepted or received. The FBI and U.S. Postal Inspection Service are investigating; no arrests have been reported.</p>
+      <p class="src">States Newsroom/Minnesota Reformer, Oct 16 · Cowboy State Daily, Oct 15 — <a href="https://www.newsfromthestates.com/article/minnesota-secretary-state-office-targeted-amid-probes-mailed-election-threats-across-us" target="_blank" rel="noopener">newsfromthestates.com</a>, <a href="https://cowboystatedaily.com/2026/10/15/wyoming-highway-patrol-fbi-investigating-suspicious-letter-found-in-capitol/" target="_blank" rel="noopener">cowboystatedaily.com</a></p>
+    </div>
+
+    <p class="empty-note">No new court rulings on election law or DOJ voter-roll litigation surfaced in the last 24–48 hours. The Oct. 9 federal ruling vacating DOJ's nationwide SAVE voter-roll matching program remains the most recent major development in that case; DOJ's appeal was still pending as of the last update.</p>
+  </section>
+
+  <section class="block">
+    <div class="section-label"><span class="section-num">04</span><h2>Seat-change score</h2></div>
+    <hr class="section-rule">
+    <p style="font-size:14.5px; color:var(--muted); margin-top:-6px; margin-bottom:16px;">Tracks only <em>confirmed</em> race-rating changes from a named nonpartisan rater (Cook, Sabato, Inside Elections) — not polls, fundraising, endorsements, or aggregate probabilities. +1 per race moved toward Democrats, −1 per race moved toward Republicans, flat regardless of how many notches.</p>
+
+    <div class="score-wrap">
+      <table class="score">
+        <caption>Trailing 7 calendar days</caption>
+        <thead>
+          <tr><th>Date</th><th>Score</th><th>Driver</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="date">Oct 13</td><td class="score-val pos">+18</td><td class="note">Cook's 18-race House batch (rated Oct 9, found &amp; scored Oct 13) — all moves toward Democrats, incl. IA-01/03, PA-07/10, NC-01, MI-04</td></tr>
+          <tr><td class="date">Oct 14</td><td class="score-val pos">+4</td><td class="note">Cook moved AK, NE, OK, VT governor races toward Democrats, citing a divided GOP field in Alaska and a worsening national environment elsewhere</td></tr>
+          <tr><td class="date">Oct 15</td><td class="score-val zero">0</td><td class="note">None confirmed</td></tr>
+          <tr><td class="date">Oct 16</td><td class="score-val zero">0</td><td class="note">None confirmed</td></tr>
+          <tr><td class="date">Oct 17</td><td class="score-val pos">+18</td><td class="note">Large Inside Elections + Cook cross-rater batch; 18 net-new D-ward moves after excluding repeats of the Oct 13 batch</td></tr>
+          <tr><td class="date">Oct 18</td><td class="score-val zero">0</td><td class="note">None confirmed</td></tr>
+          <tr class="today"><td class="date">Oct 19</td><td class="score-val zero">0</td><td class="note">None confirmed — Cook's House page unchanged since Oct 9, Senate page unchanged since Oct 6; Sabato's and Inside Elections' pages unreachable this run</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="trend-summary">
+      Net <strong style="color:var(--dem)">+40</strong> over the trailing 7 days. Every scored move this week went toward Democrats; none moved toward Republicans. Movement has been lumpy rather than steady — two large multi-race batches (Oct 13, Oct 17) account for all of it, bracketing four scoreless days.
+    </div>
+
+    <p class="methodology">Methodology note: today's search again found Cook's Senate/House/Governor pages, Sabato's dedicated rating-changes page, and Inside Elections' ratings feed all unreachable or unchanged — a recurring pattern this cycle. A broad search for new rater articles dated in the last 48 hours found nothing beyond already-scored batches.</p>
+  </section>
+
+  <footer>
+    Sources checked: AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, Inside Elections, Silver Bulletin, Marist Poll, official Secretary of State pages, FEC filings, court dockets. Compiled automatically; verify before sharing.
+  </footer>
+</div>
+
+</body></html>

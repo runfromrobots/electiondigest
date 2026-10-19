@@ -1,0 +1,285 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Midterm Digest — Oct 17</title>
+<style>
+/* Layout: single-column newsletter, max 680px, section bands separated by hairlines, a highlighted score table as the anchor visual */
+:root{
+  --bg:#faf9f6;
+  --surface:#ffffff;
+  --ink:#1c2128;
+  --ink-dim:#5b6472;
+  --rule:#e3e0d8;
+  --accent:#1f5f52;
+  --accent-soft:#e4efe9;
+  --dem:#2a5ea8;
+  --dem-soft:#e7eef8;
+  --rep:#a8352a;
+  --rep-soft:#f8e9e7;
+  --amber:#8a5a12;
+  --amber-soft:#f6ecd9;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15181c;
+    --surface:#1d2127;
+    --ink:#e8e6e0;
+    --ink-dim:#9aa2ad;
+    --rule:#30353c;
+    --accent:#6fb8a6;
+    --accent-soft:#1e2d29;
+    --dem:#7ea8e0;
+    --dem-soft:#1c2733;
+    --rep:#d98a80;
+    --rep-soft:#2e2019;
+    --amber:#e0b55a;
+    --amber-soft:#2c2416;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15181c;
+  --surface:#1d2127;
+  --ink:#e8e6e0;
+  --ink-dim:#9aa2ad;
+  --rule:#30353c;
+  --accent:#6fb8a6;
+  --accent-soft:#1e2d29;
+  --dem:#7ea8e0;
+  --dem-soft:#1c2733;
+  --rep:#d98a80;
+  --rep-soft:#2e2019;
+  --amber:#e0b55a;
+  --amber-soft:#2c2416;
+  color-scheme: dark;
+}
+*{box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  margin:0;
+  font-family:'Source Serif 4', Georgia, 'Times New Roman', serif;
+  font-size:16px;
+  line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+.wrap{max-width:680px;margin:0 auto;padding-block:28px 56px;}
+.masthead{
+  display:flex;flex-direction:column;gap:4px;
+  padding-bottom:18px;border-bottom:3px solid var(--ink);margin-bottom:22px;
+}
+.kicker{
+  font-family:'JetBrains Mono', ui-monospace, Menlo, monospace;
+  font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);
+}
+h1{
+  font-family:'Fraunces', Georgia, serif;
+  font-weight:600;font-size:clamp(28px,7vw,38px);line-height:1.08;margin:2px 0 0;
+  text-wrap:balance;
+}
+.dateline{color:var(--ink-dim);font-size:13.5px;font-family:'JetBrains Mono',ui-monospace,monospace;margin-top:6px;}
+section{margin-bottom:38px;}
+h2{
+  font-family:'Fraunces', Georgia, serif;
+  font-weight:600;font-size:20px;letter-spacing:0.01em;
+  display:flex;align-items:baseline;gap:9px;margin:0 0 4px;
+}
+.secnum{
+  font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:var(--ink-dim);
+}
+.secnote{color:var(--ink-dim);font-size:13.5px;margin:0 0 14px;}
+.item{padding:13px 0;border-top:1px solid var(--rule);}
+.item:first-of-type{border-top:none;padding-top:4px;}
+.item p{margin:0 0 5px;font-size:15.5px;}
+.item .meta{
+  font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;color:var(--ink-dim);
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+}
+.item .meta a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft);}
+.item .meta a:hover{border-bottom-color:var(--accent);}
+.tag{
+  font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.04em;
+  padding:1px 6px;border-radius:3px;text-transform:uppercase;
+}
+.tag.d{background:var(--dem-soft);color:var(--dem);}
+.tag.r{background:var(--rep-soft);color:var(--rep);}
+.tag.n{background:var(--amber-soft);color:var(--amber);}
+.empty-note{
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:12px 14px;font-size:14.5px;color:var(--ink-dim);
+}
+.gap-note{
+  background:var(--amber-soft);border-left:3px solid var(--amber);
+  padding:10px 13px;font-size:13.5px;color:var(--ink);border-radius:0 4px 4px 0;margin-top:10px;
+}
+.share-card{
+  background:var(--accent-soft);border:1px solid var(--accent);border-radius:8px;padding:16px 18px;
+}
+.share-card p{margin:0 0 6px;font-size:15.5px;}
+.share-card .pitch{font-style:italic;color:var(--ink-dim);font-size:14px;margin-bottom:8px;}
+
+/* Score table */
+.score-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:8px;}
+table.score{
+  width:100%;border-collapse:collapse;min-width:460px;background:var(--surface);
+  font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;
+}
+table.score th, table.score td{
+  padding:9px 12px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top;
+}
+table.score th{
+  font-size:10.5px;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-dim);
+  font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:600;
+}
+table.score td.date{white-space:nowrap;font-weight:600;}
+table.score td.score-val{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap;}
+table.score td.note{font-family:'Source Serif 4',Georgia,serif;font-size:14px;line-height:1.4;}
+table.score tr:last-child td{border-bottom:none;}
+table.score tr.today{background:var(--accent-soft);}
+.score-pos{color:var(--dem);}
+.score-neg{color:var(--rep);}
+.score-zero{color:var(--ink-dim);}
+.trend-line{
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;flex-wrap:wrap;
+}
+.trend-line .net{font-size:20px;font-weight:700;}
+.methodology{
+  margin-top:14px;font-size:13px;color:var(--ink-dim);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:11px 14px;
+}
+.methodology summary{cursor:pointer;font-weight:600;color:var(--ink);}
+footer{
+  border-top:1px solid var(--rule);padding-top:16px;margin-top:8px;
+  font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;color:var(--ink-dim);
+}
+footer a{color:var(--accent);}
+</style>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <span class="kicker">Issue No. 34 · Nonpartisan sourcing only</span>
+    <h1>Midterm Election Digest</h1>
+    <div class="dateline">Saturday, October 17, 2026 · covering roughly Oct 15–17</div>
+  </div>
+
+  <section>
+    <h2><span class="secnum">01</span> Race developments</h2>
+    <p class="secnote">Senate, House, and Governor races: movement in the money, the maps, and the field.</p>
+
+    <div class="item">
+      <p><span class="tag d">Fundraising</span> Texas Senate: James Talarico's campaign says it raised <strong>$64 million</strong> in Q3 (July–Sept), which it calls the largest third-quarter haul any U.S. Senate candidate has ever reported.</p>
+      <div class="meta"><a href="https://www.thedailybeast.com/dem-stars-cash-in-on-trump-backlash-with-fund-raising-bonanza" target="_blank" rel="noopener">The Daily Beast</a> · Oct 15</div>
+    </div>
+
+    <div class="item">
+      <p><span class="tag d">Fundraising</span> Georgia Senate: Jon Ossoff raised <strong>more than $33 million</strong> from over 760,000 donors (avg. donation $46) in Q3; North Carolina's Roy Cooper raised <strong>$19.5 million</strong>, including contributions from all 100 counties.</p>
+      <div class="meta"><a href="https://www.thedailybeast.com/dem-stars-cash-in-on-trump-backlash-with-fund-raising-bonanza" target="_blank" rel="noopener">The Daily Beast</a> · Oct 15</div>
+    </div>
+
+    <div class="item">
+      <p><span class="tag n">Context</span> We looked for comparable Q3 numbers from the Republican side of these same races (Collins, Whatley, Cornyn/Paxton) but couldn't find a recent, reliably-dated report — every GOP fundraising story we found traced back to mid-2025 filings. Flagging the gap rather than filling it with stale numbers.</p>
+    </div>
+
+    <div class="item">
+      <p><span class="tag d">Retirement</span> Nebraska's 2nd District (Rep. Don Bacon, R) is open: Bacon is not seeking re-election in 2026, per Inside Elections' own race notes. The seat's rating move is covered in the seat-change section below, but the retirement itself hadn't been logged in this digest before.</p>
+      <div class="meta"><a href="https://new.insideelections.com/category/nathan-l-gonzales/" target="_blank" rel="noopener">Inside Elections</a> · noted Oct 15</div>
+    </div>
+
+    <div class="item">
+      <p><span class="tag d">Ethics</span> North Carolina's 11th District: Rep. Chuck Edwards (R) withdrew from re-election following a House Ethics Committee investigation, per Inside Elections' rating note — part of why the seat moved to Toss-up (see seat-change score).</p>
+      <div class="meta"><a href="https://new.insideelections.com/category/nathan-l-gonzales/" target="_blank" rel="noopener">Inside Elections</a> · noted Oct 15</div>
+    </div>
+
+    <div class="item">
+      <p><span class="tag r">Campaign trail</span> Kansas Senate: President Trump's planned rally for Sen. Roger Marshall is now reported as landing in Wichita, "next week" — still no firm date as of this run (an update on yesterday's "no date set" note, not a new development on its own).</p>
+      <div class="meta"><a href="https://www.kshb.com/news/local-news/president-trump-to-hold-midterm-rally-next-week-in-wichita" target="_blank" rel="noopener">KSHB</a> · Oct 13</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="secnum">02</span> Polling &amp; forecasts</h2>
+    <p class="secnote">Rating moves and aggregate numbers that actually changed, not restatements of old ones.</p>
+
+    <div class="item">
+      <p><span class="tag d">Rating batch</span> A large wave of House rating changes landed this run: Inside Elections dated 22 district moves to Oct 15 (its own before/after rating pairs), and Cook Political Report issued a further 5-seat "Friday" batch on Oct 16. After removing moves that duplicate ratings already scored in this digest's log (heavy overlap with the Oct 9 Cook 18-race batch), <strong>18 net-new, confirmed, nonpartisan rating changes</strong> remain — every one of them toward Democrats. Full reconciliation and race list in the seat-change table below.</p>
+      <div class="meta"><a href="https://new.insideelections.com/" target="_blank" rel="noopener">Inside Elections</a> · <a href="https://newsweek.com/map-shows-gop-house-seats-shifting-toward-democrats-in-past-week-midterm-election-12580914" target="_blank" rel="noopener">Newsweek</a> · Oct 15–16</div>
+    </div>
+
+    <div class="item">
+      <p><span class="tag n">Generic ballot</span> Silver Bulletin's generic-ballot average is at <strong>D+8.9</strong> as of Oct 16, essentially flat against the Oct 12 reading of D+8.8 — the site's own write-up says the Democratic surge "has leveled off" just below the cycle high of D+9.1. Not scored (polls don't count toward the seat-change score).</p>
+      <div class="meta"><a href="https://www.natesilver.net/generic-ballot-average-2026-nate-silver-bulletin-congress-polls" target="_blank" rel="noopener">Silver Bulletin</a> · Oct 16</div>
+    </div>
+
+    <div class="item">
+      <p><span class="tag n">Not found</span> No Senate or Governor rating changes were confirmed this run. Cook's Senate and Governor pages returned the same recurring access error as recent days; no secondary news coverage of a Senate/Governor move surfaced in search.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="secnum">03</span> Election administration &amp; security</h2>
+    <p class="secnote">Factual, sourced reporting only — no speculative "stolen election" scoring, per standing policy.</p>
+
+    <div class="item">
+      <p><span class="tag n">Security incident</span> Suspicious letters containing a white powder were mailed to Secretary of State and election offices in multiple states (Ohio, Mississippi, and others from Idaho to Florida) and to three U.S. Senate offices; election offices in Louisiana and Oklahoma were evacuated. The FBI, U.S. Postal Inspection Service, and Capitol Police are investigating. Wisconsin's elections administrator confirmed the powder in its letter tested non-hazardous; a similar 2023 round of mailings to election offices in six states did contain fentanyl.</p>
+      <div class="meta"><a href="https://www.live5news.com/2026/10/15/suspicious-letters-with-white-powder-mailed-election-congressional-offices/" target="_blank" rel="noopener">AP via Live 5 News</a> · Oct 15 &nbsp;·&nbsp; <a href="https://www.ohiosos.gov/office/media-center/categories/press-releases/2026-10-14a" target="_blank" rel="noopener">Ohio Secretary of State statement</a> · Oct 14</div>
+    </div>
+
+    <div class="item">
+      <p><span class="tag n">Not found</span> No new court rulings on election law, voting-rights litigation, or official election-administration statements beyond the mailing incident turned up in this run's search window.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="secnum">04</span> Worth sharing</h2>
+    <div class="share-card">
+      <p><span class="tag d">Fundraising record</span> James Talarico's campaign says it pulled in <strong>$64 million</strong> in a single quarter — the most any U.S. Senate candidate has ever reported raising in a quarter, by the campaign's own account.</p>
+      <p class="pitch">Why it's worth a text: whatever happens in Texas on Election Day, a first-time statewide candidate out-fundraising the modern Senate record in three months is a genuine grassroots story, not a press-release number — worth knowing the scale of before everyone's talking about the result.</p>
+      <div class="meta"><a href="https://www.thedailybeast.com/dem-stars-cash-in-on-trump-backlash-with-fund-raising-bonanza" target="_blank" rel="noopener">The Daily Beast</a> · Oct 15</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="secnum">05</span> Seat-change score</h2>
+    <p class="secnote">Flat ±1 per race for each <em>confirmed</em> nonpartisan rating-change, summed per day. Polls, fundraising, endorsements, and probability/generic-ballot numbers never count.</p>
+
+    <div class="score-wrap">
+      <table class="score">
+        <thead>
+          <tr><th>Date</th><th>Score</th><th>What drove it</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="date">Oct 11</td><td class="score-val score-zero">0</td><td class="note">None confirmed.</td></tr>
+          <tr><td class="date">Oct 12</td><td class="score-val score-zero">0</td><td class="note">None confirmed.</td></tr>
+          <tr><td class="date">Oct 13</td><td class="score-val score-pos">+18</td><td class="note">Cook's Oct 9 House batch (18 races, all D-ward) corroborated by six outlets — found/scored this day under the no-backfill rule.</td></tr>
+          <tr><td class="date">Oct 14</td><td class="score-val score-pos">+4</td><td class="note">Cook's Oct 13 governor batch: AK, NE, OK, VT, all D-ward.</td></tr>
+          <tr><td class="date">Oct 15</td><td class="score-val score-zero">0</td><td class="note">None confirmed.</td></tr>
+          <tr><td class="date">Oct 16</td><td class="score-val score-zero">0</td><td class="note">None confirmed.</td></tr>
+          <tr class="today"><td class="date">Oct 17</td><td class="score-val score-pos">+18</td><td class="note">Inside Elections' Oct 15 House batch (14 net-new races) + Cook's Oct 16 batch (4 net-new races), all D-ward — see reconciliation below.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="trend-line">
+      <span>7-day net: <span class="net score-pos">+40</span>, all Democratic-ward</span>
+      <span>0 Republican-ward moves recorded this week</span>
+    </div>
+
+    <details class="methodology">
+      <summary>Today's 18 races and dedup reasoning</summary>
+      <p style="margin-top:10px;">From Inside Elections' Oct 15 House ratings (14 races counted, after excluding 7 that duplicate rating pairs already scored on earlier days): SC-01 (Likely R→Lean R), WY-AL (Solid R→Likely R), TX-15 (Tilt R→Toss-up), PA-08 (Toss-up→Tilt D), NC-11 (Lean R→Toss-up), OH-09 (Tilt R→Toss-up), NY-19 (Likely D→Solid D), NJ-09 (Likely D→Solid D), NV-02 (Likely R→Lean R), NE-01 (Solid R→Likely R), MT-01 (Lean R→Tilt R), KY-06 (Lean R→Tilt R — a third distinct step for this seat this cycle), AZ-01 (Toss-up→Tilt D), AL-02 (Likely R→Lean R).</p>
+      <p>From Cook's Oct 16 batch (4 races counted, after excluding 9 of 14 that were verbatim repeats of the already-scored Oct 9 batch, and 1 that duplicates an Inside Elections race counted above): MN-01, OH-10, OH-15 (Likely R→Lean R, each), KS-02 (Solid R→Likely R).</p>
+      <p>Excluded as duplicates of previously-scored moves: PA-07, NC-01, NE-02, ME-02, IN-05, IA-02, AR-02 (Inside Elections) and PA-01, AR-02, IN-05, IA-01, IA-03, PA-07, PA-10, MI-04, VA-01 (Cook, 9 of which are an exact match for the Oct 9 batch scored Oct 13). NY-21 (Inside Elections, Likely R→Lean R) was excluded for insufficient certainty whether it duplicates an earlier, loosely-documented Oct 1–2 move.</p>
+      <p style="margin-bottom:0;">This was an unusually heavy cross-rater reconciliation — two raters moving overlapping sets of races within one news cycle. We erred toward not double-counting; the full before/after pairs above are there to audit or correct this call.</p>
+    </details>
+  </section>
+
+  <footer>
+    Sources: AP · Reuters · Cook Political Report · Sabato's Crystal Ball · Inside Elections · Silver Bulletin · official Secretary of State offices · The Daily Beast (fundraising reporting; event facts only). Compiled by Claude for MK's daily digest. Not investment or legal advice.
+  </footer>
+
+</div>
+
+</body></html>

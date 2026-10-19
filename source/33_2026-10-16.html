@@ -1,0 +1,205 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Midterm Digest — Oct 16</title>
+<style>
+  /*
+    Layout concept: a single-column briefing sheet. A fixed-width "ledger"
+    column of date/source metadata sits beside each item's prose, like the
+    margin notes in a campaign tracker's notebook. The seat-change score
+    gets its own ledger table in tabular numerals.
+  */
+  :root {
+    --bg: #faf7f1;
+    --surface: #ffffff;
+    --ink: #22201c;
+    --ink-dim: #6b665c;
+    --rule: #e4ddd0;
+    --accent: #2f4a5c;
+    --dem: #3a5f8a;
+    --rep: #8a3a3a;
+    --flat: #9a9484;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1a1813;
+      --surface: #221f19;
+      --ink: #ece7db;
+      --ink-dim: #a8a194;
+      --rule: #3a362c;
+      --accent: #7fa6c2;
+      --dem: #7fa6c2;
+      --rep: #c48080;
+      --flat: #7d776a;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1a1813;
+    --surface: #221f19;
+    --ink: #ece7db;
+    --ink-dim: #a8a194;
+    --rule: #3a362c;
+    --accent: #7fa6c2;
+    --dem: #7fa6c2;
+    --rep: #c48080;
+    --flat: #7d776a;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 28px 56px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+
+  h1, h2, h3 { font-family: "Fraunces", "Source Serif 4", Georgia, serif; text-wrap: balance; }
+
+  .masthead { border-bottom: 3px solid var(--ink); padding-bottom: 14px; margin-bottom: 6px; }
+  .masthead .kicker {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-dim); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px;
+  }
+  .masthead h1 { font-size: 30px; font-weight: 700; margin: 6px 0 2px; letter-spacing: -0.01em; }
+  .masthead .sub { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; color: var(--ink-dim); }
+
+  section { margin-top: 36px; }
+  section > h2 {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 4px;
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  section > h2 .num { font-family: "IBM Plex Mono", ui-monospace, monospace; color: var(--flat); font-size: 12px; }
+  section > .deck { font-size: 13px; color: var(--ink-dim); margin: 0 0 16px; font-family: "IBM Plex Mono", ui-monospace, monospace; line-height: 1.5; }
+  section > .rule { border: none; border-top: 1px solid var(--rule); margin: 0 0 16px; }
+
+  .item { display: grid; grid-template-columns: 1fr; gap: 6px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .item:last-child { border-bottom: none; }
+  .item h3 { font-size: 17px; margin: 0; line-height: 1.3; }
+  .item p { margin: 0; font-size: 15px; line-height: 1.55; }
+  .item .meta {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11.5px; color: var(--ink-dim);
+    display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+  }
+  .item .meta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; }
+  .tag { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 10.5px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .tag.d { background: color-mix(in srgb, var(--dem) 18%, transparent); color: var(--dem); }
+  .tag.r { background: color-mix(in srgb, var(--rep) 18%, transparent); color: var(--rep); }
+
+  .empty-note { font-size: 14px; color: var(--ink-dim); font-style: italic; padding: 10px 0; }
+
+  .share-box {
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 16px 18px; margin-top: 6px;
+  }
+  .share-box h3 { margin: 0 0 8px; font-size: 18px; }
+  .share-box p { margin: 0 0 8px; font-size: 15px; line-height: 1.55; }
+  .share-box .pitch {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12.5px; color: var(--accent);
+    border-left: 2px solid var(--accent); padding-left: 10px; margin: 10px 0;
+  }
+
+  table.score { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 4px; }
+  table.score th, table.score td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  table.score th { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim); font-weight: 500; }
+  table.score td.date { font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  table.score td.score { font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
+  table.score td.score.pos { color: var(--dem); }
+  table.score td.score.zero { color: var(--flat); }
+  table.score tr.today td { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+  .score-wrap { overflow-x: auto; }
+  .trend { margin-top: 14px; font-size: 14px; line-height: 1.55; }
+  .trend .big { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 20px; font-weight: 700; color: var(--dem); }
+
+  footer { margin-top: 44px; padding-top: 14px; border-top: 1px solid var(--rule); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; color: var(--ink-dim); line-height: 1.6; }
+  footer a { color: var(--ink-dim); }
+</style>
+
+<div class="wrap">
+  <div class="masthead">
+    <div class="kicker"><span>Daily Midterm Digest</span><span>Issue No. 33</span></div>
+    <h1>Midterm Digest</h1>
+    <div class="sub">Friday, October 16, 2026 · Nonpartisan sources only · Compiled for MK</div>
+  </div>
+
+  <section>
+    <h2>1 <span class="num">/ Race developments</span></h2>
+    <p class="deck">Senate, House &amp; governor races — recruitment, fundraising, debates, endorsements.</p>
+
+    <div class="item">
+      <h3>Georgia Senate: Ossoff and Collins trade their sharpest attacks yet in final debate</h3>
+      <p>In their second and likely final matchup (Atlanta, Oct. 13), Ossoff pressed Collins on his son-in-law's white-nationalist social media posts and whether he'd stop more from his home; Collins countered by asking why Ossoff won't return a megadonor's Epstein-linked money. Collins declined to say whether Biden legitimately won 2020 or whether he'd back ground troops in Iran; Ossoff repeated he'll serve a full six-year term and won't run for president in 2028. Both candidates still back the Laken Riley Act.</p>
+      <div class="meta"><span class="tag d">GA Senate</span><span>Oct 13–14</span><a href="https://www.gpb.org/news/2026/10/14/ossoff-and-collins-exchange-fire-in-heated-senate-campaign-debate" target="_blank">GPB</a><a href="https://www.ajc.com/politics/2026/10/georgia-senate-debate-takeaways/" target="_blank">AJC</a></div>
+    </div>
+
+    <div class="item">
+      <h3>Maine Senate: Collins and Jackson's third debate lands as a low-energy draw</h3>
+      <p>Coverage of the final Bangor debate (Oct. 13) called it repetitive of the earlier two. Collins put distance between herself and the administration — she didn't vote for the "One Big Beautiful Bill" and said Trump "did not have a good plan" on Iran — while agreeing with Jackson on data-center costs and heating oil. The sharpest moment was Collins accusing Jackson of impugning her integrity; Jackson referenced an unexplained FBI-investigation claim (which Collins denies) but never landed a clean attack.</p>
+      <div class="meta"><span class="tag d">ME Senate</span><span>Oct 13</span><a href="https://www.bostonglobe.com/2026/10/13/nation/susan-collins-troy-jackson-debate-maine/" target="_blank">Boston Globe</a></div>
+    </div>
+
+    <div class="item">
+      <h3>Kansas Senate: Trump plans a rally for Marshall as the seat turns into an unplanned battleground</h3>
+      <p>Trump is expected to campaign for Sen. Roger Marshall as part of an October swing through roughly ten states, though no date is set yet. Cook rates the race a toss-up — notable for a seat that normally isn't competitive at all; Kansas hasn't elected a Democratic senator in nearly a century.</p>
+      <div class="meta"><span class="tag r">KS Senate</span><span>Oct 12</span><a href="https://www.kctv5.com/2026/10/12/trump-planning-kansas-visit-campaign-marshall/" target="_blank">KCTV5</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>2 <span class="num">/ Polling &amp; forecasts</span></h2>
+    <p class="deck">Meaningful shifts in generic ballot or rater forecasts — not single-race horse-race polls.</p>
+    <div class="empty-note">No fresher generic-ballot reading than Silver Bulletin's confirmed D+8.8 (D+9.5 among likely voters) as of Oct. 12 — carried forward again today; no newer figure could be confirmed. No aggregator or forecaster published a new model-level shift in the last 24–48 hours. (Single-race polls from NC and MN surfaced this run matched polls already covered in yesterday's issue, so they're skipped here per the no-repeat rule.)</div>
+  </section>
+
+  <section>
+    <h2>3 <span class="num">/ Election administration &amp; security</span></h2>
+    <p class="deck">Factual, sourced reporting only — no speculative "stolen election" scoring.</p>
+    <div class="empty-note">Nothing new confirmed today beyond what's already in the log. The DOJ's record in lawsuits demanding full state voter rolls remains 26 losses, 0 wins (cases still pending in Delaware, Hawaii, Idaho, and Utah) — unchanged since the Georgia dismissal found Oct. 1. The Oct. 9 ruling vacating DOJ's nationwide voter-roll "SAVE" matching program (reported in yesterday's issue) still stands; no appeal news found. No new Supreme Court action on the pending mail-ballot executive-order challenge. As on most recent days, Cook's and Sabato's ratings-change pages and Inside Elections' ratings feed were unreachable this run (site-permission timeouts) — a recurring gap in this unattended setup, not evidence either way.</div>
+  </section>
+
+  <section>
+    <h2>4 <span class="num">/ Worth sharing</span></h2>
+    <p class="deck">Only when something real and verified clears the bar.</p>
+    <div class="share-box">
+      <h3>Georgia just shattered its own early-voting record — verified by the Secretary of State's office</h3>
+      <p>On the first day of early voting (Tuesday, Oct. 13), more than 180,000 Georgians cast ballots — over 40,000 more than on the first day of the 2022 midterms (about 135,000), a roughly one-third increase. The state says it has "a good chance" of topping 2022's full-cycle total of more than 1 million early votes. Absentee-ballot requests have already reached 130,000, nearly half of 2022's full-cycle total of 286,000, with weeks of early voting still to go.</p>
+      <div class="pitch">Why it's worth texting: this isn't a poll or a vibe — it's a hard, official count straight from the state's election office, in one of the most-watched Senate and governor battlegrounds on the map.</div>
+      <div class="meta"><span class="tag d">GA — turnout</span><span>Oct 14</span><a href="https://www.wrdw.com/2026/10/14/midterm-early-voting-turnout-record-shattered-ga-secretary-state-says/" target="_blank">WRDW (GA SOS)</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>5 <span class="num">/ Seat-change score</span></h2>
+    <p class="deck">+1 per individual race-rating move toward Democrats, −1 toward Republicans, flat regardless of notches. Confirmed nonpartisan rater changes only — no polls, fundraising, endorsements, or probability numbers.</p>
+
+    <div class="score-wrap">
+      <table class="score">
+        <thead><tr><th>Date</th><th>Score</th><th>Driver</th></tr></thead>
+        <tbody>
+          <tr><td class="date">Oct 10</td><td class="score zero">0</td><td>None confirmed; ratings pages/feeds unreachable most of this run.</td></tr>
+          <tr><td class="date">Oct 11</td><td class="score zero">0</td><td>None confirmed; Cook House page showed an undated Oct 9 timestamp, unresolved gap.</td></tr>
+          <tr><td class="date">Oct 12</td><td class="score zero">0</td><td>None confirmed; broad search across Senate/Governor races came up empty.</td></tr>
+          <tr><td class="date">Oct 13</td><td class="score pos">+18</td><td>Cook's Oct 9 House batch (18 races, all D-ward) — the Oct 11/12 gap — confirmed via Newsweek's full ratings table, corroborated by Axios/WaPo/Hill/CNN/CBS.</td></tr>
+          <tr><td class="date">Oct 14</td><td class="score pos">+4</td><td>Cook's Oct 13 governor batch, all D-ward: Alaska Toss Up→Lean D; Nebraska, Oklahoma, Vermont all Solid R→Likely R.</td></tr>
+          <tr><td class="date">Oct 15</td><td class="score zero">0</td><td>None confirmed; Cook's Senate/House/Governor pages and Inside Elections' feed all still reflected already-scored batches.</td></tr>
+          <tr class="today"><td class="date">Oct 16</td><td class="score zero">0</td><td>None confirmed today. Cook's House/Senate/Governor pages unreachable (site-permission timeouts); Sabato's rating-changes page and Inside Elections' JSON feed likewise unreachable. Broad article search for new Cook/Sabato/Inside Elections pieces dated in the last 48h found nothing beyond already-scored batches.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="trend">Trailing 7-day sum: <span class="big">+22</span> — every point of it D-ward, with zero R-ward moves anywhere in the window. But the shape matters: nearly all of it landed in two single-day bursts (Oct 13's House batch, Oct 14's governor batch) that were each found several days after the underlying rating actually changed. The other five days — including today — registered flat at zero, continuing the pattern of long quiet stretches punctuated by lagged, chunky catch-ups once a blocked source becomes reachable again.</div>
+  </section>
+
+  <footer>
+    Sources checked: AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, Inside Elections, official Secretary of State pages, major court dockets. Partisan outlets and opinion pieces excluded as primary sources.<br>
+    Full research log and methodology: tracked in MK's digest archive.
+  </footer>
+</div>
+
+</body></html>

@@ -1,0 +1,340 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Midterm Digest No. 28</title>
+<style>
+/* Layout concept: a single scrolling column of dated story cards grouped under
+   numbered section bands, with a sticky issue header and a tabular score ledger
+   styled like a results board. */
+:root {
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --ink: #1c1b19;
+  --muted: #6b665d;
+  --line: #e4ded2;
+  --accent: #8a1f2d;
+  --accent-ink: #ffffff;
+  --dem: #2b5d8a;
+  --gop: #a3342a;
+  --flat: #8a8577;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17191c;
+    --surface: #1f2226;
+    --ink: #ece8e0;
+    --muted: #9a9488;
+    --line: #333630;
+    --accent: #e0636f;
+    --accent-ink: #1c1b19;
+    --dem: #6fa8d8;
+    --gop: #e07a6f;
+    --flat: #8a8577;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17191c;
+  --surface: #1f2226;
+  --ink: #ece8e0;
+  --muted: #9a9488;
+  --line: #333630;
+  --accent: #e0636f;
+  --accent-ink: #1c1b19;
+  --dem: #6fa8d8;
+  --gop: #e07a6f;
+  --flat: #8a8577;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  padding-inline: 16px;
+  padding-block: 28px 56px;
+  line-height: 1.5;
+}
+.wrap { max-width: 720px; margin: 0 auto; }
+
+header.issue {
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 18px;
+  margin-bottom: 28px;
+}
+.masthead {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  margin: 0;
+}
+.masthead em { color: var(--accent); font-style: normal; }
+.issue-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.notice {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--flat);
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+section.block { margin-bottom: 36px; }
+.block-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.block-num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 100px;
+  padding: 2px 9px;
+  flex-shrink: 0;
+}
+.block-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+.card:last-child { margin-bottom: 0; }
+.card-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 2px 8px;
+  margin-bottom: 8px;
+}
+.card h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.02rem;
+  margin: 0 0 6px;
+  text-wrap: balance;
+}
+.card p { margin: 0 0 8px; font-size: 0.95rem; }
+.card p:last-of-type { margin-bottom: 0; }
+.card .src {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.card .src a { color: var(--muted); }
+.card .src a:hover { color: var(--accent); }
+
+.plain-note {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+table.score {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+table.score caption { text-align: left; margin-bottom: 8px; }
+table.score th, table.score td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+table.score th {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+}
+table.score td.date { font-family: var(--font-mono); white-space: nowrap; font-variant-numeric: tabular-nums; }
+table.score td.score-val { font-family: var(--font-mono); font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.score-pos { color: var(--dem); }
+.score-neg { color: var(--gop); }
+.score-flat { color: var(--flat); }
+.score-table-wrap { overflow-x: auto; }
+
+.trend-line {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  height: 56px;
+  margin: 18px 0 6px;
+  padding: 10px 0;
+}
+.trend-bar { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.trend-fill { width: 100%; border-radius: 3px 3px 0 0; min-height: 3px; }
+.trend-label { font-family: var(--font-mono); font-size: 0.62rem; color: var(--muted); }
+
+.trend-note { font-size: 0.88rem; margin-top: 10px; }
+
+footer.colophon {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+
+<div class="wrap">
+
+  <header class="issue">
+    <h1 class="masthead">Midterm <em>Digest</em></h1>
+    <div class="issue-meta">
+      <span>Issue No. 28</span>
+      <span>Sunday, October 11, 2026</span>
+      <span>Nonpartisan sources only</span>
+    </div>
+  </header>
+
+  <div class="notice">
+    Built from AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, Inside Elections, official election-administration pages, and court dockets. Partisan outlets and opinion pieces are excluded as primary sources. Several ratings pages (cookpolitical.com, centerforpolitics.org, insideelections.com) returned stale cached pages or blocked direct fetches during today's research — noted inline where it limited a section.
+  </div>
+
+  <section class="block">
+    <div class="block-head">
+      <span class="block-num">01</span>
+      <h2 class="block-title">Race developments</h2>
+    </div>
+
+    <div class="card">
+      <span class="card-tag">GA Senate</span>
+      <h3>Ossoff and Collins trade ethics and extremism charges in first debate</h3>
+      <p>The two met for an hourlong, personal debate in Atlanta on Oct. 8. Ossoff pressed Collins on a House Ethics Committee probe and his son-in-law's neo-Nazi social media posts, and said Collins still believes the 2020 election was stolen; Collins didn't directly answer that charge and called Ossoff a "trust fund kid." The two also split on the Iran strikes and arms transfers to Israel. They meet again at an Atlanta Press Club debate Oct. 13, the same day Georgia's early voting opens; Election Day is Nov. 3.</p>
+      <p class="src src">Source: <a href="https://www.ajc.com/politics/2026/10/georgia-us-senate-race-jon-ossoff-and-mike-collins-debate/" target="_blank" rel="noopener">Atlanta Journal-Constitution, Oct. 8–9</a></p>
+    </div>
+
+    <div class="card">
+      <span class="card-tag">TX Senate</span>
+      <h3>Talarico's 12-day absence from the trail draws Paxton and Trump mockery</h3>
+      <p>James Talarico's campaign says he's been recovering from the flu since disclosing the diagnosis Sept. 30; his last in-person Texas appearance was a Sept. 26 press conference. Paxton led "Where is James Talarico?" chants at a San Antonio rally, and Trump posted that Talarico was "MISSING IN ACTION" on Truth Social. A campaign source says Talarico attended a private NYC fundraiser Sept. 28; his campaign says he'll return for a CNN/Jubilee Media town hall in Fort Worth on Oct. 14.</p>
+      <p class="src">Source: <a href="https://www.10news.com/politics/america-votes/talarico-off-campaign-trail-for-nearly-2-weeks-as-paxton-questions-his-whereabouts" target="_blank" rel="noopener">Scripps News (10News), Oct. 9</a></p>
+    </div>
+
+    <div class="card">
+      <span class="card-tag">KS Senate</span>
+      <h3>Betting markets and Democratic money managers both lean into Kansas</h3>
+      <p>Senate Majority PAC, the Schumer-aligned Democratic outside group, says it's "watching really closely" the Kansas race alongside Florida, South Carolina, and Mississippi, though it hasn't yet booked ad time there. Separately, Kalshi's betting market shows Republican Roger Marshall's win probability sliding from 82.8% on Sept. 5 to 62% on Oct. 8, tracking Cook's Oct. 6 move of the race to Toss Up.</p>
+      <p class="src">Sources: <a href="https://www.hppr.org/hppr-news/2026-10-08/top-democratic-u-s-senate-pac-is-watching-kansas-race-really-closely-as-it-disburses-funding" target="_blank" rel="noopener">States Newsroom/Kansas Reflector, Oct. 8</a>, <a href="https://news.kalshi.com/p/kansas-senate-odds-tighten-as-marshall-falls-to-62" target="_blank" rel="noopener">Kalshi News, Oct. 8</a></p>
+    </div>
+
+    <p class="plain-note">Michigan's Rogers–El-Sayed debate and Trump's attacks on El-Sayed (covered in Issue No. 27) had no meaningful new development in the last 24 hours, so it isn't repeated here.</p>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <span class="block-num">02</span>
+      <h2 class="block-title">Polling &amp; forecasts</h2>
+    </div>
+
+    <div class="card">
+      <span class="card-tag">Generic ballot</span>
+      <h3>No confirmed fresh move; data pulls were unreliable today</h3>
+      <p>The last solidly confirmed reading is Silver Bulletin's D+8.9 (D+9.6 among likely voters) as of Oct. 7 — still the cycle high. Today's direct pulls of that page returned inconsistent numbers (one copy tagged "updated September 8" showing D+6.6), which looks like stale caching rather than a real move, so nothing new is being reported here. A separate aggregator, PollsMax, shows D+7.5 using a different methodology and polls through Oct. 4 — not a comparable series, included only for context.</p>
+      <p class="src">Source: <a href="https://www.natesilver.net/p/generic-ballot-average-2026-nate-silver-bulletin-congress-polls" target="_blank" rel="noopener">Silver Bulletin</a> (last confirmed Oct. 7 reading carried forward)</p>
+    </div>
+
+    <div class="card">
+      <span class="card-tag">Rating changes</span>
+      <h3>No new confirmed Cook, Sabato, or Inside Elections moves found</h3>
+      <p>Cook's Senate page still shows its Oct. 6 update with no new move since that batch; its House page carries an Oct. 9 date but no article or secondary source could be found confirming an actual rating change on that date, so nothing is scored from it. Sabato's dedicated ratings-changes page failed to load, and Inside Elections' dated "editions" pages returned stale cached content (April and June 2026) despite current-looking URLs. Treat this as a research gap, not confirmation that nothing moved.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <span class="block-num">03</span>
+      <h2 class="block-title">Election administration &amp; security</h2>
+    </div>
+    <div class="card">
+      <p class="plain-note">No new, verifiable administration or security developments turned up in today's search. The DOJ's streak of losses in lawsuits seeking states' voter rolls — last confirmed at 26 straight dismissals — had no new ruling today. The Supreme Court's pending emergency application on mail-ballot rules, reported as outstanding since September, remains undecided as far as today's search could confirm. Nothing here is a new finding; it's a status check.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <span class="block-num">04</span>
+      <h2 class="block-title">Seat-change score</h2>
+    </div>
+
+    <div class="card">
+      <p style="margin-top:0">Today's score: <strong style="font-family:var(--font-mono)">0</strong>. No confirmed nonpartisan race-rating change qualified today — see Section 2.</p>
+
+      <div class="score-table-wrap">
+        <table class="score">
+          <caption class="plain-note">Trailing 7 days</caption>
+          <thead>
+            <tr><th>Date</th><th>Score</th><th>What drove it</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="date">Oct 5</td><td class="score-val score-flat">0</td><td>No confirmed moves.</td></tr>
+            <tr><td class="date">Oct 6</td><td class="score-val score-flat">0</td><td>No moves found this run (later found incomplete — see Oct 7).</td></tr>
+            <tr><td class="date">Oct 7</td><td class="score-val score-pos">+5</td><td>Cook: KS, NH, NC Senate all D-ward. Sabato: AK, SC Senate D-ward. (Dated Oct 6, caught a day late.)</td></tr>
+            <tr><td class="date">Oct 8</td><td class="score-val score-pos">+4</td><td>Inside Elections House batch (dated Oct 1–2): MI-04, CA-22, IA-01, IA-03, all D-ward.</td></tr>
+            <tr><td class="date">Oct 9</td><td class="score-val score-flat">0</td><td>No confirmed moves.</td></tr>
+            <tr><td class="date">Oct 10</td><td class="score-val score-flat">0</td><td>No confirmed moves; rater sites largely unreachable.</td></tr>
+            <tr><td class="date">Oct 11</td><td class="score-val score-flat">0</td><td>No confirmed moves today.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trend-line" aria-hidden="true">
+        <div class="trend-bar"><div class="trend-fill score-flat" style="background:var(--flat); height:6%"></div><span class="trend-label">10/5</span></div>
+        <div class="trend-bar"><div class="trend-fill score-flat" style="background:var(--flat); height:6%"></div><span class="trend-label">10/6</span></div>
+        <div class="trend-bar"><div class="trend-fill score-pos" style="background:var(--dem); height:100%"></div><span class="trend-label">10/7</span></div>
+        <div class="trend-bar"><div class="trend-fill score-pos" style="background:var(--dem); height:80%"></div><span class="trend-label">10/8</span></div>
+        <div class="trend-bar"><div class="trend-fill score-flat" style="background:var(--flat); height:6%"></div><span class="trend-label">10/9</span></div>
+        <div class="trend-bar"><div class="trend-fill score-flat" style="background:var(--flat); height:6%"></div><span class="trend-label">10/10</span></div>
+        <div class="trend-bar"><div class="trend-fill score-flat" style="background:var(--flat); height:6%"></div><span class="trend-label">10/11</span></div>
+      </div>
+
+      <p class="trend-note">Trend: a one-sided burst of D-ward rating moves on Oct 7–8 (+9 combined, all from a backlog of moves dated a few days earlier), followed by three flat days. No rating mover has moved toward Republicans at any point in this log.</p>
+    </div>
+  </section>
+
+  <footer class="colophon">
+    Compiled by Claude for MK · automated daily run · reasonable efforts made to verify dates and sources; treat as a starting point, not a final record.
+  </footer>
+
+</div>
+
+</body></html>

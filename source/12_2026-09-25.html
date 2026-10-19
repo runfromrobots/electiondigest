@@ -1,0 +1,467 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Midterm Digest — Issue 12</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #faf8f3;
+    --surface: #ffffff;
+    --surface-2: #f2efe6;
+    --text: #1c1e29;
+    --text-muted: #5d6172;
+    --text-faint: #8b8f9e;
+    --border: #e4dfd0;
+    --accent: #2c5f74;
+    --accent-soft: #e3edf0;
+    --dem: #2e5fa3;
+    --dem-soft: #e7edf6;
+    --rep: #a2403c;
+    --rep-soft: #f6e8e6;
+    --good: #2e7d5b;
+    --good-soft: #e4f1ea;
+    --shadow: 0 1px 2px rgba(28,30,41,0.04), 0 8px 24px rgba(28,30,41,0.05);
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14151d;
+      --surface: #1b1d28;
+      --surface-2: #23253242;
+      --surface-2: #232532;
+      --text: #eceae2;
+      --text-muted: #a3a7ba;
+      --text-faint: #767a8c;
+      --border: #313343;
+      --accent: #7bb4cc;
+      --accent-soft: #24333a;
+      --dem: #7fa8dd;
+      --dem-soft: #202b3f;
+      --rep: #d98d89;
+      --rep-soft: #362524;
+      --good: #7dc4a4;
+      --good-soft: #1f3129;
+      --shadow: 0 1px 2px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.3);
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #14151d;
+    --surface: #1b1d28;
+    --surface-2: #232532;
+    --text: #eceae2;
+    --text-muted: #a3a7ba;
+    --text-faint: #767a8c;
+    --border: #313343;
+    --accent: #7bb4cc;
+    --accent-soft: #24333a;
+    --dem: #7fa8dd;
+    --dem-soft: #202b3f;
+    --rep: #d98d89;
+    --rep-soft: #362524;
+    --good: #7dc4a4;
+    --good-soft: #1f3129;
+    --shadow: 0 1px 2px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.3);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+    padding-inline: 16px;
+    padding-block: 32px;
+    line-height: 1.5;
+  }
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; text-wrap: balance; margin: 0; }
+
+  .masthead {
+    border-bottom: 3px solid var(--text);
+    padding-bottom: 18px;
+    margin-bottom: 28px;
+  }
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .masthead h1 {
+    font-size: clamp(1.7rem, 5vw, 2.3rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .issue-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .masthead-sub {
+    margin-top: 6px;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+  }
+
+  .score-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow);
+    flex-wrap: wrap;
+  }
+  .score-banner .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .score-banner .num.zero { color: var(--text-muted); }
+  .score-banner .label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .score-banner .label strong { color: var(--text); }
+
+  section { margin-bottom: 36px; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-weight: 600;
+  }
+  .section-head h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .item {
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .item:last-child { border-bottom: none; }
+  .item-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .item-title {
+    font-weight: 600;
+    font-size: 0.98rem;
+  }
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .tag.dem { background: var(--dem-soft); color: var(--dem); }
+  .tag.rep { background: var(--rep-soft); color: var(--rep); }
+  .tag.neutral { background: var(--surface-2); color: var(--text-muted); }
+
+  .item p {
+    margin: 6px 0 0;
+    font-size: 0.93rem;
+    color: var(--text-muted);
+  }
+  .item .src {
+    margin-top: 6px;
+    font-size: 0.8rem;
+  }
+  .item .src a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .item .src a:hover { border-bottom-color: var(--accent); }
+  .item .src .date { color: var(--text-faint); }
+
+  .empty-note {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 4px 0;
+  }
+
+  .correction-box {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 10px;
+    font-size: 0.88rem;
+  }
+  .correction-box .flag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .correction-box ul {
+    margin: 8px 0 0;
+    padding-left: 18px;
+    color: var(--text-muted);
+  }
+  .correction-box li { margin-bottom: 2px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 9px 8px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-faint);
+    font-weight: 600;
+  }
+  td.date, th.date { font-family: 'IBM Plex Mono', monospace; white-space: nowrap; font-size: 0.85rem; }
+  td.score { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-variant-numeric: tabular-nums; }
+  td.score.pos { color: var(--dem); }
+  td.score.neg { color: var(--rep); }
+  td.score.zero { color: var(--text-faint); }
+  .bar-cell { width: 90px; }
+  .bar-track {
+    position: relative;
+    height: 8px;
+    background: var(--surface-2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    position: absolute;
+    top: 0; bottom: 0; left: 50%;
+    border-radius: 4px;
+  }
+  .bar-fill.pos { background: var(--dem); }
+  .bar-fill.neg { background: var(--rep); right: 50%; left: auto; }
+  .corrected-flag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .table-wrap { overflow-x: auto; }
+
+  .trend-line {
+    margin-top: 14px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .trend-line strong { color: var(--text); }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--text-faint);
+  }
+</style>
+
+<main>
+  <div class="masthead">
+    <div class="masthead-top">
+      <h1>Midterm Digest</h1>
+      <span class="issue-tag">ISSUE 12 · FRI SEP 25, 2026</span>
+    </div>
+    <div class="masthead-sub">2026 U.S. midterms — races, polling, and election administration, from nonpartisan sources. Developments from roughly the last 24&ndash;48 hours.</div>
+  </div>
+
+  <div class="score-banner">
+    <div class="num zero">0</div>
+    <div class="label"><strong>Today's seat-change score</strong> — no new confirmed race-rating changes found in the last 24&ndash;48 hours. See the correction in Section 2 and the 7-day table in Section 5.</div>
+  </div>
+
+  <section>
+    <div class="section-head"><span class="section-num">01</span><h2>Race developments</h2></div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">TX Senate: Talarico challenges Paxton to a Fox News debate</span><span class="tag neutral">TX</span></div>
+      <p>At the Texas Tribune Festival, Democratic nominee James Talarico challenged Ken Paxton to debate on Fox News with Bret Baier moderating, saying Paxton has "been running from accountability his whole life." Paxton's campaign has not responded to debate invitations since August 24, per WFAA reporting, while national Republican groups have spent more than $160 million on ads backing him.</p>
+      <div class="src"><a href="https://www.texastribune.org/2026/09/24/james-talarico-tribfest-2026/" target="_blank" rel="noopener">Texas Tribune</a> <span class="date">— Sept 24, 2026</span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">GA Senate &amp; Governor: new YouGov poll, GOP gets its first governor's-race lead logged here</span><span class="tag neutral">GA</span></div>
+      <p>YouGov (field Sept 15&ndash;18, n=3,447 registered voters): Ossoff (D) leads Collins (R) 51&ndash;41 in the Senate race. In the governor's race, Republican Rick Jackson edges Democrat Keisha Lance Bottoms 45&ndash;44 — within the margin of error, and the first Republican lead this digest has logged in that race (a July poll had Bottoms up 52&ndash;47).</p>
+      <div class="src"><a href="https://www.fox5atlanta.com/news/new-2026-georgia-poll-ossoff-leads-senate-race-governor-race-tied" target="_blank" rel="noopener">Fox 5 Atlanta</a> <span class="date">— Sept 23, 2026</span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">ME Senate: Collins takes her first lead in an independent poll</span><span class="tag rep">GOP momentum</span></div>
+      <p>NYT/Portland Press Herald/Siena College (field Sept 15&ndash;22, n=619): Susan Collins (R) 49, Troy Jackson (D) 46, with 5% undecided — Collins' first lead in an independent survey since Jackson became the Democratic nominee, reversing a 2-point deficit from June. The poll also found 55% of Maine voters want Democrats to control the Senate, but only 6% call that their top issue, and Jackson runs 9 points behind the generic ballot.</p>
+      <div class="src"><a href="https://www.pressherald.com/2026/09/24/5-takeaways-from-the-new-nyt-press-herald-siena-poll/" target="_blank" rel="noopener">Portland Press Herald</a> <span class="date">— Sept 24, 2026</span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">KY-06: Beshear makes a personal push to flip a Trump+15 seat</span><span class="tag dem">Dem momentum</span></div>
+      <p>Gov. Andy Beshear is putting real weight behind Democrat Zach Dembo against Trump-endorsed Republican Ralph Alvarado in this open, GOP-leaning seat: roughly $250,000 in PAC ad spending, joint fundraisers and campaign ads, and personal lobbying of DCCC leadership to add Dembo to the Red-to-Blue program. Trump carried the district by 15 points in 2024, but Beshear himself won it by about 20 points in his 2023 reelection — the case Beshear is making for crossover potential, and for his own 2028 profile.</p>
+      <div class="src"><a href="https://keyt.com/politics/cnn-us-politics/2026/09/24/kentucky-gov-andy-beshear-pushes-to-flip-a-republican-friendly-house-seat-in-test-of-his-political-reach/" target="_blank" rel="noopener">CNN via KEYT</a> <span class="date">— Sept 24, 2026</span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">CA-40: Kim distances herself from Trump branding in GOP-vs-GOP race</span><span class="tag neutral">CA</span></div>
+      <p>Redistricting put two Republican incumbents, Ken Calvert and Young Kim, into the same Orange County-area seat. With the general approaching, Kim has started stripping "America First" branding from her campaign materials.</p>
+      <div class="src"><a href="https://rollcall.com/2026/09/24/at-the-races-pivot-time-for-republicans/" target="_blank" rel="noopener">Roll Call, "At the Races"</a> <span class="date">— Sept 24, 2026</span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">National GOP candidates pivot on Iran and immigration</span><span class="tag neutral">National</span></div>
+      <p>With gas and diesel prices high, Senate Majority Leader John Thune acknowledged voter fatigue with the Iran conflict; Senate candidates Ashley Hinson (IA-2) and Mike Rogers (MI) both called for ending it, despite earlier votes against related measures. On immigration, Kansas Sen. Roger Marshall urged closer coordination with local law enforcement as ICE activity increases, and former Maine Gov. Paul LePage distanced himself from enforcement tactics after a relative with valid work authorization faced deportation proceedings.</p>
+      <div class="src"><a href="https://rollcall.com/2026/09/24/at-the-races-pivot-time-for-republicans/" target="_blank" rel="noopener">Roll Call, "At the Races"</a> <span class="date">— Sept 24, 2026</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">02</span><h2>Polling &amp; forecasts</h2></div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">Generic ballot: Emerson has Democrats at D+11 nationally</span><span class="tag dem">Dem</span></div>
+      <p>Emerson College (field Sept 21&ndash;22, n=1,000 likely voters): Democrats lead the generic ballot 53&ndash;42, among the largest margins logged this cycle. Trump's approval sits at 39/58 — described as his highest disapproval of this term. 71% of respondents said they're "very excited" to vote, led by Democrats at 78%.</p>
+      <div class="src"><a href="https://emersoncollegepolling.com/september-2026-national-poll-democrats/" target="_blank" rel="noopener">Emerson College Polling</a> <span class="date">— Sept 24, 2026</span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">Silver Bulletin's generic-ballot average moves to D+8.1</span><span class="tag dem">Dem</span></div>
+      <p>Up from D+6.7 at the start of September to D+8.1 (D+8.8 with a likely-voter adjustment) as of Sept 24 — a genuine month-long climb, not just poll-to-poll noise, and a high point for Democrats this cycle by the site's own framing.</p>
+      <div class="src"><a href="https://www.natesilver.net/p/generic-ballot-average-2026-nate-silver-bulletin-congress-polls" target="_blank" rel="noopener">Silver Bulletin</a> <span class="date">— updated Sept 24, 2026</span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">Cook Political Report: no new moves since Sept 23</span><span class="tag neutral">No change</span></div>
+      <p>Senate and governor ratings are unchanged since the three-race shift reported in yesterday's issue (Sept 23); House ratings haven't moved since Sept 11. Nothing new from Cook specifically in the last 24 hours.</p>
+      <div class="src"><span class="date">Checked Sept 25, 2026 — <a href="https://www.cookpolitical.com/ratings" target="_blank" rel="noopener">Cook Political Report</a></span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="item-title">Correction: Inside Elections' Sept 22 "dozen races" now fully confirmed</span><span class="tag dem">Dem, corrected</span></div>
+      <p>The Sept 22 and 23 issues of this digest referenced Sabato and Cook moves but missed a same-day Inside Elections rating shift covering a dozen races, all toward Democrats, reported by Roll Call on Sept 22. It wasn't itemized until today. Because it's fully confirmed with named old&rarr;new ratings, it's being added to the score log retroactively under its actual date (Sept 22) — see the correction box in Section 5.</p>
+      <div class="src"><a href="https://rollcall.com/2026/09/22/rating-changes-a-dozen-more-races-move-toward-democrats/" target="_blank" rel="noopener">Roll Call, citing Inside Elections</a> <span class="date">— Sept 22, 2026, confirmed Sept 25</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">03</span><h2>Election administration &amp; security</h2></div>
+    <p class="empty-note">No notable new developments in the last 24&ndash;48 hours. The SAVE database citizenship-verification case remains pending at the Supreme Court — fully briefed since Sept 15, no ruling as of this morning. No new state DOJ voter-roll-suit rulings since the Washington dismissal already covered in the Sept 22 issue.</p>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">05</span><h2>Seat-change score</h2></div>
+    <p style="font-size:0.88rem; color:var(--text-muted); margin-top:-6px; margin-bottom:16px;">Tracks confirmed race-rating/toss-up changes from named nonpartisan raters (Cook, Sabato, Inside Elections). Each qualifying race movement scores a flat &plusmn;1 regardless of how many notches it moved, toward Democrats (+) or Republicans (&minus;). Polls, fundraising, endorsements, and probability/generic-ballot numbers don't count.</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th class="date">Date</th><th class="bar-cell">Score</th><th>What drove it</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="date">Sep 19</td>
+          <td class="score pos">+5</td>
+          <td>NJ-7, MI-4, IA-1, IA-2, CO-5 all shifted D-ward (Sabato)</td>
+        </tr>
+        <tr>
+          <td class="date">Sep 20</td>
+          <td class="score pos">+1</td>
+          <td>IA Senate: Lean R &rarr; Toss-up (Cook)</td>
+        </tr>
+        <tr>
+          <td class="date">Sep 21</td>
+          <td class="score zero">0</td>
+          <td>None confirmed</td>
+        </tr>
+        <tr>
+          <td class="date">Sep 22 <span class="corrected-flag">corrected 9/25</span></td>
+          <td class="score pos">+12</td>
+          <td>Inside Elections: ME Senate Tilt R&rarr;Toss-up; House CO-5, FL-14, FL-16, FL-27, IA-2, NY-19, NC-1, TX-9, WI-1; Governor FL, ME &mdash; all D-ward</td>
+        </tr>
+        <tr>
+          <td class="date">Sep 23</td>
+          <td class="score pos">+2</td>
+          <td>MI Senate Toss-up&rarr;Leans D; OH Governor Leans R&rarr;Toss-up (Sabato)</td>
+        </tr>
+        <tr>
+          <td class="date">Sep 24</td>
+          <td class="score pos">+3</td>
+          <td>GA Senate Lean D&rarr;Likely D; KS Senate Likely R&rarr;Lean R; SC Senate Solid R&rarr;Likely R (Cook)</td>
+        </tr>
+        <tr>
+          <td class="date">Sep 25</td>
+          <td class="score zero">0</td>
+          <td>No new confirmed rating changes (today's GA/ME items were polls, not rating changes)</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="correction-box">
+      <span class="flag">Why the Sept 22 number changed</span>
+      When this digest ran on Sept 22 and 23, only two of Inside Elections' twelve rating moves could be independently confirmed, so that day was logged as effectively blank on the Inside Elections front. Roll Call's Sept 22 piece, found today, itemizes the full list with named old&rarr;new ratings:
+      <ul>
+        <li>ME Senate (Collins): Tilt R &rarr; Toss-up</li>
+        <li>CO-5 (Crank): Lean R &rarr; Tilt R</li>
+        <li>FL-14 (Castor): Tilt R &rarr; Toss-up</li>
+        <li>FL-16 (open, Buchanan): Solid R &rarr; Likely R</li>
+        <li>FL-27 (Salazar): Likely R &rarr; Lean R</li>
+        <li>IA-2 (open, Hinson): Lean R &rarr; Tilt R</li>
+        <li>NY-19 (Riley): Lean D &rarr; Likely D</li>
+        <li>NC-1 (Davis): Lean R &rarr; Tilt R</li>
+        <li>TX-9 (open, Green): Solid R &rarr; Likely R</li>
+        <li>WI-1 (Steil): Solid R &rarr; Likely R</li>
+        <li>FL Governor (open, DeSantis): Likely R &rarr; Lean R</li>
+        <li>ME Governor (open, Mills): Likely D &rarr; Solid D</li>
+      </ul>
+      All twelve move toward Democrats, so the flat +1-per-race rule scores this +12. The 7-day table above reflects the correction under its real date rather than today's.
+    </div>
+
+    <div class="trend-line">7-day sum: <strong>+23</strong>, all seven days now have data. Trend remains steadily D-ward; the Sept 22 correction means the actual shift over the past week was considerably larger than this tracker had shown in real time.</div>
+  </section>
+
+  <footer>
+    Compiled from AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, Inside Elections, Silver Bulletin, official state election offices, and named local/national outlets as cited inline. Partisan outlets and opinion pieces were avoided as primary sources. This digest reports confirmed, sourced developments only — it does not produce any assessment of election-stealing likelihood.
+  </footer>
+</main>
+
+</body></html>

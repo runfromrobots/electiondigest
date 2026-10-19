@@ -1,0 +1,360 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Midterm Digest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: single-column newsroom masthead; sticky dateline bar; sections read top-to-bottom like a wire digest */
+:root{
+  --paper:#faf7f1;
+  --ink:#201c16;
+  --ink-soft:#6b6253;
+  --rule:#ddd4c2;
+  --card:#ffffff;
+  --dem:#2a5ca8;
+  --dem-soft:#e8eef7;
+  --rep:#a8322a;
+  --rep-soft:#f6e9e7;
+  --accent:#9c6b1f;
+  --accent-soft:#f1e6d2;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#17140f;
+    --ink:#ece6d9;
+    --ink-soft:#a39a87;
+    --rule:#3a3426;
+    --card:#211d16;
+    --dem:#7ca6e8;
+    --dem-soft:#1c2a3d;
+    --rep:#e08279;
+    --rep-soft:#3a2220;
+    --accent:#d4a24e;
+    --accent-soft:#332710;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#17140f;
+  --ink:#ece6d9;
+  --ink-soft:#a39a87;
+  --rule:#3a3426;
+  --card:#211d16;
+  --dem:#7ca6e8;
+  --dem-soft:#1c2a3d;
+  --rep:#e08279;
+  --rep-soft:#3a2220;
+  --accent:#d4a24e;
+  --accent-soft:#332710;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  margin:0;
+  padding-inline:16px;
+  padding-block:0 32px;
+}
+.wrap{max-width:720px;margin:0 auto}
+.masthead{
+  position:sticky;
+  top:env(safe-area-inset-top,0px);
+  background:var(--paper);
+  padding-block:14px 10px;
+  border-bottom:2px solid var(--ink);
+  z-index:5;
+}
+.masthead-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.masthead h1{
+  font-family:'Source Serif 4',Georgia,serif;
+  font-weight:700;
+  font-size:1.5rem;
+  margin:0;
+  letter-spacing:.01em;
+}
+.masthead .meta{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  white-space:nowrap;
+}
+.masthead .tagline{
+  font-size:.78rem;
+  color:var(--ink-soft);
+  margin-top:4px;
+}
+section{margin-top:34px}
+.section-label{
+  display:flex;align-items:center;gap:10px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:14px;
+}
+.section-label::after{content:"";flex:1;height:1px;background:var(--rule)}
+h2.section-title{
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:1.3rem;
+  font-weight:600;
+  margin:0 0 14px;
+  text-wrap:balance;
+}
+.item{
+  padding-block:14px;
+  border-top:1px solid var(--rule);
+}
+.item:first-of-type{border-top:none;padding-top:0}
+.item-head{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin-bottom:5px}
+.tag{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.66rem;
+  font-weight:600;
+  letter-spacing:.03em;
+  padding:2px 7px;
+  border-radius:3px;
+  white-space:nowrap;
+}
+.tag.dem{background:var(--dem-soft);color:var(--dem)}
+.tag.rep{background:var(--rep-soft);color:var(--rep)}
+.tag.neutral{background:var(--accent-soft);color:var(--accent)}
+.item h3{
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:1.05rem;
+  font-weight:600;
+  margin:0;
+  display:inline;
+}
+.item p{
+  margin:6px 0 0;
+  font-size:.92rem;
+  line-height:1.55;
+  color:var(--ink);
+  max-width:65ch;
+}
+.src{
+  display:block;
+  margin-top:7px;
+  font-size:.78rem;
+  color:var(--ink-soft);
+}
+.src a{color:var(--ink-soft);text-decoration:underline;text-decoration-color:var(--rule)}
+.src a:hover{color:var(--accent)}
+.empty-note{
+  font-size:.88rem;
+  color:var(--ink-soft);
+  font-style:italic;
+  padding-block:10px;
+  border-top:1px solid var(--rule);
+}
+.share-card{
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-left:4px solid var(--accent);
+  border-radius:6px;
+  padding:16px 18px;
+}
+.share-card h3{
+  font-family:'Source Serif 4',Georgia,serif;
+  font-size:1.1rem;
+  margin:0 0 8px;
+}
+.share-card p{margin:0 0 6px;font-size:.92rem;line-height:1.55}
+.share-card .pitch{color:var(--accent);font-weight:600;font-size:.85rem}
+
+/* seat-change score */
+.score-wrap{
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-radius:8px;
+  padding:18px;
+  overflow-x:auto;
+}
+.score-today{
+  display:flex;align-items:baseline;gap:12px;margin-bottom:16px;flex-wrap:wrap;
+}
+.score-today .num{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:2.2rem;
+  font-weight:600;
+  font-variant-numeric:tabular-nums;
+  color:var(--ink-soft);
+}
+.score-today .label{font-size:.85rem;color:var(--ink-soft);max-width:40ch}
+table.score-table{width:100%;border-collapse:collapse;min-width:460px}
+table.score-table th{
+  text-align:left;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.68rem;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  padding:6px 10px 8px 0;
+  border-bottom:1px solid var(--rule);
+}
+table.score-table td{
+  padding:9px 10px 9px 0;
+  border-bottom:1px solid var(--rule);
+  font-size:.86rem;
+  vertical-align:top;
+}
+table.score-table td.date{font-family:'IBM Plex Mono',monospace;font-size:.8rem;white-space:nowrap;color:var(--ink-soft)}
+table.score-table td.score{font-family:'IBM Plex Mono',monospace;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.score-table td.score.pos{color:var(--dem)}
+table.score-table td.score.neg{color:var(--rep)}
+table.score-table td.score.zero{color:var(--ink-soft)}
+table.score-table td.note{color:var(--ink-soft);line-height:1.4}
+tr.today td{background:var(--accent-soft)}
+.bar-row{display:flex;align-items:center;gap:8px}
+.bar-track{position:relative;width:70px;height:7px;background:var(--rule);border-radius:4px;overflow:visible}
+.bar-fill{position:absolute;top:0;height:7px;border-radius:4px}
+.trend-note{
+  margin-top:14px;padding-top:14px;border-top:1px solid var(--rule);
+  font-size:.84rem;color:var(--ink-soft);line-height:1.5;
+}
+.methodology{
+  margin-top:14px;font-size:.76rem;color:var(--ink-soft);line-height:1.5;
+}
+footer{
+  margin-top:40px;padding-top:16px;border-top:2px solid var(--ink);
+  font-size:.76rem;color:var(--ink-soft);
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+</style>
+
+<div class="wrap">
+  <div class="masthead">
+    <div class="masthead-row">
+      <h1>The Midterm Digest</h1>
+      <span class="meta">Issue No. 21 — Oct 4, 2026</span>
+    </div>
+    <div class="tagline">A nonpartisan daily scan of the 2026 midterms — AP, Reuters, Cook Political Report, Sabato's Crystal Ball, and official election offices.</div>
+  </div>
+
+  <section>
+    <div class="section-label">Race developments</div>
+
+    <div class="item">
+      <div class="item-head"><span class="tag neutral">NC SENATE</span></div>
+      <h3>GOP's North Carolina retreat widens to three states</h3>
+      <p>Axios reports the Senate Leadership Fund has redirected $17 million it had reserved for Michael Whatley into Kansas, Texas, and Alaska instead — a wider pullout than Tuesday's reporting suggested. Republicans still outspent Democrats in North Carolina through September ($53M to $44M) before the shift. A GOP operative told Axios Whatley "took one for the team"; his campaign says it's confident it has the resources to win regardless.</p>
+      <span class="src">AP · Oct 2, 2026 — <a href="https://www.axios.com/local/raleigh/2026/10/02/michael-whatley-roy-cooper-republican-ad-spending" target="_blank" rel="noopener">Axios Raleigh</a></span>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="tag neutral">OH SENATE</span></div>
+      <h3>Trump stumps for Husted in Ohio; fact-check finds most claims false</h3>
+      <p>Trump rallied with Jon Husted in Vandalia on Oct. 3, a sign the race is close enough to warrant a presidential visit. PolitiFact's review of the event's claims found Husted's charge that Sherrod Brown gave undocumented immigrants Social Security benefits and free healthcare rated False, and Trump's "almost no inflation" line rated Misleading (August inflation was 3.4%). One claim held up: Ohio's 3.3% August unemployment rate is a genuine record low.</p>
+      <span class="src">PolitiFact · Oct 3, 2026 — <a href="https://politifact.com/article/2026/oct/03/trump-rally-vandalia-dayton-ohio-fact-check/" target="_blank" rel="noopener">politifact.com</a></span>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="tag dem">SPECIAL ELECTIONS</span></div>
+      <h3>Democrats now 13-for-13 flipping red state legislative seats</h3>
+      <p>Ballotpedia's running tally finds Democrats have flipped 13 previously Republican-held state legislative seats in special elections since Trump's second term began in January 2025, with Republicans flipping zero Democratic-held seats in the same stretch. The wins (3 in Mississippi, 2 each in Florida, Iowa, and Pennsylvania, plus one each in Arkansas, Georgia, New Hampshire, and Texas) cost the GOP its supermajorities in the Mississippi and Iowa state senates. For comparison, Democrats flipped 19 seats over the full two years of Trump's first term.</p>
+      <span class="src">Ballotpedia News · Oct 1, 2026 — <a href="https://news.ballotpedia.org/2026/10/01/democrats-have-won-13-previously-republican-held-state-legislative-seats-in-special-elections-since-trump-took-office/" target="_blank" rel="noopener">news.ballotpedia.org</a></span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Polling &amp; forecasts</div>
+    <div class="empty-note">No confirmed rating changes from Cook Political Report, Sabato's Crystal Ball, or Inside Elections today. Verified directly: Cook's Senate ratings are unchanged since Sept. 23, House unchanged since the Sept. 25 batch, and Governor unchanged since the Oct. 1 Texas/Florida move to Lean R — all confirmed via Cook's own ratings pages. No new Sabato pieces turned up beyond the already-covered Sept. 29–30 House batch. On aggregates: the Silver Bulletin generic ballot remains at its cycle high of D+9.0 as of its Oct. 2 update, with no newer figure found today.</div>
+  </section>
+
+  <section>
+    <div class="section-label">Election administration &amp; security</div>
+
+    <div class="item">
+      <div class="item-head"><span class="tag neutral">ELECTION PREP</span></div>
+      <h3>Democrats' Election Day playbook, and where Trump has left the door open</h3>
+      <p>A CNN rundown of Democratic preparations for Nov. 3 describes: a Senate election-protection task force Schumer has run since April; a bipartisan Senate observer program led by Sen. Alex Padilla monitoring polling sites through certification; House Democrats' regional hearings on Rep. Joe Morelle's list of "more than 150 possible threats"; the Elias Law Group litigating 85 voting-law cases in 41 states; and a $25 million ACLU effort training roughly 10,000 volunteers. On the other side of the ledger: Trump, asked whether he'd deploy ICE or the National Guard at polling places, said he'd do "anything necessary" for honest elections. Former press secretary Karoline Leavitt said in February that ICE at polling stations was "not something I've ever heard the president consider." Federal law already bars armed federal agents from polling places, and no court has authorized any such deployment; Trump and allies have "declined to rule out" one. Democratic congressional leaders have filed suit seeking to block it preemptively.</p>
+      <span class="src">CNN (via Local News 8) · Oct 4, 2026 — <a href="https://localnews8.com/politics/cnn-us-politics/2026/10/04/inside-democrats-efforts-to-secure-election-day-and-respond-to-fears-of-trump-interference/" target="_blank" rel="noopener">localnews8.com</a></span>
+    </div>
+
+    <div class="empty-note">No new redistricting rulings or DOJ voter-roll decisions found today. The most recent development remains Georgia's dismissal of the DOJ's suit for unredacted voter rolls (the department's 26th straight loss on these suits), already covered Oct. 1.</div>
+  </section>
+
+  <section>
+    <div class="section-label">Worth sharing</div>
+    <div class="share-card">
+      <h3>A perfect record: 13 flips, 0 losses</h3>
+      <p>Since Trump's second term began, Democrats have flipped 13 Republican-held state legislative seats in special elections — and lost exactly none of their own. It's a clean, nonpartisan box score (Ballotpedia keeps the running tally) that doesn't need spin: the GOP has lost its supermajority in two state senates along the way, and the pace roughly matches the 19-seat wave that preceded the 2018 blue wave.</p>
+      <p class="pitch">Why it's shareable: it's a hard number, not a poll — and numbers like this are what eventually show up in November turnout.</p>
+      <span class="src">Ballotpedia News · Oct 1, 2026 — <a href="https://news.ballotpedia.org/2026/10/01/democrats-have-won-13-previously-republican-held-state-legislative-seats-in-special-elections-since-trump-took-office/" target="_blank" rel="noopener">news.ballotpedia.org</a></span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Seat-change score</div>
+    <h2 class="section-title">Confirmed rating movement, trailing 7 days</h2>
+    <div class="score-wrap">
+      <div class="score-today">
+        <span class="num">0</span>
+        <span class="label">Today's score — no confirmed nonpartisan rating changes found.</span>
+      </div>
+      <table class="score-table">
+        <thead>
+          <tr><th>Date</th><th>Score</th><th style="min-width:40px">Scale</th><th>What moved</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="date">Sep 28</td>
+            <td class="score zero">0</td>
+            <td></td>
+            <td class="note">None confirmed. Cook Senate/House unchanged.</td>
+          </tr>
+          <tr>
+            <td class="date">Sep 29</td>
+            <td class="score zero">0</td>
+            <td></td>
+            <td class="note">None confirmed that day's run caught — see correction below.</td>
+          </tr>
+          <tr>
+            <td class="date">Sep 30</td>
+            <td class="score zero">0</td>
+            <td></td>
+            <td class="note">None confirmed; Sabato's 11-race batch (dated Sep 29–30) was published but missed until Oct 1.</td>
+          </tr>
+          <tr>
+            <td class="date">Oct 1</td>
+            <td class="score pos">+11</td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="left:35px;width:35px;background:var(--dem)"></div></div></div></td>
+            <td class="note">Sabato's Crystal Ball, 11 House races, all D-ward (KY-06, ME-02, MO-02, MT-01, VA-05, VA-01, NC-03, OH-15, PA-07, VA-02, CA-45).</td>
+          </tr>
+          <tr>
+            <td class="date">Oct 2</td>
+            <td class="score pos">+1</td>
+            <td><div class="bar-row"><div class="bar-track"><div class="bar-fill" style="left:35px;width:4px;background:var(--dem)"></div></div></div></td>
+            <td class="note">Cook moved TX Governor Likely R → Lean R. (Cook's matching FL Governor move wasn't rescored — Inside Elections already made that move Sep 22.)</td>
+          </tr>
+          <tr>
+            <td class="date">Oct 3</td>
+            <td class="score zero">0</td>
+            <td></td>
+            <td class="note">None confirmed; Cook Senate/House/Governor all unchanged since their last logged moves.</td>
+          </tr>
+          <tr class="today">
+            <td class="date">Oct 4</td>
+            <td class="score zero">0</td>
+            <td></td>
+            <td class="note">None confirmed; Cook Senate/House/Governor pages all checked directly, no change.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="trend-note"><strong>Trend:</strong> +12 net over the trailing week, entirely from two events — Sabato's Oct. 1 House batch and Cook's Oct. 2 Texas Governor move — bookended by five quiet days. No Republican-ward moves logged in this window.</div>
+      <div class="methodology">Methodology: each CONFIRMED race-rating change from a named nonpartisan rater (Cook, Sabato, Inside Elections) scores ±1 per race — toward Democrats (+1) or Republicans (−1) — regardless of how many notches it moved. Polls, fundraising, endorsements, and aggregate probability/generic-ballot shifts don't count. The same directional move isn't double-counted across raters.</div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Sources: AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, Ballotpedia, official election offices, and named outlets above.</span>
+    <span>Compiled for MK</span>
+  </footer>
+</div>
+
+</body></html>

@@ -1,0 +1,421 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Midterm Digest No. 15</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#eef0ea;
+    --surface:#ffffff;
+    --surface-2:#e4e7de;
+    --ink:#1a2233;
+    --ink-dim:#4d5568;
+    --line:#d7dace;
+    --accent:#a8681f;
+    --accent-ink:#5c3a10;
+    --dem:#2f5fa8;
+    --rep:#b8462f;
+    --flat:#8b8f7f;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#11151c;
+      --surface:#181d26;
+      --surface-2:#1f2530;
+      --ink:#e9e7de;
+      --ink-dim:#a3a8b8;
+      --line:#2b3240;
+      --accent:#e0a94c;
+      --accent-ink:#f2d9a5;
+      --dem:#7ea3dd;
+      --rep:#e08668;
+      --flat:#8f9585;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#11151c;
+    --surface:#181d26;
+    --surface-2:#1f2530;
+    --ink:#e9e7de;
+    --ink-dim:#a3a8b8;
+    --line:#2b3240;
+    --accent:#e0a94c;
+    --accent-ink:#f2d9a5;
+    --dem:#7ea3dd;
+    --rep:#e08668;
+    --flat:#8f9585;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Public Sans', -apple-system, sans-serif;
+    margin:0;
+  }
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding-inline:20px;
+    padding-block:36px 64px;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, serif;
+    text-wrap:balance;
+    margin:0;
+  }
+  .mono{
+    font-family:'JetBrains Mono', ui-monospace, monospace;
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* Masthead */
+  .masthead{
+    border-bottom:3px solid var(--ink);
+    padding-bottom:18px;
+    margin-bottom:28px;
+  }
+  .kicker{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--accent-ink);
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:10px;
+  }
+  .kicker span:last-child{ color:var(--ink-dim); letter-spacing:.04em; text-transform:none; }
+  .masthead h1{
+    font-size:clamp(28px,6vw,38px);
+    font-weight:700;
+    line-height:1.05;
+    letter-spacing:-.01em;
+  }
+  .masthead p{
+    color:var(--ink-dim);
+    font-size:14.5px;
+    margin:10px 0 0;
+    max-width:56ch;
+    line-height:1.5;
+  }
+
+  /* Section shell */
+  section.block{ margin-bottom:40px; }
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:14px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:8px;
+  }
+  .sec-num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    border-radius:3px;
+    padding:1px 6px;
+    flex-shrink:0;
+  }
+  .sec-head h2{ font-size:19px; font-weight:600; letter-spacing:-.01em; }
+
+  /* Items */
+  .item{
+    padding:14px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .item:last-child{ border-bottom:none; padding-bottom:0; }
+  .item-title{
+    font-weight:700;
+    font-size:15px;
+    margin-bottom:4px;
+  }
+  .item p{
+    font-size:14.5px;
+    line-height:1.55;
+    color:var(--ink);
+    margin:0 0 6px;
+  }
+  .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 14px;
+    font-size:12px;
+    color:var(--ink-dim);
+  }
+  .meta a{ color:var(--ink-dim); }
+  .meta a:hover{ color:var(--accent-ink); }
+  .tag{
+    display:inline-block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:1px 6px;
+    border-radius:3px;
+    border:1px solid currentColor;
+  }
+  .tag.dem{ color:var(--dem); }
+  .tag.rep{ color:var(--rep); }
+  .tag.flat{ color:var(--flat); }
+
+  .empty-note{
+    font-size:14px;
+    color:var(--ink-dim);
+    font-style:italic;
+    padding:10px 0;
+  }
+
+  /* Score section */
+  .score-wrap{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px;
+  }
+  .score-today{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:18px;
+  }
+  .score-today .big{
+    font-family:'JetBrains Mono', monospace;
+    font-size:40px;
+    font-weight:700;
+    color:var(--flat);
+    line-height:1;
+  }
+  .score-today .cap{
+    font-size:13px;
+    color:var(--ink-dim);
+    line-height:1.4;
+    max-width:40ch;
+  }
+
+  table.score{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+  }
+  table.score th{
+    text-align:left;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    font-weight:500;
+    padding:0 8px 8px 0;
+    border-bottom:1px solid var(--line);
+  }
+  table.score td{
+    padding:9px 8px 9px 0;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+    line-height:1.45;
+  }
+  table.score tr:last-child td{ border-bottom:none; }
+  table.score td.date{ font-family:'JetBrains Mono', monospace; white-space:nowrap; color:var(--ink-dim); }
+  table.score td.score-val{ font-family:'JetBrains Mono', monospace; font-weight:700; text-align:right; white-space:nowrap; }
+  table.score td.note{ color:var(--ink); }
+  .today-row td{ background:var(--surface-2); }
+
+  .bar-cell{ width:90px; }
+  .bar-track{ position:relative; height:14px; background:var(--surface-2); border-radius:3px; overflow:hidden; }
+  .bar-fill{ position:absolute; top:0; bottom:0; }
+  .bar-fill.d{ background:var(--dem); left:50%; }
+  .bar-fill.r{ background:var(--rep); right:50%; }
+  .bar-mid{ position:absolute; left:50%; top:-2px; bottom:-2px; width:1px; background:var(--ink-dim); opacity:.5; }
+
+  .trend-line{
+    margin-top:16px;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+    font-size:13px;
+    color:var(--ink-dim);
+    line-height:1.55;
+  }
+  .trend-line strong{ color:var(--ink); }
+
+  .methodology{
+    margin-top:14px;
+    font-size:12px;
+    color:var(--ink-dim);
+    line-height:1.5;
+  }
+  details.methodology summary{
+    cursor:pointer;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--accent-ink);
+  }
+  details.methodology p{ margin:8px 0 0; }
+
+  footer{
+    margin-top:44px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    font-size:11.5px;
+    color:var(--ink-dim);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="kicker">
+      <span>Issue No. 15 · 2026 Midterms</span>
+      <span>Friday, September 28, 2026</span>
+    </div>
+    <h1>The Midterm Digest</h1>
+    <p>A daily, sourced read on the 2026 U.S. midterms — race movement, polling and forecasts, and election administration &amp; security. Nonpartisan sources only: AP, Reuters, Cook Political Report, Sabato's Crystal Ball, state election offices, and court dockets.</p>
+  </div>
+
+  <section class="block">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>Race developments</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title">NC &amp; GA Senate — national GOP money reportedly pulling back</div>
+      <p>Politico reported the NRSC, chaired by Sen. Tim Scott, is deprioritizing North Carolina and Georgia and shifting ad spending toward Iowa, Texas, Maine and Alaska instead. Whatley downplayed the report, saying he's spoken with Scott and Majority Leader Thune and "will get the support we need to win this race." Cooper continues to hold a significant fundraising edge over Whatley. This follows Thursday's reporting (covered here Sept 27) on GOP anxiety and ad-reservation cuts in both states.</p>
+      <div class="meta"><span class="tag rep">GOP resource shift</span><a href="https://www.wral.com/news/nccapitol/cooper-whatley-poll-fundraising-support-ads-campaign-midterm-us-senate-september-2026/" target="_blank" rel="noopener">WRAL, citing Politico</a><span>Sept 25</span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">Texas Governor — race tightens in the polling average</div>
+      <p>Abbott's lead over Democrat Gina Hinojosa has narrowed to 1.8 points (47.8%–46%) in the RealClearPolitics average; Hinojosa has led two individual polls, though Abbott remains favored overall. Abbott dismissed the tightening ("Polls don't win elections, and polls are often wrong"). Hinojosa has accepted four televised debate invitations; Abbott has accepted none, saying he prefers direct voter contact.</p>
+      <div class="meta"><span class="tag flat">Polling average</span><a href="https://www.cbsnews.com/texas/news/abbott-downplays-tight-polls-in-texas-governors-race-against-gina-hinojosa-takes-new-steps-to-stop-data-centers/" target="_blank" rel="noopener">CBS News Texas</a><span>Sept 27</span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">Ohio Governor — Ramaswamy and Acton trade fire in a toss-up open seat</div>
+      <p>The race centers heavily on Acton's record as state health director during Ohio's COVID-19 response, a live vulnerability with conservative voters ("There's just no way in the world I would vote for Amy Acton," one Columbus-area electrician told NPR). Both campaigns have launched aggressive attack ads. Ramaswamy and Acton agree, notably, on curbing data-center growth and cutting property and gas taxes.</p>
+      <div class="meta"><span class="tag flat">Race dynamics</span><a href="https://www.npr.org/2026/09/27/nx-s1-5976743/ohio-governors-race-ramaswamy-and-acton-clash-in-rare-democratic-pickup-opportunity" target="_blank" rel="noopener">NPR</a><span>Sept 27</span></div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">PA-7 &amp; PA-10 — new district poll shows Democrats narrowly ahead</div>
+      <p>A Franklin &amp; Marshall poll has Democrat Ashley Ehasz-Brooks leading Rep. Ryan Mackenzie 45%–40% in PA-7, and Democrat Janelle Stelson leading Rep. Scott Perry 47%–44% in PA-10 — both within the margin of undecideds. Both are seats Cook already rates competitive.</p>
+      <div class="meta"><span class="tag dem">District poll</span><a href="https://www.cityandstatepa.com/politics/2026/09/pennsylvania-polls-show-democrats-leading-midterm-election-nears/416229/" target="_blank" rel="noopener">City &amp; State PA (Franklin &amp; Marshall)</a><span>Sept 25</span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>Polling &amp; forecasts</h2>
+    </div>
+    <p style="font-size:14.5px; line-height:1.6; color:var(--ink-dim); margin:0 0 4px;">No fresh rating changes or generic-ballot movement in the last 24–48 hours. Cook's Senate ratings remain as set Sept 23; Cook's House ratings remain the Sept 25 batch of 15 shifts already covered. Searches for new Sabato's Crystal Ball moves turned up only pieces already logged. The generic-ballot averages are unchanged from where they stood two issues ago: Silver Bulletin D+8.1 (D+8.8 likely-voter adjusted) as of Sept 25, and Emerson's national poll at D+11 as of Sept 24 — both still the most current reads.</p>
+  </section>
+
+  <section class="block">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>Election administration &amp; security</h2>
+    </div>
+    <div class="item">
+      <div class="item-title">Voter-roll data fight: states say they're winning at trial</div>
+      <p>As early voting opens in some states, Illinois election officials say Illinois and roughly 30 other states remain in federal court resisting the administration's demand for complete, unredacted voter-registration databases. "We've won at the trial court level — 25 of those cases. That's going to go on for a while," said Illinois State Board of Elections spokesman Matt Dietrich. This is a separate legal track from the DHS SAVE-database case already covered here (SCOTUS stay, Sept 25).</p>
+      <div class="meta"><span class="tag flat">Litigation</span><a href="https://www.dailyherald.com/20260928/news/as-early-voting-begins-officials-seek-to-reassure-public-about-election-security-integrity/" target="_blank" rel="noopener">Daily Herald</a><span>Sept 28</span></div>
+    </div>
+    <p style="font-size:13.5px; line-height:1.6; color:var(--ink-dim); margin:10px 0 0;">No update on the Missouri congressional-map fight beyond the SCOTUS stay already covered Sept 25 (the 2022/2024 lines remain in effect while litigation continues). No new SAVE-database developments.</p>
+  </section>
+
+  <section class="block">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>Seat-change score</h2>
+    </div>
+    <div class="score-wrap">
+      <div class="score-today">
+        <div class="big mono">0</div>
+        <div class="cap">Today's score. No confirmed nonpartisan race-rating changes found in the last 24–48 hours — Cook's Senate ratings are unchanged since Sept 23, and its House ratings since the Sept 25 batch (already scored Sept 26). No new Sabato moves located.</div>
+      </div>
+
+      <table class="score">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Score</th>
+            <th class="bar-cell">Lean</th>
+            <th>What drove it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="date">Sep 22</td>
+            <td class="score-val" style="color:var(--dem)">+12</td>
+            <td class="bar-cell"><div class="bar-track"><div class="bar-mid"></div><div class="bar-fill d" style="width:50%"></div></div></td>
+            <td class="note">Inside Elections dozen-race shift, all D-ward (Roll Call itemization; ME Senate, 6 House seats, FL Gov, ME Gov, etc.)</td>
+          </tr>
+          <tr>
+            <td class="date">Sep 23</td>
+            <td class="score-val" style="color:var(--dem)">+2</td>
+            <td class="bar-cell"><div class="bar-track"><div class="bar-mid"></div><div class="bar-fill d" style="width:16%"></div></div></td>
+            <td class="note">MI Senate Toss-up→Lean D; OH Gov Lean R→Toss-up (Sabato)</td>
+          </tr>
+          <tr>
+            <td class="date">Sep 24</td>
+            <td class="score-val" style="color:var(--dem)">+3</td>
+            <td class="bar-cell"><div class="bar-track"><div class="bar-mid"></div><div class="bar-fill d" style="width:24%"></div></div></td>
+            <td class="note">GA, KS, SC Senate all shift D-ward (Cook)</td>
+          </tr>
+          <tr>
+            <td class="date">Sep 25</td>
+            <td class="score-val" style="color:var(--flat)">0</td>
+            <td class="bar-cell"><div class="bar-track"><div class="bar-mid"></div></div></td>
+            <td class="note">None confirmed</td>
+          </tr>
+          <tr>
+            <td class="date">Sep 26</td>
+            <td class="score-val" style="color:var(--dem)">+15</td>
+            <td class="bar-cell"><div class="bar-track"><div class="bar-mid"></div><div class="bar-fill d" style="width:50%"></div></div></td>
+            <td class="note">Cook shifts 15 House ratings D-ward; new aggregate Dem-favored 208 / GOP-favored 205 / 22 toss-ups</td>
+          </tr>
+          <tr>
+            <td class="date">Sep 27</td>
+            <td class="score-val" style="color:var(--flat)">0</td>
+            <td class="bar-cell"><div class="bar-track"><div class="bar-mid"></div></div></td>
+            <td class="note">None confirmed (SCOTUS's 3rd Missouri map rejection is a court ruling, not a rater move — doesn't score)</td>
+          </tr>
+          <tr class="today-row">
+            <td class="date">Sep 28</td>
+            <td class="score-val" style="color:var(--flat)">0</td>
+            <td class="bar-cell"><div class="bar-track"><div class="bar-mid"></div></div></td>
+            <td class="note">None confirmed today</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="trend-line">
+        <strong>Trailing 7-day total: +32, all toward Democrats.</strong> Every day this week that scored nonzero moved exclusively D-ward — no Republican-favoring rating changes have registered since scoring began Sept 20. The two big single-day jumps (Sep 22's itemized Inside Elections batch and Sep 26's 15-race Cook House shift) account for 27 of the 32 points; the other three scoring days added smaller, steadier Senate-level moves.
+      </div>
+
+      <details class="methodology">
+        <summary>Scoring methodology</summary>
+        <p>Score counts only confirmed race-rating changes from a named nonpartisan rater (Cook Political Report, Sabato's Crystal Ball, etc.) — never polls, fundraising, endorsements, or aggregate probability/generic-ballot numbers. Each individual race movement is a flat ±1 (+1 toward Democrats, −1 toward Republicans) regardless of how many notches it crossed; a day's score is the sum of that day's qualifying moves. Court rulings, including redistricting decisions, do not score on their own.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer>
+    <span>Sources: AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, state election offices, court dockets, and named outlets above.</span>
+    <span>Compiled for MK</span>
+  </footer>
+
+</div>
+
+</body></html>

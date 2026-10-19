@@ -1,0 +1,330 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Midterm Digest No. 29</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  /* Layout: masthead over a single scannable column of report "sheets";
+     score table gets its own ledger treatment with a sparkline. */
+  :root{
+    --bg:#f3f5f8;
+    --paper:#ffffff;
+    --ink:#182231;
+    --sub:#51607a;
+    --line:#dbe1ea;
+    --accent:#b8860b;
+    --accent-ink:#5c4208;
+    --accent-soft:#f6ecd6;
+    --dem:#2454a8;
+    --dem-soft:#e8eff9;
+    --rep:#a8322c;
+    --rep-soft:#f9eae8;
+    --flat:#8a93a3;
+    --font-display:'Fraunces', 'Iowan Old Style', ui-serif, Georgia, serif;
+    --font-body:'Public Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0f1420;
+      --paper:#161d2c;
+      --ink:#e8ecf4;
+      --sub:#9aa7bf;
+      --line:#2b3448;
+      --accent:#e0b84d;
+      --accent-ink:#1c1206;
+      --accent-soft:#2c2412;
+      --dem:#6fa0e8;
+      --dem-soft:#1b2c47;
+      --rep:#e2847d;
+      --rep-soft:#3a2220;
+      --flat:#6b7489;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0f1420;
+    --paper:#161d2c;
+    --ink:#e8ecf4;
+    --sub:#9aa7bf;
+    --line:#2b3448;
+    --accent:#e0b84d;
+    --accent-ink:#1c1206;
+    --accent-soft:#2c2412;
+    --dem:#6fa0e8;
+    --dem-soft:#1b2c47;
+    --rep:#e2847d;
+    --rep-soft:#3a2220;
+    --flat:#6b7489;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    margin:0;
+    padding-inline:16px;
+    padding-block:28px 48px;
+  }
+  .wrap{max-width:760px;margin:0 auto;}
+
+  .masthead{
+    text-align:center;
+    padding-block:4px 20px;
+    border-bottom:3px double var(--line);
+    margin-bottom:28px;
+  }
+  .masthead .kicker{
+    font-family:var(--font-body);
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:.72rem;
+    color:var(--accent-ink);
+    background:var(--accent-soft);
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:3px;
+    margin-bottom:12px;
+  }
+  .masthead h1{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(1.9rem,6vw,2.6rem);
+    margin:0 0 6px;
+    text-wrap:balance;
+    letter-spacing:-.01em;
+  }
+  .masthead .meta{
+    color:var(--sub);
+    font-size:.9rem;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .masthead .meta b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:34px;}
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:14px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:8px;
+  }
+  .sec-num{
+    font-family:var(--font-display);
+    font-size:1rem;
+    color:var(--accent-ink);
+    background:var(--accent-soft);
+    border-radius:50%;
+    width:26px;height:26px;
+    display:flex;align-items:center;justify-content:center;
+    flex:none;
+    font-weight:600;
+  }
+  .sec-head h2{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.3rem;
+    margin:0;
+    letter-spacing:-.005em;
+  }
+
+  .item{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:14px 16px;
+    margin-bottom:10px;
+  }
+  .item + .item{margin-top:10px;}
+  .item p{margin:0 0 6px;line-height:1.5;font-size:.96rem;}
+  .item .src{
+    font-size:.78rem;
+    color:var(--sub);
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:8px;
+    padding-top:8px;
+    border-top:1px dashed var(--line);
+  }
+  .item .src a{color:var(--sub);text-decoration:underline;text-decoration-color:var(--line);}
+  .tag{
+    display:inline-block;
+    font-size:.68rem;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:2px 7px;
+    border-radius:3px;
+    margin-right:8px;
+    vertical-align:middle;
+  }
+  .tag.dem{background:var(--dem-soft);color:var(--dem);}
+  .tag.rep{background:var(--rep-soft);color:var(--rep);}
+  .tag.neu{background:var(--accent-soft);color:var(--accent-ink);}
+
+  .empty-note{
+    background:var(--paper);
+    border:1px dashed var(--line);
+    border-radius:8px;
+    padding:14px 16px;
+    color:var(--sub);
+    font-size:.92rem;
+    line-height:1.55;
+  }
+  .empty-note b{color:var(--ink);}
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:.88rem;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+  }
+  thead th{
+    text-align:left;
+    font-size:.72rem;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+    color:var(--sub);
+    background:var(--accent-soft);
+    padding:9px 12px;
+    font-weight:700;
+  }
+  tbody td{
+    padding:9px 12px;
+    border-top:1px solid var(--line);
+    vertical-align:top;
+  }
+  tbody tr.today{background:var(--dem-soft);}
+  td.score, th.score{font-variant-numeric:tabular-nums;text-align:center;font-weight:700;width:64px;}
+  td.date{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--sub);width:88px;}
+  .score-pos{color:var(--dem);}
+  .score-neg{color:var(--rep);}
+  .score-flat{color:var(--flat);}
+  .table-wrap{overflow-x:auto;}
+
+  .trend-box{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:14px 16px;
+    margin-bottom:14px;
+    flex-wrap:wrap;
+  }
+  .trend-box svg{flex:none;}
+  .trend-box .trend-text{flex:1;min-width:0;font-size:.9rem;color:var(--sub);line-height:1.5;}
+  .trend-box .trend-text b{color:var(--ink);}
+
+  .methodology{
+    font-size:.78rem;
+    color:var(--sub);
+    line-height:1.55;
+    margin-top:12px;
+    padding-top:10px;
+    border-top:1px dashed var(--line);
+  }
+
+  footer{
+    text-align:center;
+    color:var(--sub);
+    font-size:.78rem;
+    margin-top:36px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    line-height:1.6;
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <span class="kicker">2026 Midterms · Daily Digest</span>
+    <h1>Midterm Election Digest</h1>
+    <div class="meta"><span>Issue No. 29</span><span>·</span><span><b>Monday, October 12, 2026</b></span></div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">1</span><h2>Race developments</h2></div>
+    <div class="empty-note">
+      <b>No new developments cleared the bar today.</b> Searched AP, Reuters, and local coverage of the most competitive Senate races (Georgia, Texas, Kansas, Michigan, North Carolina, New Hampshire, South Carolina, Alaska, Ohio, Maine) and Governor races (Texas, Florida, Georgia, New York, Arizona) for anything from the last 24&ndash;48 hours. The only candidate items &mdash; Thursday's Ossoff&ndash;Collins debate recap, Talarico's expected return at an October 14 Fort Worth town hall, a Kansas prediction-market shift &mdash; were already covered in yesterday's issue with no fresh movement since. A widely-recirculating story about a Pennsylvania GOP overseas-ballot lawsuit being dismissed turned out, on closer check, to be an October 2024 ruling resurfacing in search results, not new news; it's excluded rather than reported as current.
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">2</span><h2>Polling &amp; forecasts</h2></div>
+    <div class="empty-note">
+      <b>No confirmed rating changes today.</b> Direct fetches of Cook Political Report's Senate and House ratings pages were blocked (site-permission requests went unanswered in this unattended run, the same failure mode seen on several recent days). A 270toWin mirror of Cook's House ratings shows a map-generation timestamp of October 9, but no corroborating article has turned up confirming an actual rating move that day &mdash; still an open research gap, flagged again rather than guessed at. Sabato's dedicated rating-changes page and Inside Elections' ratings archive were also unreachable today.<br><br>
+      <b>Generic ballot:</b> no fresh reliable reading. Silver Bulletin's own tracker page returned a stale cached figure (D+6.6, dated to early September), which conflicts with the D+8.9 figure already confirmed on October 7 &mdash; treating the more recent confirmed number as still current rather than reporting the older one as a new data point.
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">3</span><h2>Election administration &amp; security</h2></div>
+    <div class="empty-note">
+      <b>Nothing new in the last 24&ndash;48 hours.</b> The DNC's overseas-ballot-postcard suit against the Pentagon and OMB (filed October 1) remains pending with no ruling or hearing date. The DOJ's voter-roll lawsuits remain at the previously confirmed 26-for-26 loss streak &mdash; today's search turned up only older dismissals (Arizona, Nevada, New Jersey, Massachusetts, West Virginia, New Mexico) already counted in that figure, dated well before this window. Denver and LULAC's suit to block armed federal agents at polling sites, and a parallel SCOTUS emergency application over mail-ballot/USPS rules, both remain pending with no new court action found.
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">4</span><h2>Seat-change score</h2></div>
+
+    <div class="trend-box">
+      <svg width="160" height="56" viewBox="0 0 160 56" role="img" aria-label="Seat-change score trend, last 7 days">
+        <line x1="0" y1="28" x2="160" y2="28" stroke="var(--line)" stroke-width="1"/>
+        <polyline points="4,16.8 28,0 52,3.2 76,28 100,28 124,28 148,28" fill="none" stroke="var(--dem)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="4" cy="16.8" r="3" fill="var(--dem)"/>
+        <circle cx="28" cy="0" r="3" fill="var(--dem)"/>
+        <circle cx="52" cy="3.2" r="3" fill="var(--dem)"/>
+        <circle cx="76" cy="28" r="3" fill="var(--flat)"/>
+        <circle cx="100" cy="28" r="3" fill="var(--flat)"/>
+        <circle cx="124" cy="28" r="3" fill="var(--flat)"/>
+        <circle cx="148" cy="28" r="3.5" fill="var(--flat)" stroke="var(--paper)" stroke-width="1.5"/>
+      </svg>
+      <div class="trend-text">
+        <b>Flat since October 8.</b> The window opened with back-to-back Democratic-ward batches from Cook and Sabato (Oct 7, Oct 8), then four straight days of zero confirmed moves. Net over the trailing 7 days: <b>+9</b>, all from the Oct 7&ndash;8 cluster.
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th class="date">Date</th><th class="score">Score</th><th>What drove it</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="date">Oct 6</td><td class="score score-flat">0</td><td>None confirmed.</td></tr>
+          <tr><td class="date">Oct 7</td><td class="score score-pos">+5</td><td>Cook: KS, NH, NC moved D-ward. Sabato: AK, SC moved D-ward. Both batches dated Oct 6, caught this day.</td></tr>
+          <tr><td class="date">Oct 8</td><td class="score score-pos">+4</td><td>Inside Elections' JSON archive: MI-04, CA-22, IA-01, IA-03 moved D-ward (dated Oct 1&ndash;2, found this day).</td></tr>
+          <tr><td class="date">Oct 9</td><td class="score score-flat">0</td><td>None confirmed.</td></tr>
+          <tr><td class="date">Oct 10</td><td class="score score-flat">0</td><td>None confirmed; rating sites largely unreachable this run.</td></tr>
+          <tr><td class="date">Oct 11</td><td class="score score-flat">0</td><td>None confirmed; Cook House page dated Oct 9 but no move verified.</td></tr>
+          <tr class="today"><td class="date">Oct 12</td><td class="score score-flat">0</td><td>None confirmed; Cook/Sabato/Inside Elections ratings pages blocked this run.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="methodology">
+      <span class="tag dem">D-ward</span> a race rating moved toward Democrats &nbsp;&nbsp; <span class="tag rep">R-ward</span> moved toward Republicans &nbsp;&nbsp; Score counts only confirmed race-rating/toss-up changes from a named nonpartisan rater (Cook, Sabato, Inside Elections) &mdash; flat &plusmn;1 per race regardless of how many notches it moved. Polls, fundraising, endorsements, and aggregate probability/generic-ballot numbers don't count. A move found days after it happened is scored on the day it was <i>found</i>, not the day it occurred, so earlier rows in this tracker aren't revised retroactively.
+    </div>
+  </section>
+
+  <footer>
+    Sources: AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, Inside Elections, Silver Bulletin, Democracy Docket, and official court dockets. Nonpartisan sources only; items that couldn't be independently verified were left out rather than reported as fact.<br>
+    Compiled automatically for MK's daily tracking. Yesterday's issue: No. 28.
+  </footer>
+
+</div>
+
+</body></html>

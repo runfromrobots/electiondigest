@@ -1,0 +1,346 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midterm Election Digest — Issue No. 13</title>
+<style>
+  :root {
+    --bg: #f7f6f3;
+    --card: #ffffff;
+    --ink: #1a1d23;
+    --ink-soft: #4b5160;
+    --ink-faint: #7b8190;
+    --border: #e4e2dc;
+    --accent-d: #2a5ea8;
+    --accent-r: #b23b3b;
+    --accent-neutral: #6b6f76;
+    --tag-bg: #eef2f7;
+    --pill-d-bg: #e8f0fb;
+    --pill-d-ink: #1f4e8a;
+    --pill-r-bg: #fbeaea;
+    --pill-r-ink: #96302f;
+    --pill-n-bg: #eeeeee;
+    --pill-n-ink: #55585f;
+    --shadow: 0 1px 2px rgba(20,20,30,0.04), 0 6px 20px rgba(20,20,30,0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14161a;
+      --card: #1c1f25;
+      --ink: #eef0f3;
+      --ink-soft: #b7bcc6;
+      --ink-faint: #82879291;
+      --border: #2b2f37;
+      --accent-d: #6fa4e8;
+      --accent-r: #e08585;
+      --accent-neutral: #9aa0aa;
+      --tag-bg: #232833;
+      --pill-d-bg: #1c2c42;
+      --pill-d-ink: #9dc2f2;
+      --pill-r-bg: #3a2222;
+      --pill-r-ink: #eeb0b0;
+      --pill-n-bg: #262a31;
+      --pill-n-ink: #c4c8ce;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 6px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14161a;
+    --card: #1c1f25;
+    --ink: #eef0f3;
+    --ink-soft: #b7bcc6;
+    --ink-faint: #82879291;
+    --border: #2b2f37;
+    --accent-d: #6fa4e8;
+    --accent-r: #e08585;
+    --accent-neutral: #9aa0aa;
+    --tag-bg: #232833;
+    --pill-d-bg: #1c2c42;
+    --pill-d-ink: #9dc2f2;
+    --pill-r-bg: #3a2222;
+    --pill-r-ink: #eeb0b0;
+    --pill-n-bg: #262a31;
+    --pill-n-ink: #c4c8ce;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 6px 24px rgba(0,0,0,0.35);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 16px 64px;
+  }
+  header.masthead {
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .kicker {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  h1.title {
+    font-size: 26px;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  section.block {
+    margin-bottom: 32px;
+  }
+  h2.section-title {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 700;
+    margin: 0 0 4px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .section-num {
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  h2.section-title + .section-sub {
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin: 0 0 14px;
+  }
+  .item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow);
+  }
+  .item-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .pill {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 2px 8px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .pill-d { background: var(--pill-d-bg); color: var(--pill-d-ink); }
+  .pill-r { background: var(--pill-r-bg); color: var(--pill-r-ink); }
+  .pill-n { background: var(--pill-n-bg); color: var(--pill-n-ink); }
+  .race-label {
+    font-weight: 700;
+    font-size: 14.5px;
+  }
+  .item-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .item p {
+    margin: 0 0 6px;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+  .item p:last-of-type { margin-bottom: 0; }
+  .src {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+  .src a {
+    color: var(--accent-d);
+    text-decoration: none;
+  }
+  .src a:hover { text-decoration: underline; }
+  .flag-note {
+    background: var(--tag-bg);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .none-note {
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-style: italic;
+    padding: 4px 2px;
+  }
+  table.score-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 13.5px;
+    box-shadow: var(--shadow);
+  }
+  table.score-table th, table.score-table td {
+    text-align: left;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  table.score-table th {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-faint);
+    font-weight: 700;
+  }
+  table.score-table tr:last-child td { border-bottom: none; }
+  table.score-table tr.today { background: var(--tag-bg); }
+  .score-val { font-variant-numeric: tabular-nums; font-weight: 700; }
+  .score-pos { color: var(--accent-d); }
+  .score-neg { color: var(--accent-r); }
+  .score-zero { color: var(--ink-faint); }
+  .trend-line {
+    margin-top: 10px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+  .trend-line strong { color: var(--ink); }
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="kicker">2026 Midterm Election Digest · Issue No. 13</div>
+    <h1 class="title">Friday, September 26, 2026</h1>
+    <div class="meta-row">
+      <span>Nonpartisan sources only · AP, Reuters, Cook Political Report, Sabato's Crystal Ball, official election offices, court dockets</span>
+    </div>
+  </header>
+
+  <section class="block">
+    <h2 class="section-title"><span class="section-num">1</span> Race developments</h2>
+    <div class="section-sub">Retirements, recruits, fundraising, endorsements, special-election results — last 24–48 hours.</div>
+
+    <div class="item">
+      <div class="item-head">
+        <span class="pill pill-n">IA Senate</span>
+        <span class="race-label">Turek rolls out fuel-cost plan; ethics complaint filed against Hinson; Ernst endorses Hinson</span>
+        <span class="item-date">Sept 25</span>
+      </div>
+      <p>Democrat Josh Turek proposed pausing diesel exports, suspending the federal gas tax, and opening strategic oil reserves to address fuel prices. Republican Ashley Hinson called for Congress to reconvene over fuel costs and the Iran conflict, texting Speaker Johnson to push for a return to D.C., but declined to commit to a war-powers vote. The two traded sharp personal criticism on the trail. Separately, the PAC Defend the Vote filed an ethics complaint alleging Hinson gave her husband special congressional access (she calls it politically motivated), and Sen. Joni Ernst endorsed Hinson at a state GOP dinner.</p>
+      <p class="src">Source: <a href="https://iowacapitaldispatch.com/2026/09/25/iowas-u-s-senate-candidates-share-fuel-cost-policies-trade-criticisms-on-campaign-trail/" target="_blank" rel="noopener">Iowa Capital Dispatch, Sept 25</a></p>
+    </div>
+
+    <div class="flag-note">A broader sweep for new Senate/House/Governor developments in the last 24–48 hours (TX Senate debate standoff, GA Senate stops, PA Governor endorsements) turned up mostly continuations of stories already covered in recent issues, with no confirmed meaningful update — so they're left out here rather than repeated. The dominant story of the window was a batch rating move (see Polling &amp; Forecasts, below).</div>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title"><span class="section-num">2</span> Polling &amp; forecasts</h2>
+    <div class="section-sub">Meaningful movement in ratings, aggregates, and forecasts — not one-off polls.</div>
+
+    <div class="item">
+      <div class="item-head">
+        <span class="pill pill-d">House · Rating change</span>
+        <span class="race-label">Cook Political Report: 15 House race ratings shift toward Democrats</span>
+        <span class="item-date">Sept 25</span>
+      </div>
+      <p>Cook moved 15 individual House race ratings toward Democrats, headlined "GOP on Track to Lose House Majority." New aggregate: Democrats favored in 208 seats, Republicans in 205, with 22 toss-ups (17 held by Republicans, 5 by Democrats) — Democrats need a net gain of just 3 seats for the majority. Cook's own analysis attributes the shift to Trump's underwater approval (particularly on the economy) dragging down GOP candidates in districts he carried, partly offset for Republicans by new Democratic-favorable maps in California and Utah against GOP redistricting gains elsewhere. Cook says Democrats are positioned to gain 5–15 seats, for a likely 220–230 seat majority.</p>
+      <p class="src">Source: <a href="https://www.cookpolitical.com/analysis/house/house-overview/gop-track-lose-house-majority-15-race-ratings-shift-towards-dems" target="_blank" rel="noopener">Cook Political Report, Sept 25</a> — corroborated with matching seat counts by <a href="https://www.axios.com/2026/09/25/house-republicans-majority-democrats-battleground" target="_blank" rel="noopener">Axios</a> and The National Desk, Sept 25</p>
+    </div>
+
+    <div class="flag-note"><strong>Flagged discrepancy:</strong> a wire item (Nexstar/Yahoo, dated Thursday Sept 24) separately reported Cook shifting "18" House races with a different toss-up total (14 of 18 R-held). That figure could not be reconciled against Cook's own site (paywalled beyond the headline) or independently corroborated elsewhere, so it's excluded from today's count below. The 15-race, 22-toss-up figure is used because it's corroborated by three independent outlets with matching numbers.</div>
+
+    <div class="item">
+      <div class="item-head">
+        <span class="pill pill-n">Generic ballot</span>
+        <span class="race-label">No new movement — Emerson D+11 (Sept 21–22 field) already covered</span>
+        <span class="item-date">—</span>
+      </div>
+      <p>No new national generic-ballot or Silver Bulletin average update was found in this window beyond what was already reported in Issue No. 12 (Emerson: D+11; Silver Bulletin average: D+8.1 as of Sept 24). Cook's Senate and Governor ratings are unchanged since the Sept 23 batch (GA, KS, SC Senate) already logged.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title"><span class="section-num">3</span> Election administration &amp; security</h2>
+    <div class="section-sub">Factual, sourced reporting only — no speculative "stolen election" scoring.</div>
+
+    <div class="item">
+      <div class="item-head">
+        <span class="pill pill-n">SCOTUS</span>
+        <span class="race-label">Supreme Court lets DHS's SAVE voter-verification database proceed for now</span>
+        <span class="item-date">Sept 25</span>
+      </div>
+      <p>The Supreme Court issued an emergency stay lifting a lower federal court's June order that had blocked use of the revamped SAVE (Systematic Alien Verification for Entitlements) database, which the Trump administration wants states to use to check voter eligibility ahead of the midterms. This is a temporary stay, not a final ruling — the underlying case continues in the lower courts, and plaintiffs say the fight isn't over. Justice Ketanji Brown Jackson dissented, joined by Justices Kagan and Sotomayor, warning that "legitimate voter registrations could be mistakenly revoked." Election-law expert David Becker told NPR the near-term practical effect is likely limited: state use of SAVE remains voluntary, federal law already bars most systematic voter-roll purges within 90 days of an election, and DHS has itself acknowledged the underlying data isn't perfect.</p>
+      <p class="src">Sources: <a href="https://www.npr.org/2026/09/25/nx-s1-5976804/supreme-court-trump-save-noncitizen-voting" target="_blank" rel="noopener">NPR</a>, <a href="https://www.pbs.org/newshour/politics/supreme-court-lets-trump-administration-use-revamped-federal-voter-eligibility-database-for-now" target="_blank" rel="noopener">PBS NewsHour</a>, Sept 25</p>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <span class="pill pill-n">DOJ voter-roll suits</span>
+        <span class="race-label">No new developments</span>
+        <span class="item-date">—</span>
+      </div>
+      <p>No new state DOJ voter-roll-data lawsuit rulings surfaced beyond the Washington state dismissal already covered in Issue No. 12 (Sept 22).</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title"><span class="section-num">4</span> Seat-change score</h2>
+    <div class="section-sub">Flat ±1 per confirmed individual race-rating move from a named nonpartisan rater (Cook, Sabato, Inside Elections). Polls, fundraising, endorsements, and aggregate/generic-ballot numbers don't count.</div>
+
+    <table class="score-table">
+      <thead>
+        <tr><th>Date</th><th>Score</th><th>Driver</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sept 20</td><td class="score-val score-pos">+1</td><td>IA Senate Lean R → Toss-up (Cook)</td></tr>
+        <tr><td>Sept 21</td><td class="score-val score-zero">0</td><td>None confirmed</td></tr>
+        <tr><td>Sept 22</td><td class="score-val score-pos">+12</td><td>Inside Elections dozen-race batch, all D-ward (confirmed retroactively via Roll Call itemization)</td></tr>
+        <tr><td>Sept 23</td><td class="score-val score-pos">+2</td><td>MI Senate &amp; OH Governor D-ward (Sabato)</td></tr>
+        <tr><td>Sept 24</td><td class="score-val score-pos">+3</td><td>GA, KS, SC Senate D-ward (Cook)</td></tr>
+        <tr><td>Sept 25</td><td class="score-val score-zero">0</td><td>None confirmed</td></tr>
+        <tr class="today"><td>Sept 26</td><td class="score-val score-pos">+15</td><td>Cook's 15-race House batch, all D-ward</td></tr>
+      </tbody>
+    </table>
+    <div class="trend-line">7-day trend: <strong>+33 net toward Democrats</strong>, with today's Cook House batch the single largest one-day move logged since tracking began (surpassing the Sept 22 Inside Elections batch of +12). All 7 days have data.</div>
+  </section>
+
+  <footer>
+    Compiled from nonpartisan sources for personal tracking purposes. "Seat-change score" reflects confirmed nonpartisan race-rating movement only — it is not a probability estimate, an election forecast, or any assessment of election integrity.
+  </footer>
+
+</div>
+</body>
+</html>
+
+</body></html>

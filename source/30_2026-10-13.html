@@ -1,0 +1,315 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Midterm Digest — Oct 13</title>
+<style>
+/* Layout: single-column scannable brief; dated masthead, section cards, score ledger table */
+:root{
+  --bg:#faf8f4;
+  --surface:#ffffff;
+  --ink:#1c1d1a;
+  --muted:#5c5a52;
+  --line:#e4e0d6;
+  --accent:#1f5c4a;
+  --accent-soft:#e3efe9;
+  --dem:#2a5ea8;
+  --rep:#a8372a;
+  --warn:#9a6a1f;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15161a;
+    --surface:#1d1f24;
+    --ink:#eceae3;
+    --muted:#a3a098;
+    --line:#32343a;
+    --accent:#6fbfa0;
+    --accent-soft:#1f3630;
+    --dem:#7ba7e0;
+    --rep:#e08a7a;
+    --warn:#d9ab5c;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15161a;
+  --surface:#1d1f24;
+  --ink:#eceae3;
+  --muted:#a3a098;
+  --line:#32343a;
+  --accent:#6fbfa0;
+  --accent-soft:#1f3630;
+  --dem:#7ba7e0;
+  --rep:#e08a7a;
+  --warn:#d9ab5c;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Source Sans 3', -apple-system, Segoe UI, sans-serif;
+  padding-inline:16px;
+  padding-block:28px;
+}
+.wrap{max-width:720px;margin:0 auto}
+
+.masthead{border-bottom:3px solid var(--ink);padding-bottom:14px;margin-bottom:26px}
+.masthead .kicker{
+  font-family:'Source Sans 3', sans-serif;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  font-size:0.72rem;
+  color:var(--muted);
+  font-weight:700;
+}
+.masthead h1{
+  font-family:'Fraunces', Georgia, serif;
+  font-size:2.1rem;
+  line-height:1.08;
+  margin:6px 0 8px;
+  text-wrap:balance;
+  font-weight:600;
+}
+.masthead .meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 16px;
+  font-size:0.85rem;
+  color:var(--muted);
+}
+
+section{margin-bottom:34px}
+h2{
+  font-family:'Fraunces', Georgia, serif;
+  font-size:1.3rem;
+  font-weight:600;
+  margin:0 0 4px;
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+}
+h2 .num{
+  font-family:'Source Sans 3', sans-serif;
+  font-size:0.78rem;
+  color:var(--muted);
+  font-weight:700;
+  letter-spacing:0.05em;
+}
+.section-note{font-size:0.88rem;color:var(--muted);margin:0 0 14px;max-width:62ch}
+
+.item{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:14px 16px;
+  margin-bottom:10px;
+}
+.item.headline{border-color:var(--accent);background:var(--accent-soft)}
+.item p{margin:0 0 6px;font-size:0.95rem;line-height:1.48}
+.item p:last-child{margin-bottom:0}
+.item .tag{
+  display:inline-block;
+  font-size:0.68rem;
+  text-transform:uppercase;
+  letter-spacing:0.07em;
+  font-weight:700;
+  padding:2px 7px;
+  border-radius:4px;
+  margin-bottom:7px;
+}
+.tag.dem{background:var(--dem);color:#fff}
+.tag.rep{background:var(--rep);color:#fff}
+.tag.flat{background:var(--line);color:var(--muted)}
+.src{font-size:0.78rem;color:var(--muted)}
+.src a{color:var(--muted);text-decoration:underline;text-decoration-color:var(--line)}
+.src a:hover{color:var(--accent)}
+
+.empty{font-size:0.9rem;color:var(--muted);font-style:italic;padding:10px 0}
+
+table.moves{
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.82rem;
+  margin:10px 0;
+}
+table.moves th, table.moves td{
+  padding:5px 6px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+  font-variant-numeric:tabular-nums;
+}
+table.moves th{color:var(--muted);font-weight:600;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.04em}
+
+.score-table-wrap{overflow-x:auto}
+table.score{
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.88rem;
+  margin-top:10px;
+}
+table.score th, table.score td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+}
+table.score th{
+  color:var(--muted);
+  font-weight:600;
+  font-size:0.72rem;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+}
+table.score td.score-val{
+  font-variant-numeric:tabular-nums;
+  font-weight:700;
+  white-space:nowrap;
+}
+table.score td.note{color:var(--muted);font-size:0.82rem;min-width:0}
+.sv-pos{color:var(--dem)}
+.sv-neg{color:var(--rep)}
+.sv-zero{color:var(--muted)}
+tr.today{background:var(--accent-soft)}
+
+.score-summary{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  margin:14px 0 4px;
+}
+.stat{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:10px 14px;
+  min-width:120px;
+}
+.stat .label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted)}
+.stat .value{font-family:'Fraunces',serif;font-size:1.6rem;font-variant-numeric:tabular-nums}
+
+.gap-note{
+  border-left:3px solid var(--warn);
+  padding:8px 12px;
+  background:var(--surface);
+  font-size:0.84rem;
+  color:var(--muted);
+  margin-top:10px;
+  border-radius:0 8px 8px 0;
+}
+
+footer{
+  border-top:1px solid var(--line);
+  margin-top:30px;
+  padding-top:16px;
+  font-size:0.78rem;
+  color:var(--muted);
+}
+
+@media (max-width:480px){
+  .masthead h1{font-size:1.65rem}
+  .stat{min-width:100px}
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap">
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="kicker">Midterm Election Digest · Issue No. 30</div>
+    <h1>The House list lands, five days late</h1>
+    <div class="meta">
+      <span>Tuesday, October 13, 2026</span>
+      <span>·</span>
+      <span>Sources: AP, Reuters, Cook Political Report, Sabato's Crystal Ball, official election offices</span>
+    </div>
+  </div>
+
+  <section>
+    <h2><span class="num">01</span> Race developments</h2>
+    <p class="section-note">Movement in competitive Senate, House, and governor races from the last 24–48 hours.</p>
+
+    <div class="item">
+      <p><strong>Georgia:</strong> Early voting opened today for the Ossoff–Collins Senate race, the Bottoms–Jackson governor race, and other statewide contests. Voting runs through Oct. 30, with two Saturday voting days in between; Election Day is Nov. 3.</p>
+      <p class="src">Oct. 11 · <a href="https://www.atlantanewsfirst.com/2026/10/11/early-voting-begins-tuesday-key-georgia-statewide-races/" target="_blank" rel="noopener">Atlanta News First</a></p>
+    </div>
+
+    <div class="item">
+      <p><strong>Michigan Senate:</strong> Rep. Alexandria Ocasio-Cortez is set to campaign with Democratic nominee Abdul El-Sayed on Oct. 15, headlining three town halls across the Upper Peninsula (Escanaba, Iron Mountain, Marquette). Forecasters still rate the Rogers–El-Sayed race a toss-up, with El-Sayed holding a narrow lead in recent polling.</p>
+      <p class="src">Posted ~Oct. 8, confirmed in an update Oct. 12 · <a href="https://www.washingtonexaminer.com/live-blog-posts/aoc-el-sayed-campaign-together/" target="_blank" rel="noopener">Washington Examiner</a></p>
+    </div>
+
+    <div class="item">
+      <p><strong>Virginia House:</strong> Former Transportation Secretary Pete Buttigieg plans an Oct. 19 rally in Henrico County for Democratic House candidates Tom Perriello, Shannon Taylor, and former Rep. Elaine Luria, part of a broader swing through Midwestern and rural areas where Democrats are under-represented.</p>
+      <p class="src">Posted ~Oct. 8, confirmed in an update Oct. 12 · <a href="https://www.washingtonexaminer.com/live-blog-posts/buttigieg-plans-stump-dccc-red-to-blue-candidates-virginia/" target="_blank" rel="noopener">Washington Examiner</a></p>
+    </div>
+
+    <p class="section-note">Beyond these, broad searches on Texas, Kansas, North Carolina, and Ohio Senate; and Texas, Georgia, New York, and Arizona governor races turned up nothing from the last 24–48 hours that wasn't already covered in prior issues (Ossoff–Collins' Oct. 8 debate, Talarico's absence from the trail, the Kalshi odds shift in Kansas).</p>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span> Polling &amp; forecasts</h2>
+    <p class="section-note">Rating changes from named nonpartisan raters, and aggregate forecast movement.</p>
+
+    <div class="item headline">
+      <span class="tag dem">18 races, all toward Democrats</span>
+      <p><strong>Cook Political Report moved 18 House ratings on Oct. 9 — found today, five days after the fact.</strong> This closes a research gap flagged in the last two issues: Cook's House ratings page showed an Oct. 9 timestamp with no corroborating article found on Oct. 11 or Oct. 12. A more targeted search today surfaced the underlying piece, independently corroborated with matching race-by-race detail by Axios, the Washington Post, The Hill, CNN, CBS, and Newsweek.</p>
+      <table class="moves">
+        <tr><th>Move</th><th>Races</th></tr>
+        <tr><td>Toss Up → Lean D</td><td>IA-01, IA-03, PA-07, PA-10, WA-03</td></tr>
+        <tr><td>Lean R → Toss Up</td><td>IA-02, MI-04, NC-01, VA-01</td></tr>
+        <tr><td>Likely R → Lean R</td><td>KY-06, ME-02, PA-01</td></tr>
+        <tr><td>Solid R → Likely R</td><td>AR-02, IN-05</td></tr>
+        <tr><td>Lean D → Likely D</td><td>NV-03, NY-03, NY-04, NE-02</td></tr>
+      </table>
+      <p>Cook now projects a Democratic House gain of roughly 9–19 seats (224–234 total), with 15 of its 21 current toss-ups on Republican-held turf.</p>
+      <p class="src">Rulings dated Oct. 9, 2026 · <a href="https://www.newsweek.com/donald-trump-warning-sign-midterm-elections-18-races-shift-democrats-cook-political-report-12546449" target="_blank" rel="noopener">Newsweek</a>, <a href="https://www.axios.com/2026/10/09/cook-report-18-house-races-move-democrats" target="_blank" rel="noopener">Axios</a>, <a href="https://thehill.com/homenews/campaign/6138736-cook-political-report-shifts-house/" target="_blank" rel="noopener">The Hill</a></p>
+    </div>
+
+    <div class="item">
+      <span class="tag flat">Generic ballot — essentially flat</span>
+      <p>Silver Bulletin's average as of Oct. 12 puts Democrats at D+8.8 (D+9.5 among likely voters), statistically unchanged from the D+8.9 figure confirmed Oct. 7. Not a meaningful move on its own; included for the trend record.</p>
+      <p class="src">Oct. 12 · <a href="https://www.natesilver.net/p/generic-ballot-average-2026-nate-silver-bulletin-congress-polls" target="_blank" rel="noopener">Silver Bulletin</a></p>
+    </div>
+
+    <p class="gap-note">No new Senate or governor rating changes found. Cook's Senate ratings are unchanged since the Oct. 6 batch (Kansas, New Hampshire, North Carolina); Cook's governor ratings are unchanged since a stale July 10 batch, already excluded in prior issues. Sabato's and Inside Elections' own rating-changes pages and ratings JSON were unreachable again today (PROVENANCE_REQUIRED), the same recurring access problem noted in prior issues; broad article search for either rater turned up only pieces from July, August, and September already superseded by this tracker's log.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">03</span> Election administration &amp; security</h2>
+    <p class="section-note">Factual, sourced reporting only — no speculative assessment of election integrity.</p>
+    <div class="empty">Nothing new in the last 24–48 hours. The DOJ's voter-roll litigation record remains at 26 losses, 0 wins, as of the last confirmed ruling (Georgia, Oct. 1); cases are still pending in Delaware, Hawaii, Idaho, and Utah, with no new ruling found today. The DNC's overseas-ballot suit (filed Oct. 1) and the mail-ballot executive-order challenge (allowed to proceed by a Massachusetts federal court on June 18) both remain open with no new hearings or rulings. No SCOTUS action found on the pending mail-ballot/USPS emergency application.</div>
+  </section>
+
+  <section>
+    <h2><span class="num">05</span> Seat-change score</h2>
+    <p class="section-note">Tallies confirmed race-rating moves from named nonpartisan raters only — flat ±1 per race per movement, regardless of notches. Not a measure of election security.</p>
+
+    <div class="score-summary">
+      <div class="stat"><div class="label">Today</div><div class="value sv-pos">+18</div></div>
+      <div class="stat"><div class="label">7-day total</div><div class="value sv-pos">+27</div></div>
+      <div class="stat"><div class="label">Direction</div><div class="value sv-pos" style="font-size:1.1rem">D-ward</div></div>
+    </div>
+
+    <div class="score-table-wrap">
+      <table class="score">
+        <tr><th>Date</th><th>Score</th><th>Driver</th></tr>
+        <tr><td>Oct 7</td><td class="score-val sv-pos">+5</td><td class="note">Cook (KS, NH, NC) + Sabato (AK, SC) Senate moves, all D-ward — dated Oct. 6, found this day</td></tr>
+        <tr><td>Oct 8</td><td class="score-val sv-pos">+4</td><td class="note">Inside Elections House batch (MI-04, CA-22, IA-01, IA-03), all D-ward — dated Oct. 1–2, found this day</td></tr>
+        <tr><td>Oct 9</td><td class="score-val sv-zero">0</td><td class="note">None confirmed</td></tr>
+        <tr><td>Oct 10</td><td class="score-val sv-zero">0</td><td class="note">None confirmed; rating sources largely unreachable</td></tr>
+        <tr><td>Oct 11</td><td class="score-val sv-zero">0</td><td class="note">None confirmed; Cook House's Oct. 9 timestamp flagged but unconfirmed</td></tr>
+        <tr><td>Oct 12</td><td class="score-val sv-zero">0</td><td class="note">None confirmed; same research gap still open</td></tr>
+        <tr class="today"><td>Oct 13</td><td class="score-val sv-pos">+18</td><td class="note">Cook's 18-race House batch, all D-ward — dated Oct. 9, found this day (closes the gap flagged Oct. 11–12)</td></tr>
+      </table>
+    </div>
+    <p class="gap-note">Per standing methodology, a rating change found days after it happened is scored on the day it's <em>found</em>, not the day it occurred — this has now happened four times this cycle (Sept 29–30, Oct 6, Oct 1–2, and today's Oct 9 batch). Today's score is unusually large because it's a backlog of 18 individual race movements resolving at once, not a single big swing.</p>
+  </section>
+
+  <footer>
+    Nonpartisan sources only: AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, Inside Elections, official state election offices, and court dockets. Compiled automatically; verify before sharing.
+  </footer>
+
+</div>
+
+</body></html>

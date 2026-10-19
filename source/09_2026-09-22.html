@@ -1,0 +1,296 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Midterm Digest No. 9</title>
+<style>
+  :root{
+    --ink:#1c2430;
+    --ink-soft:#4a5262;
+    --paper:#f6f4ee;
+    --paper-raised:#ffffff;
+    --rule:#d8d3c6;
+    --accent:#a34d1f;
+    --accent-soft:#f0e2d4;
+    --dem:#2a5aa8;
+    --rep:#a3372b;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#eae6da;
+      --ink-soft:#a9a496;
+      --paper:#181a1e;
+      --paper-raised:#212327;
+      --rule:#37393d;
+      --accent:#e08a4f;
+      --accent-soft:#3a2a1c;
+      --dem:#7ba6e8;
+      --rep:#e08277;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#eae6da;
+    --ink-soft:#a9a496;
+    --paper:#181a1e;
+    --paper-raised:#212327;
+    --rule:#37393d;
+    --accent:#e08a4f;
+    --accent-soft:#3a2a1c;
+    --dem:#7ba6e8;
+    --rep:#e08277;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    padding-inline:16px;
+    padding-block:32px;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.5;
+  }
+  a{color:var(--accent);}
+  .wrap{max-width:680px;margin-inline:auto;}
+
+  header.masthead{
+    border-bottom:3px solid var(--ink);
+    padding-bottom:14px;
+    margin-bottom:28px;
+  }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+  }
+  h1{
+    font-family:var(--serif);
+    font-size:clamp(28px,7vw,38px);
+    font-weight:600;
+    margin:0 0 6px 0;
+    text-wrap:balance;
+    letter-spacing:-.01em;
+  }
+  .dek{
+    color:var(--ink-soft);
+    font-size:14.5px;
+    margin:0;
+  }
+
+  section{margin-bottom:36px;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .section-num{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--accent);
+  }
+  h2{
+    font-family:var(--serif);
+    font-size:21px;
+    font-weight:600;
+    margin:0;
+  }
+  .section-rule{
+    flex:1;
+    height:1px;
+    background:var(--rule);
+  }
+
+  .item{
+    padding-block:14px;
+    border-top:1px solid var(--rule);
+  }
+  .item:first-child{border-top:none;padding-top:0;}
+  .item-tag{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    background:var(--accent-soft);
+    padding:2px 7px;
+    border-radius:3px;
+    display:inline-block;
+    margin-bottom:7px;
+  }
+  .item p{margin:0 0 6px 0;}
+  .item .meta{
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+  .item .meta a{color:var(--ink-soft);text-decoration-color:var(--rule);}
+
+  .empty-note{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+    padding-block:8px;
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+  }
+  .score-wrap{overflow-x:auto;}
+  th,td{
+    text-align:left;
+    padding:9px 10px;
+    border-bottom:1px solid var(--rule);
+    font-variant-numeric:tabular-nums;
+  }
+  th{
+    font-family:var(--mono);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--ink-soft);
+    font-weight:500;
+  }
+  td.date{font-family:var(--mono);white-space:nowrap;}
+  td.score{font-family:var(--mono);font-weight:600;text-align:right;width:52px;}
+  td.today{background:var(--accent-soft);}
+  .score-pos{color:var(--dem);}
+  .score-neg{color:var(--rep);}
+  .score-zero{color:var(--ink-soft);}
+  tr.today-row td{font-weight:600;}
+
+  .score-summary{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+    padding:14px 16px;
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    border-radius:6px;
+  }
+  .stat{min-width:110px;}
+  .stat-label{
+    font-family:var(--mono);
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--ink-soft);
+    margin-bottom:3px;
+  }
+  .stat-value{
+    font-family:var(--serif);
+    font-size:22px;
+    font-weight:600;
+  }
+  .stat-value.pos{color:var(--dem);}
+  .stat-note{font-size:12px;color:var(--ink-soft);margin-top:8px;flex-basis:100%;}
+
+  footer{
+    border-top:1px solid var(--rule);
+    padding-top:16px;
+    margin-top:8px;
+    font-size:12px;
+    color:var(--ink-soft);
+    font-family:var(--mono);
+  }
+
+  ::selection{background:var(--accent-soft);}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow"><span>Issue No. 9</span><span>Sept 22, 2026</span></div>
+    <h1>Midterm Election Digest</h1>
+    <p class="dek">Nonpartisan roundup of 2026 midterm developments — races, ratings, and election administration. Sources: AP, Reuters, Cook Political Report, Sabato's Crystal Ball, official state election offices, court dockets.</p>
+  </header>
+
+  <section>
+    <div class="section-head"><span class="section-num">01</span><h2>Race developments</h2><span class="section-rule"></span></div>
+
+    <div class="item">
+      <span class="item-tag">MI Senate</span>
+      <p>Former VP Kamala Harris campaigned with Abdul El-Sayed (D) in Metro Detroit this week, joined by Sen. Elissa Slotkin and ex-Rep. Sandy Levin mobilizing Democratic turnout. On the GOP side, Trump and Vance had already rallied for Mike Rogers ahead of the primary, and Trump-aligned and Musk-linked super PACs continue heavy ad spending for him — though a local strategist quoted in the piece said Rogers is "hammering the airwaves" while his ground game lags El-Sayed's organizing. All camps are now calling for gas-tax suspensions as pump prices hit records.</p>
+      <p class="meta"><a href="https://www.wkar.org/election-2026/2026-09-21/big-spending-high-profile-visits-mark-midpoint-of-midterm-campaigning" target="_blank" rel="noopener">WKAR / Michigan Public, Sept 21</a></p>
+    </div>
+
+    <div class="item">
+      <span class="item-tag">NC / GA Senate · Strategy</span>
+      <p>Senate Republicans are debating whether to redirect money out of North Carolina and Georgia toward states they see as more winnable (Michigan, New Hampshire, Iowa, Ohio, Alaska), with one GOP senator telling Semafor "North Carolina and Georgia have consistently shown us behind." NRSC chair John Thune says there's "game left to play" in both states. Roy Cooper (D-NC) and Jon Ossoff (D-GA) both hold polling leads over their Republican opponents. This is a strategic signal, not a rating change — flagged here for context, not scored.</p>
+      <p class="meta"><a href="https://www.semafor.com/article/09/17/2026/senate-republicans-weigh-whether-to-keep-investing-in-north-carolina-and-georgia-races" target="_blank" rel="noopener">Semafor, Sept 17</a> — older item, not previously surfaced in this digest</p>
+    </div>
+
+    <p class="empty-note">No new House or Governor race developments cleared the bar in the last 24–48 hours beyond what's in Polling &amp; forecasts below.</p>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">02</span><h2>Polling &amp; forecasts</h2><span class="section-rule"></span></div>
+
+    <div class="item">
+      <span class="item-tag">Forecast movement</span>
+      <p>Multiple aggregators moved toward Democrats overnight: Kalshi now prices Democrats' Senate-takeover odds at 61% (up from "neck and neck" framing days ago) and Polymarket at 65%. Piper Sandler's research note raised its own House odds for Democrats from 70% to 80% and Senate odds from 40% to 45%, citing seven Senate races within roughly 2.5 points in the RealClearPolitics average. RCP's generic-ballot average now shows Democrats +8.5. Reporting attributes the shift partly to $4.47/gallon gas prices, $6.52 diesel, the Iran conflict, and the administration's disputes with TV networks. These are aggregate probability and generic-ballot figures — informative, but they don't count toward the seat-change score below.</p>
+      <p class="meta"><a href="https://fortune.com/2026/09/22/midterm-polls-show-democrats-taking-senate/" target="_blank" rel="noopener">Fortune, Sept 22</a></p>
+    </div>
+
+    <p class="empty-note">No new individual race-rating changes from Cook Political Report or Sabato's Crystal Ball since the last issue: Cook's Senate page is still dated Sept 15, House still Sept 11, Governor still Sept 17; no new Sabato weekly post since "Seven Weeks to Go" on Sept 17.</p>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">03</span><h2>Election administration &amp; security</h2><span class="section-rule"></span></div>
+    <p class="empty-note">No notable new developments in the last 24–48 hours. The DHS SAVE database case remains pending at the Supreme Court with no ruling issued — status unchanged since the League of Women Voters/EPIC opposition filing on Sept 15; the D.C. Circuit's injunction blocking the database stays in effect. Checked AP, Reuters, SCOTUSblog, and several state election-office pages; nothing new surfaced. No likelihood-of-fraud or "will it be stolen" assessment is produced here — that isn't something this digest quantifies.</p>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">04</span><h2>Seat-change score</h2><span class="section-rule"></span></div>
+
+    <div class="score-summary">
+      <div class="stat">
+        <div class="stat-label">Today's score</div>
+        <div class="stat-value">0</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">7-day sum</div>
+        <div class="stat-value pos">+5</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Trend</div>
+        <div class="stat-value" style="font-size:15px;font-family:var(--sans);font-weight:500;">Flat since Sept 20</div>
+      </div>
+      <p class="stat-note">Score = sum of confirmed individual race-rating moves from named nonpartisan raters that day (+1 per race moving D-ward, −1 per race moving R-ward). Polls, fundraising, endorsements, and aggregate probability/generic-ballot numbers don't count. See methodology note below the table.</p>
+    </div>
+
+    <div class="score-wrap">
+    <table>
+      <thead><tr><th>Date</th><th>Score</th><th>What drove it</th></tr></thead>
+      <tbody>
+        <tr><td class="date">Sept 16</td><td class="score score-neg">−1</td><td>NH Senate Lean D → Toss-up (Cook)</td></tr>
+        <tr><td class="date">Sept 17</td><td class="score score-zero">0</td><td>No confirmed rating change</td></tr>
+        <tr><td class="date">Sept 18</td><td class="score score-zero">0</td><td>Sabato's 8-race House move reported but unconfirmed that day</td></tr>
+        <tr><td class="date">Sept 19</td><td class="score score-pos">+5</td><td>Sabato confirmed 5 House moves, all D-ward (weekly batch, not a daily signal)</td></tr>
+        <tr><td class="date">Sept 20</td><td class="score score-pos">+1</td><td>IA Senate Lean R → Toss-up (Cook)</td></tr>
+        <tr><td class="date">Sept 21</td><td class="score score-zero">0</td><td>No confirmed rating change</td></tr>
+        <tr class="today-row"><td class="date">Sept 22</td><td class="score score-zero">0</td><td>No confirmed rating change today</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="stat-note" style="margin-top:10px;">Note on Sept 19: Sabato's Crystal Ball publishes on a roughly weekly cadence, so that day's +5 reflects a week's worth of accumulated House movement landing at once, not a single day's swing — treat the week as the more meaningful unit than any single day in this stretch.</p>
+  </section>
+
+  <footer>
+    Compiled from nonpartisan sources only. Democratic developments are reported because MK follows them closely — Republican developments are included with equal weight for accuracy, not omitted or softened. Full methodology for the seat-change score is logged in MK's digest tracker.
+  </footer>
+
+</div>
+
+</body></html>

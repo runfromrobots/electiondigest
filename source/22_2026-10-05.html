@@ -1,0 +1,404 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Midterm Digest No. 22</title>
+<style>
+/* Layout: masthead + dated sections stacked in a single reading column, like a wire-service bulletin page */
+:root{
+  --bg:#f7f5f0;
+  --paper:#ffffff;
+  --ink:#1c1b19;
+  --ink-dim:#5b574e;
+  --rule:#ddd8cc;
+  --accent:#9c3b2e;
+  --accent-soft:#f1e3df;
+  --dem:#2b5a8c;
+  --dem-soft:#e4edf5;
+  --rep:#9c3b2e;
+  --rep-soft:#f6e6e3;
+  --flat:#8a8572;
+  --flat-soft:#eeece3;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15140f;
+    --paper:#1d1c17;
+    --ink:#ece7da;
+    --ink-dim:#aaa492;
+    --rule:#39362c;
+    --accent:#e2836d;
+    --accent-soft:#2e211c;
+    --dem:#8fb8e0;
+    --dem-soft:#1c2a36;
+    --rep:#e2836d;
+    --rep-soft:#2e211c;
+    --flat:#9b9681;
+    --flat-soft:#26241c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15140f;
+  --paper:#1d1c17;
+  --ink:#ece7da;
+  --ink-dim:#aaa492;
+  --rule:#39362c;
+  --accent:#e2836d;
+  --accent-soft:#2e211c;
+  --dem:#8fb8e0;
+  --dem-soft:#1c2a36;
+  --rep:#e2836d;
+  --rep-soft:#2e211c;
+  --flat:#9b9681;
+  --flat-soft:#26241c;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Source Serif 4', Georgia, 'Times New Roman', serif;
+  margin:0;
+  padding-inline:16px;
+  padding-block:28px;
+  display:flex;
+  justify-content:center;
+}
+.sheet{
+  width:100%;
+  max-width:720px;
+}
+.masthead{
+  text-align:center;
+  padding-block-end:18px;
+  border-bottom:3px solid var(--ink);
+}
+.kicker{
+  font-family:'Archivo', system-ui, sans-serif;
+  font-size:11px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:700;
+}
+h1.title{
+  font-family:'Playfair Display', Georgia, serif;
+  font-size:clamp(28px,7vw,40px);
+  font-weight:900;
+  margin:6px 0 10px;
+  letter-spacing:-0.01em;
+  text-wrap:balance;
+}
+.meta-row{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+  font-family:'Archivo', system-ui, sans-serif;
+  font-size:12px;
+  color:var(--ink-dim);
+  letter-spacing:0.02em;
+}
+.meta-row span{white-space:nowrap;}
+
+section{
+  margin-block-start:34px;
+}
+.section-head{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  border-bottom:2px solid var(--ink);
+  padding-block-end:6px;
+  margin-block-end:16px;
+}
+.section-num{
+  font-family:'Archivo', system-ui, sans-serif;
+  font-size:12px;
+  font-weight:700;
+  color:var(--accent);
+  letter-spacing:0.06em;
+}
+h2{
+  font-family:'Playfair Display', Georgia, serif;
+  font-size:22px;
+  margin:0;
+  font-weight:800;
+}
+.section-sub{
+  font-family:'Archivo', system-ui, sans-serif;
+  font-size:11.5px;
+  color:var(--ink-dim);
+  margin-left:auto;
+  text-align:right;
+}
+
+.item{
+  padding-block:14px;
+  border-bottom:1px solid var(--rule);
+}
+.item:last-child{border-bottom:none;}
+.item-head{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  margin-block-end:5px;
+}
+.tag{
+  font-family:'Archivo', system-ui, sans-serif;
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:0.04em;
+  padding:2px 8px;
+  border-radius:3px;
+  white-space:nowrap;
+}
+.tag.dem{background:var(--dem-soft); color:var(--dem);}
+.tag.rep{background:var(--rep-soft); color:var(--rep);}
+.tag.neutral{background:var(--flat-soft); color:var(--flat);}
+.item-title{
+  font-weight:700;
+  font-size:16px;
+}
+.item p{
+  margin:0;
+  font-size:15.5px;
+  line-height:1.56;
+  color:var(--ink);
+  max-width:66ch;
+}
+.src{
+  display:block;
+  margin-block-start:6px;
+  font-family:'Archivo', system-ui, sans-serif;
+  font-size:12px;
+  color:var(--ink-dim);
+}
+.src a{color:var(--ink-dim);}
+.src a:hover{color:var(--accent);}
+
+.note-box{
+  background:var(--paper);
+  border:1px solid var(--rule);
+  border-left:4px solid var(--flat);
+  border-radius:4px;
+  padding:14px 16px;
+  font-family:'Archivo', system-ui, sans-serif;
+  font-size:13.5px;
+  line-height:1.55;
+  color:var(--ink-dim);
+}
+.note-box strong{color:var(--ink);}
+
+/* score section */
+.score-today{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  background:var(--paper);
+  border:1px solid var(--rule);
+  border-radius:8px;
+  padding:16px 18px;
+  margin-block-end:18px;
+}
+.score-today .num{
+  font-family:'Playfair Display', Georgia, serif;
+  font-size:40px;
+  font-weight:900;
+  color:var(--flat);
+  line-height:1;
+  min-width:64px;
+  text-align:center;
+}
+.score-today .num.zero{color:var(--flat);}
+.score-today .label{
+  font-family:'Archivo', system-ui, sans-serif;
+  font-size:12px;
+  color:var(--ink-dim);
+  line-height:1.5;
+}
+.score-today .label b{
+  display:block;
+  font-size:13px;
+  color:var(--ink);
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  margin-block-end:2px;
+}
+
+table.score-table{
+  width:100%;
+  border-collapse:collapse;
+  font-family:'Archivo', system-ui, sans-serif;
+  font-size:13px;
+}
+.table-wrap{overflow-x:auto;}
+table.score-table th{
+  text-align:left;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  color:var(--ink-dim);
+  padding:6px 10px;
+  border-bottom:2px solid var(--ink);
+  white-space:nowrap;
+}
+table.score-table td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+table.score-table td.date{
+  white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+  color:var(--ink-dim);
+}
+table.score-table td.score{
+  font-weight:800;
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+table.score-table td.score.pos{color:var(--dem);}
+table.score-table td.score.neg{color:var(--rep);}
+table.score-table td.score.flat{color:var(--flat);}
+table.score-table td.note{color:var(--ink); line-height:1.45;}
+table.score-table tr.today{background:var(--accent-soft);}
+
+.trend-line{
+  margin-block-start:12px;
+  font-family:'Archivo', system-ui, sans-serif;
+  font-size:13px;
+  color:var(--ink-dim);
+  line-height:1.6;
+}
+.trend-line b{color:var(--ink);}
+
+footer{
+  margin-block-start:36px;
+  padding-block-start:16px;
+  border-top:2px solid var(--ink);
+  font-family:'Archivo', system-ui, sans-serif;
+  font-size:11.5px;
+  color:var(--ink-dim);
+  text-align:center;
+  line-height:1.6;
+}
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Archivo:wght@500;700&display=swap">
+
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="kicker">Nonpartisan sourcing · Compiled for MK</div>
+    <h1 class="title">Midterm Election Digest</h1>
+    <div class="meta-row">
+      <span>Issue No. 22</span>
+      <span>·</span>
+      <span>Monday, October 5, 2026</span>
+      <span>·</span>
+      <span>29 days to Election Day</span>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Race developments</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="tag rep">Ohio · Senate</span></div>
+      <p class="item-title">Trump rallies for Husted in Vandalia, predicts a "big surprise"</p>
+      <p>Trump stumped Sunday for Jon Husted (R) and governor candidate Vivek Ramaswamy, telling the crowd "we're going to win, and we're going to win big" despite polling that favors Democrats. He leaned on AI data centers as a selling point while Brown's campaign countered on the electricity costs they bring. The headwinds Husted is running against are concrete: Ohio gas prices are up 35% year over year to $4.16/gallon, and Canadian retaliatory tariffs are hitting roughly $3 billion in Ohio exports.</p>
+      <span class="src">Al Jazeera, Oct 4 — <a href="https://www.aljazeera.com/news/2026/10/4/trump-defiant-about-midterm-chances-as-he-rallies-for-republicans-in-ohio" target="_blank" rel="noopener">aljazeera.com</a></span>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="tag neutral">Texas · Senate</span></div>
+      <p class="item-title">National Democratic money finally shows up for Talarico</p>
+      <p>New FEC filings show the Senate Leadership Fund-aligned Texas PAC spent $131 million in just 17 days to rescue Ken Paxton (R) — $61.4 million of it in a single two-day stretch. Pro-Talarico groups are still being vastly outspent (Lone Star Rising has put in $13.9 million since January), but Senate Majority PAC, a national Democratic outside-money group, has now launched its own independent effort for Talarico — the first sign of serious national Democratic money entering a race Republicans have had to defend almost alone against GOP cash.</p>
+      <span class="src">Axios, Oct 1 — <a href="https://www.axios.com/2026/10/01/texas-senate-paxton-funding-talarico" target="_blank" rel="noopener">axios.com</a></span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Polling &amp; forecasts</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="tag neutral">Ohio · Senate</span></div>
+      <p class="item-title">New poll shows a dead heat — but treat it as pollster noise, not a swing</p>
+      <p>InsiderAdvantage (fielded Sept 28–29, 1,200 likely voters, ±2.83): Brown 44, Husted 43 — essentially tied, and notably tighter than the Marist and Fox News reads from the same window, both of which had Brown up 8. This is volatility between pollsters' methodologies, not evidence the race moved; Cook's rating for Ohio Senate hasn't changed.</p>
+      <span class="src">InsiderAdvantage, pub. Oct 1</span>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="tag dem">Generic ballot</span></div>
+      <p class="item-title">Silver Bulletin average holds at D+9.0 — no new reading since Oct 2</p>
+      <p>Nate Silver's generic-ballot average sits at Democrats +9.0 as of October 2, up from D+6.7 entering September. A Monday post elsewhere restating "Democrats lead on the generic ballot" appears to be citing this same figure rather than a fresh one — no meaningful movement to report today.</p>
+      <span class="src">Silver Bulletin, as of Oct 2</span>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><span class="tag neutral">Ratings</span></div>
+      <p class="item-title">No confirmed Cook, Sabato, or Inside Elections rating changes today</p>
+      <p>Checked Cook's Governor ratings directly (unchanged since the Oct 1 Texas/Florida move) and searched broadly for new Sabato's Crystal Ball or Cook House/Senate batches. Found nothing dated this week: one hit was an 18-seat Cook release from January, long before this cycle's current ratings reset, and another was today's own recap of the already-known September 25 House batch, not a new move. Direct verification of Cook's own Senate and House pages was blocked by a site permission request this run that went unanswered — see the seat-change section for what that means for today's score.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Election administration &amp; security</h2>
+    </div>
+    <div class="note-box">
+      <strong>Nothing new in the last 24–48 hours.</strong> The DNC's lawsuit over the Pentagon/USPS change to the overseas-voter registration postcard (filed Oct 1) is still pending, with no ruling yet. The dispute over possible ICE presence at polling places is in the same posture as prior coverage — a DHS denial, pending civil-rights suits, no new filings found today. Also checked and found no update on Georgia or other states' voter-roll litigation, or on Missouri's Proposition A redistricting referendum, beyond what's already been covered in recent issues.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>Seat-change score</h2>
+      <span class="section-sub">Confirmed nonpartisan rating moves only</span>
+    </div>
+
+    <div class="score-today">
+      <div class="num zero">0</div>
+      <div class="label">
+        <b>Today's score — flat</b>
+        No confirmed race-rating changes from Cook, Sabato's Crystal Ball, or Inside Elections found today. Third flat day in a row, following the Oct 1–2 bump from Sabato's 11-race House batch and Cook's Texas Governor move.
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="score-table">
+        <thead>
+          <tr><th>Date</th><th>Score</th><th>What drove it</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="date">Sep 29</td><td class="score flat">0</td><td class="note">None confirmed. Cook Senate/House unchanged; this was the day before Sabato's already-published 11-race batch was caught.</td></tr>
+          <tr><td class="date">Sep 30</td><td class="score flat">0</td><td class="note">None confirmed this run — a Sabato 11-race House batch (dated Sep 29–30) was actually live but missed by the day's search, caught the next day.</td></tr>
+          <tr><td class="date">Oct 1</td><td class="score pos">+11</td><td class="note">Sabato's Crystal Ball shifted 11 House races toward Democrats (itemized via Newsweek + DCCC).</td></tr>
+          <tr><td class="date">Oct 2</td><td class="score pos">+1</td><td class="note">Cook moved Texas Governor from Likely R to Lean R.</td></tr>
+          <tr><td class="date">Oct 3</td><td class="score flat">0</td><td class="note">None confirmed. Cook Senate/House/Governor all unchanged since their last logged moves.</td></tr>
+          <tr><td class="date">Oct 4</td><td class="score flat">0</td><td class="note">None confirmed. Cook's "recent" House list was itemization of the already-scored Sep 25 batch, not a new move.</td></tr>
+          <tr class="today"><td class="date">Oct 5</td><td class="score flat">0</td><td class="note">None confirmed. Cook Governor unchanged since Oct 1; Cook Senate/House direct check blocked today, no new reporting found via search.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="trend-line"><b>Trend:</b> flat for three straight days after the Oct 1–2 bump. Net across the trailing 7 days is <b>+12</b>, but all of it came from two discrete rating-change events (Sabato's Oct 1 House batch, Cook's Oct 2 Texas Governor move) rather than steady day-to-day drift — worth watching whether the next rater update resumes the September pace or confirms things have plateaued into the final month.</p>
+  </section>
+
+  <footer>
+    Sources: AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, Silver Bulletin, official state election offices, and court filings/dockets. Partisan outlets and opinion pieces are excluded as primary sources. Compiled automatically each day — always verify anything consequential against the primary source before acting on it.
+  </footer>
+
+</div>
+
+</body></html>

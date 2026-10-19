@@ -1,0 +1,235 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a2e;
+    --muted: #5a5a72;
+    --card-bg: #f7f7fb;
+    --border: #e2e2ec;
+    --dem: #2b5fd9;
+    --rep: #c93838;
+    --accent: #6d4fd1;
+    --good: #1a8a5f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14141f;
+      --fg: #eaeaf4;
+      --muted: #a3a3ba;
+      --card-bg: #1d1d2c;
+      --border: #303046;
+      --dem: #7ea2ff;
+      --rep: #ff8b8b;
+      --accent: #b39dff;
+      --good: #5fd9a8;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14141f;
+    --fg: #eaeaf4;
+    --muted: #a3a3ba;
+    --card-bg: #1d1d2c;
+    --border: #303046;
+    --dem: #7ea2ff;
+    --rep: #ff8b8b;
+    --accent: #b39dff;
+    --good: #5fd9a8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0 16px 48px;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  header {
+    padding: 32px 0 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+  .kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0 0 6px;
+  }
+  h1 { font-size: 26px; margin: 0 0 6px; line-height: 1.2; }
+  .subhead { color: var(--muted); font-size: 14px; margin: 0; }
+  h2 {
+    font-size: 17px;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  section { margin-bottom: 36px; }
+  .item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .item p { margin: 0 0 6px; font-size: 14.5px; }
+  .item p:last-child { margin-bottom: 0; }
+  .src {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .src a { color: var(--accent); text-decoration: none; }
+  .src a:hover { text-decoration: underline; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .tag.d { background: color-mix(in srgb, var(--dem) 18%, transparent); color: var(--dem); }
+  .tag.r { background: color-mix(in srgb, var(--rep) 18%, transparent); color: var(--rep); }
+  .tag.n { background: color-mix(in srgb, var(--muted) 20%, transparent); color: var(--muted); }
+  .empty-note {
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+    padding: 10px 2px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  th, td {
+    text-align: left;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+  tr:last-child td { border-bottom: none; }
+  .score-pos { color: var(--dem); font-weight: 700; }
+  .score-neg { color: var(--rep); font-weight: 700; }
+  .score-zero { color: var(--muted); font-weight: 700; }
+  .today-row { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+  .trend-line {
+    margin-top: 10px;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+  .caveat {
+    font-size: 12.5px;
+    color: var(--muted);
+    background: var(--card-bg);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-top: 10px;
+  }
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="kicker">2026 Midterm Election Digest &middot; Issue No. 10</p>
+    <h1>Wednesday, September 23, 2026</h1>
+    <p class="subhead">Nonpartisan sourcing only &middot; developments from roughly the last 24&ndash;48 hours</p>
+  </header>
+
+  <section>
+    <h2>🗳️ Race developments</h2>
+
+    <div class="item">
+      <p><span class="tag n">TX &middot; Senate</span> A Texas Southern University poll (as cited in Forbes' daily tracker) puts Democrat James Talarico ahead of Republican Ken Paxton 47&ndash;46 for the open Senate seat &mdash; the first numbers logged in this digest for the Texas Senate race specifically (distinct from the Texas governor's race). Cook and Sabato still rate the seat competitive but short of toss-up.</p>
+      <p class="src">Source: <a href="https://www.forbes.com/sites/saradorn/2026/09/22/hottest-2026-midterm-races-democrats-lead-in-texas-michigan-iowa-updated-daily/" target="_blank" rel="noopener">Forbes daily tracker</a>, Sept 22</p>
+    </div>
+
+    <div class="item">
+      <p><span class="tag d">OH &middot; Governor</span> Sabato's Crystal Ball moved the open Ohio governor's race from Leans Republican to Toss-up, citing a Bowling Green State University poll showing Democrat Amy Acton (former state health director) leading Republican Vivek Ramaswamy by 3 points. This is a confirmed nonpartisan rating change &mdash; see the seat-change score section below.</p>
+      <p class="src">Source: Sabato's Crystal Ball, "Rating Changes Toward Democrats Across the Board" (Sept 22); confirmed via <a href="https://www.washingtonexaminer.com/news/campaigns/congressional/4737790/el-sayed-favorite-win-michigan-sabato/" target="_blank" rel="noopener">Washington Examiner</a> and campaign reporting</p>
+    </div>
+
+    <div class="item">
+      <p><span class="tag d">MI &middot; Senate</span> The same Sabato piece moved Michigan's open Senate seat from Toss-up to Leans Democratic, with the piece separately describing Abdul El-Sayed (D) as a "soft favorite" against Mike Rogers (R). Also a confirmed rating change &mdash; counted in the score below.</p>
+      <p class="src">Source: <a href="https://www.washingtonexaminer.com/news/campaigns/congressional/4737790/el-sayed-favorite-win-michigan-sabato/" target="_blank" rel="noopener">Washington Examiner</a>, Sept 22</p>
+    </div>
+
+    <div class="caveat">
+      Note: multiple secondary outlets report that this same Sabato piece ("Rating Changes Toward Democrats Across the Board," Sept 22) moved <strong>10 races total</strong> toward Democrats, but direct access to the full Crystal Ball article and a related thehill.com writeup was blocked (403 errors) despite repeated attempts, so only the two race moves above could be independently itemized with old&rarr;new ratings. Treat today's seat-change score as a floor, not a complete count of that piece's moves.
+    </div>
+  </section>
+
+  <section>
+    <h2>📊 Polling & forecasts</h2>
+
+    <div class="item">
+      <p><strong>National:</strong> NPR/PBS News/Marist poll (fielded Sept 14&ndash;15, published Sept 23): Trump job approval 39%/59% disapprove, with 53% saying they "strongly" disapprove &mdash; the highest strong-disapproval share recorded since 2017. Registered voters prefer Democrats on the generic congressional ballot 53&ndash;41 (D+12). 45% say their vote is "against Trump" vs. 25% "for" him.</p>
+      <p class="src">Source: <a href="https://www.nprillinois.org/2026-09-23/poll-most-voters-agree-the-2026-midterms-are-all-about-trump-and-they-disapprove" target="_blank" rel="noopener">NPR</a>, Sept 23</p>
+    </div>
+
+    <div class="item">
+      <p><strong>Senate polling roundup</strong> (Forbes daily tracker, Sept 22): Ohio &mdash; Sherrod Brown (D) 53, John Husted (R) 45 (Fox News poll); Iowa &mdash; Josh Turek (D) 50, Ashley Hinson (R) 42 (Marist); Michigan &mdash; Abdul El-Sayed (D) 47, Mike Rogers (R) 40 (Suffolk); Maine &mdash; Troy Jackson (D) 46, Susan Collins (R) 44 (YouGov); Alaska &mdash; Mary Peltola (D) 46, Dan Sullivan (R) 41 (AARP poll, limited to voters 50+, so treat with caution). Nate Silver's average has Trump approval at 39% and the generic ballot at D+7.6.</p>
+      <p class="src">Source: <a href="https://www.forbes.com/sites/saradorn/2026/09/22/hottest-2026-midterm-races-democrats-lead-in-texas-michigan-iowa-updated-daily/" target="_blank" rel="noopener">Forbes</a>, Sept 22</p>
+    </div>
+
+    <div class="item">
+      <p><strong>No new movement:</strong> Cook Political Report's ratings pages are unchanged since last checked &mdash; Senate (Sept 15), House (Sept 11), Governor (Sept 17). No new Cook rating changes to report today.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>🔒 Election administration & security</h2>
+
+    <div class="item">
+      <p>A federal judge (Kymberly Evanson) dismissed the Trump administration's lawsuit seeking Washington state's full voter roll, including dates of birth, driver's license numbers, and partial Social Security numbers. The ruling called DOJ's legal theory "not persuasive." Reporting puts this at the <strong>25th</strong> such DOJ voter-data lawsuit lost nationwide, with an appeals court also having ruled against the administration in a Michigan case.</p>
+      <p class="src">Source: <a href="https://washingtonstatestandard.com/2026/09/22/trump-administrations-wa-voter-roll-lawsuit-dismissed/" target="_blank" rel="noopener">Washington State Standard</a>, Sept 22</p>
+    </div>
+
+    <div class="item">
+      <p><strong>Still pending:</strong> The SAVE database case (DHS v. League of Women Voters) remains before the Supreme Court, fully briefed since Sept 15 with no ruling issued as of this morning; SCOTUSblog noted a decision "could come at any time." The injunction blocking DHS's use of the database stays in effect in the meantime. The separate USPS mail-ballot rule fight was already resolved by SCOTUS on Sept 15 (injunction left in place) and has seen no further movement since.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>🧮 Seat-change score</h2>
+    <p style="font-size:14.5px; color:var(--muted); margin-top:-6px;">Tracks confirmed race-rating movements from named nonpartisan raters only (Cook, Sabato, etc.) &mdash; not polls, fundraising, endorsements, or aggregate probabilities. +1 per race moving toward Democrats, &minus;1 toward Republicans, flat regardless of how many rating notches moved.</p>
+
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Score</th><th>What drove it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sept 17</td><td class="score-zero">0</td><td>No confirmed rating change</td></tr>
+        <tr><td>Sept 18</td><td class="score-zero">0</td><td>Sabato's 8-race House move flagged but unconfirmed that day</td></tr>
+        <tr><td>Sept 19</td><td class="score-pos">+5</td><td>Sabato's weekly piece confirmed: NJ-7, MI-4, IA-1, IA-2, CO-5 all moved D-ward (weekly-cadence batch, not a daily signal)</td></tr>
+        <tr><td>Sept 20</td><td class="score-pos">+1</td><td>Cook: Iowa Senate Lean R &rarr; Toss-up</td></tr>
+        <tr><td>Sept 21</td><td class="score-zero">0</td><td>No confirmed rating change</td></tr>
+        <tr><td>Sept 22</td><td class="score-zero">0</td><td>No confirmed rating change</td></tr>
+        <tr class="today-row"><td>Sept 23</td><td class="score-pos">+2</td><td>Sabato: MI Senate Toss-up &rarr; Leans D; OH Governor Leans R &rarr; Toss-up (both from a piece reportedly moving 10 races total &mdash; only these 2 independently confirmed, see caveat above)</td></tr>
+      </tbody>
+    </table>
+
+    <p class="trend-line"><strong>Trend:</strong> +8 net over the trailing 7 days, every qualifying movement this week toward Democrats and none toward Republicans. Sept 19's batch update inflates the week's total since Sabato's is a weekly-cadence source, not a smooth daily one &mdash; the more telling signal is that no rating has moved R-ward in over a week.</p>
+  </section>
+
+  <footer>
+    Sources: AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, NPR/PBS News/Marist, Forbes, Washington Examiner, Washington State Standard, SCOTUSblog, official court dockets. Compiled from nonpartisan reporting; polling and forecasts are not predictions of outcomes.
+  </footer>
+</div>
+
+</body></html>

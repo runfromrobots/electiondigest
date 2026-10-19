@@ -1,0 +1,338 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<title>Midterm Dispatch</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --paper:#f1efe8;
+    --paper-raised:#ffffff;
+    --ink:#1a2230;
+    --ink-soft:#4b5566;
+    --ink-faint:#7c8494;
+    --rule:#d8d4c8;
+    --accent:#a8791f;
+    --accent-ink:#5c4213;
+    --accent-soft:#f3e6cc;
+    --dem:#3d5a80;
+    --rep:#8c3b3b;
+    --shadow: 0 1px 2px rgba(26,34,48,.06), 0 8px 24px rgba(26,34,48,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#14171d;
+      --paper-raised:#1c2029;
+      --ink:#eae6db;
+      --ink-soft:#b4b0a6;
+      --ink-faint:#7f7a70;
+      --rule:#33363f;
+      --accent:#d9a545;
+      --accent-ink:#f2d999;
+      --accent-soft:#2a2318;
+      --dem:#8fb1d8;
+      --rep:#d18a8a;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#14171d;
+    --paper-raised:#1c2029;
+    --ink:#eae6db;
+    --ink-soft:#b4b0a6;
+    --ink-faint:#7f7a70;
+    --rule:#33363f;
+    --accent:#d9a545;
+    --accent-ink:#f2d999;
+    --accent-soft:#2a2318;
+    --dem:#8fb1d8;
+    --rep:#d18a8a;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 30px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    padding-inline:20px;
+    padding-block: max(28px, env(safe-area-inset-top, 0px)) max(48px, env(safe-area-inset-bottom, 0px));
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;}
+  [hidden]{display:none!important;}
+
+  .sheet{
+    max-width:700px;
+    margin:0 auto;
+  }
+
+  /* Masthead */
+  .masthead{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+    border-bottom:3px solid var(--ink);
+    padding-bottom:14px;
+    margin-bottom:6px;
+  }
+  .masthead h1{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600;
+    font-size:clamp(1.9rem, 5vw, 2.5rem);
+    letter-spacing:-0.01em;
+    margin:0;
+    text-wrap:balance;
+  }
+  .masthead .meta{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    text-align:right;
+    line-height:1.6;
+  }
+  .dateline{
+    display:flex;
+    justify-content:space-between;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.72rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    padding-block:10px;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:30px;
+  }
+  .dateline b{color:var(--accent-ink);}
+
+  /* Sections */
+  section{margin-bottom:38px;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:16px;
+  }
+  .section-num{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.78rem;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    border-radius:3px;
+    padding:2px 7px;
+    letter-spacing:0.03em;
+  }
+  .section-head h2{
+    font-family:"Newsreader", Georgia, serif;
+    font-weight:600;
+    font-size:1.35rem;
+    margin:0;
+    letter-spacing:-0.005em;
+  }
+  .section-sub{
+    font-size:0.85rem;
+    color:var(--ink-faint);
+    margin:-10px 0 16px 0;
+    padding-left:56px;
+  }
+
+  .items{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .items li{
+    padding:14px 0 14px 20px;
+    border-left:2px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    position:relative;
+  }
+  .items li:last-child{border-bottom:none;}
+  .items li::before{
+    content:"";
+    position:absolute;
+    left:-2px; top:19px;
+    width:2px; height:16px;
+    background:var(--accent);
+  }
+  .item-text{
+    font-size:0.98rem;
+    line-height:1.5;
+    margin:0 0 6px 0;
+  }
+  .item-text b{font-weight:600;}
+  .tag{
+    display:inline-block;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.66rem;
+    font-weight:600;
+    letter-spacing:0.02em;
+    padding:1px 5px;
+    border-radius:3px;
+    margin-right:2px;
+    vertical-align:1px;
+  }
+  .tag.d{color:var(--dem); background:color-mix(in srgb, var(--dem) 14%, transparent);}
+  .tag.r{color:var(--rep); background:color-mix(in srgb, var(--rep) 14%, transparent);}
+
+  .source-line{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.72rem;
+    color:var(--ink-faint);
+    letter-spacing:0.01em;
+  }
+  .source-line a{color:var(--ink-soft); text-decoration:underline; text-decoration-color:var(--rule); text-underline-offset:2px;}
+  .source-line a:hover{color:var(--accent-ink);}
+
+  .note-box{
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    border-left:3px solid var(--accent);
+    border-radius:4px;
+    padding:14px 16px;
+    font-size:0.92rem;
+    line-height:1.55;
+    color:var(--ink-soft);
+    box-shadow:var(--shadow);
+  }
+  .note-box b{color:var(--ink);}
+
+  .share-card{
+    background:var(--accent-soft);
+    border:1px solid var(--accent);
+    border-radius:6px;
+    padding:18px 20px;
+  }
+  .share-card .pitch{
+    font-family:"Newsreader", Georgia, serif;
+    font-style:italic;
+    font-size:1.05rem;
+    line-height:1.5;
+    color:var(--ink);
+    margin:0 0 10px 0;
+  }
+
+  footer{
+    margin-top:44px;
+    padding-top:16px;
+    border-top:1px solid var(--rule);
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.68rem;
+    color:var(--ink-faint);
+    letter-spacing:0.02em;
+    line-height:1.7;
+  }
+
+  @media (max-width: 480px){
+    .section-sub{padding-left:0;}
+    .masthead{flex-direction:column;}
+    .masthead .meta{text-align:left;}
+  }
+</style>
+
+<div class="sheet">
+  <div class="masthead">
+    <h1>Midterm Dispatch</h1>
+    <div class="meta">Issue No. 3<br>2026 U.S. Midterms</div>
+  </div>
+  <div class="dateline">
+    <span>For MK &mdash; nonpartisan wire roundup</span>
+    <span><b>Wednesday, Sept 16, 2026</b></span>
+  </div>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Race developments</h2>
+    </div>
+    <ul class="items">
+      <li>
+        <p class="item-text"><span class="tag d">D</span><span class="tag r">R</span> In Maine, former Sen. Joe Manchin crossed party lines to endorse Sen. <b>Susan Collins (R)</b> over challenger Troy Jackson, calling her "the soul of the Senate" in a CNBC interview.</p>
+        <p class="source-line">Portland Press Herald &amp; The Hill, Sept 14 &mdash; <a href="https://www.pressherald.com/2026/09/14/susan-collins-endorsed-by-democrat-joe-manchin/">pressherald.com</a></p>
+      </li>
+      <li>
+        <p class="item-text"><span class="tag r">R</span> Also in Maine: the National Federation of Independent Business endorsed Collins at a Naples campaign stop, citing her PPP-loan and constituent-service record. Collins confirmed she skipped Trump's Dallas midterm convention to keep local campaign events instead.</p>
+        <p class="source-line">Maine Morning Star, Sept 14 &mdash; <a href="https://mainemorningstar.com/2026/09/14/collins-leans-on-familiar-playbook-in-hopes-of-defying-political-headwinds/">mainemorningstar.com</a></p>
+      </li>
+      <li>
+        <p class="item-text"><span class="tag r">R</span> In Georgia's Senate race, Gov. Brian Kemp formally endorsed Rep. Mike Collins over Sen. <b>Jon Ossoff (D)</b>, and noted national Republicans had unsuccessfully tried to recruit Kemp himself for the race. Both campaigns confirmed for an Oct. 8 televised debate.</p>
+        <p class="source-line">WRDW, Sept 14 &mdash; <a href="https://www.wrdw.com/2026/09/14/gov-kemp-endorses-rep-mike-collins-us-senate-bid/">wrdw.com</a></p>
+      </li>
+      <li>
+        <p class="item-text"><span class="tag d">D</span> Ossoff and Collins held dueling events in the Athens area: Ossoff, joined by former Atlanta Mayor Keisha Lance Bottoms, cast his opponent as a "Trump puppet," while Collins toured a nursing program with Dr. Mehmet Oz.</p>
+        <p class="source-line">WRDW, Sept 14 &mdash; <a href="https://www.wrdw.com/2026/09/14/ossoff-collins-clash-during-separate-ga-stops-senate-race-heats-up/">wrdw.com</a></p>
+      </li>
+      <li>
+        <p class="item-text"><span class="tag r">R</span> Trump publicly reaffirmed his endorsement of Republican Darren Bailey against Gov. <b>JB Pritzker (D)</b> in Illinois &mdash; even as Bailey has been quietly distancing himself from Trump to court moderate suburban voters.</p>
+        <p class="source-line">Chicago Sun-Times, Sept 14 &mdash; <a href="https://chicago.suntimes.com/elections/2026/09/14/trump-endorses-bailey-pritzker-illinois-governor-race">suntimes.com</a></p>
+      </li>
+      <li>
+        <p class="item-text"><span class="tag d">D</span> Trump traveled to Gastonia, NC on Sept 16 to rally for Senate nominee Michael Whatley, whom local coverage notes trails <b>Roy Cooper (D)</b> in both fundraising and polling.</p>
+        <p class="source-line">WRAL, Sept 11 &mdash; <a href="https://www.wral.com/news/local/president-trump-north-carolina-gastonia-september-2026/">wral.com</a></p>
+      </li>
+      <li>
+        <p class="item-text">Arizona's two most competitive House seats sharpen: AZ-01 (Adam Feeley, R, vs. Amish Shah, D) and AZ-06 (Rep. Juan Ciscomani, R, vs. Kirsten Engel-successor Cesar Mendoza, D), both DCCC/NRCC top targets, following a Sept. 10 debate.</p>
+        <p class="source-line">KOLD, Sept 14 &mdash; <a href="https://www.kold.com/2026/09/14/2026-election-these-competitive-arizona-races-could-decide-control-us-house/">kold.com</a></p>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Polling &amp; forecasts</h2>
+    </div>
+    <ul class="items">
+      <li>
+        <p class="item-text"><span class="tag r">R</span> Cook Political Report moved New Hampshire's Senate race from <b>Lean Democrat to Toss Up</b> &mdash; the first ratings movement there since the race was set &mdash; citing recent general-election polling showing Republican John Sununu gaining on Rep. Chris Pappas (D). A GOP-aligned co/efficient poll (Sept 9&ndash;11, n=958) had them tied 46&ndash;46; a nonpartisan UNH poll in late August also showed the race tied.</p>
+        <p class="source-line">Cook Political Report / Washington Examiner, Sept 15 &mdash; <a href="https://www.washingtonexaminer.com/news/campaigns/congressional/4728412/cook-political-report-new-hampshire-senate-race-toss-up/">washingtonexaminer.com</a></p>
+      </li>
+    </ul>
+    <div class="note-box" style="margin-top:14px;">
+      Nothing else moved. Cook's House ratings page carries a "September 14" page-refresh timestamp, but the underlying changes it lists (FL-14, MI-10, MI-08 &rarr; dated Aug 25; OH-15, OH-10, CO-03 &rarr; dated Aug 13) are several weeks old, not new shifts &mdash; flagging so it isn't mistaken for movement in a future issue. Sabato's Crystal Ball rating-changes page has nothing new this week. The generic congressional ballot (Silver Bulletin average) sits at roughly <b>D+6.6</b>, which the aggregator itself describes as essentially flat over the past month.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Election administration &amp; security</h2>
+    </div>
+    <ul class="items">
+      <li>
+        <p class="item-text">The Supreme Court rejected the Trump administration's request to lift lower-court injunctions blocking new USPS rules that would have required states to submit voter lists and use new tracking barcodes on mail-ballot envelopes. The majority left the injunctions in place; Justices Alito and Thomas dissented and would have granted the stay; Justice Kavanaugh concurred separately, saying there wasn't enough time to implement the change before the midterms regardless of the merits. Effect: mail-ballot handling proceeds unchanged for 2026.</p>
+        <p class="source-line">NPR, Sept 14 &mdash; <a href="https://www.npr.org/2026/09/14/nx-s1-5962190/supreme-court-mail-in-voting-trump">npr.org</a></p>
+      </li>
+      <li>
+        <p class="item-text">Separately, the fight over DHS's "SAVE" voter-citizenship database (<i>DHS v. League of Women Voters</i>, No. 26A308) remains unresolved: the League of Women Voters coalition's opposition brief was due to Chief Justice Roberts by 4pm ET on Sept 15. As of this writing, no ruling, stay, or order has been reported by SCOTUS &mdash; still pending, worth checking again tomorrow.</p>
+        <p class="source-line">SCOTUSblog / Law &amp; Crime, Sept 8&ndash;9 (docket) &mdash; <a href="https://www.scotusblog.com/2026/09/citing-election-fraud-concerns-trump-administration-brings-dispute-over-voter-database-to-the-su/">scotusblog.com</a></p>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>Worth sharing</h2>
+    </div>
+    <div class="share-card">
+      <p class="pitch">"No last-minute rule changes to how your ballot gets delivered." That's the plain-English version of yesterday's SCOTUS ruling &mdash; and it held even with a Trump-appointed justice (Kavanaugh) declining to grant the stay. Voting by mail is already underway in several states; this keeps the rules from shifting under voters mid-stream.</p>
+      <p class="source-line">Same story as above &mdash; NPR, Sept 14 &mdash; <a href="https://www.npr.org/2026/09/14/nx-s1-5962190/supreme-court-mail-in-voting-trump">npr.org</a></p>
+    </div>
+  </section>
+
+  <footer>
+    Sources: AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, NPR, SCOTUSblog, local network affiliates, and official campaign/office statements. Compiled by Claude for MK &middot; not for redistribution as news reporting.
+  </footer>
+</div>
+
+</body></html>

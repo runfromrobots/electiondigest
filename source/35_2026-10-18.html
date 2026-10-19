@@ -1,0 +1,390 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Midterm Election Digest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: a single-column briefing column (max ~720px) like a wire-service
+   dispatch, with a fixed-feel masthead, numbered dispatch sections, and a
+   tabular score ledger rendered in mono for scan-ability. */
+:root{
+  --bg:#f4f2ec;
+  --surface:#ffffff;
+  --ink:#1c1a15;
+  --ink-dim:#5b5748;
+  --rule:#d8d3c4;
+  --accent:#8a1f1f;      /* dispatch red */
+  --accent-ink:#ffffff;
+  --dem:#2b5a8c;
+  --rep:#8a1f1f;
+  --flat:#8a8572;
+  --chip-bg:#ece7d8;
+  --font-display:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body:"Source Serif 4", Georgia, serif;
+  --font-ui:"Inter", -apple-system, system-ui, sans-serif;
+  --font-mono:"JetBrains Mono", "SF Mono", monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15130f;
+    --surface:#1d1a14;
+    --ink:#ece7d8;
+    --ink-dim:#a8a28d;
+    --rule:#3a362b;
+    --accent:#e2574c;
+    --accent-ink:#15130f;
+    --dem:#6fa8dc;
+    --rep:#e2574c;
+    --flat:#8a8572;
+    --chip-bg:#262216;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15130f;
+  --surface:#1d1a14;
+  --ink:#ece7d8;
+  --ink-dim:#a8a28d;
+  --rule:#3a362b;
+  --accent:#e2574c;
+  --accent-ink:#15130f;
+  --dem:#6fa8dc;
+  --rep:#e2574c;
+  --flat:#8a8572;
+  --chip-bg:#262216;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  line-height:1.5;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+.wrap{
+  max-width:720px;
+  margin:0 auto;
+  padding-block:28px 60px;
+}
+
+header.masthead{
+  border-top:3px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding-block:10px 14px;
+  margin-bottom:28px;
+}
+.masthead-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:12px;
+  font-family:var(--font-ui);
+  font-size:0.72rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  flex-wrap:wrap;
+}
+h1.title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(1.9rem, 6vw, 2.6rem);
+  letter-spacing:-0.01em;
+  margin:6px 0 4px;
+  text-wrap:balance;
+}
+.dateline{
+  font-family:var(--font-ui);
+  font-size:0.8rem;
+  color:var(--ink-dim);
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:baseline;
+}
+.dateline b{color:var(--ink); font-weight:600;}
+
+.lede{
+  font-size:0.98rem;
+  color:var(--ink-dim);
+  margin-bottom:34px;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--rule);
+}
+
+section.dispatch{ margin-bottom:38px; }
+.sec-head{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  margin-bottom:14px;
+}
+.sec-num{
+  font-family:var(--font-mono);
+  font-size:0.78rem;
+  color:var(--accent);
+  border:1px solid var(--accent);
+  border-radius:3px;
+  padding:1px 6px;
+  flex:none;
+}
+h2.sec-title{
+  font-family:var(--font-ui);
+  font-weight:700;
+  font-size:1.02rem;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  margin:0;
+}
+
+.item{
+  padding-block:14px;
+  border-bottom:1px solid var(--rule);
+}
+.item:last-child{border-bottom:none;}
+.item-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:4px;
+}
+.item-title{
+  font-weight:600;
+  font-size:1.02rem;
+}
+.item-tag{
+  font-family:var(--font-ui);
+  font-size:0.68rem;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  white-space:nowrap;
+}
+.item p{margin:4px 0 6px; font-size:0.96rem;}
+.item .src{
+  font-family:var(--font-ui);
+  font-size:0.78rem;
+  color:var(--ink-dim);
+}
+.item .src a{color:var(--ink-dim); text-decoration:underline; text-decoration-color:var(--rule);}
+.item .src a:hover{color:var(--accent);}
+
+.pill{
+  display:inline-block;
+  font-family:var(--font-ui);
+  font-size:0.68rem;
+  font-weight:600;
+  letter-spacing:0.03em;
+  padding:1px 7px;
+  border-radius:999px;
+  background:var(--chip-bg);
+  color:var(--ink-dim);
+}
+.pill.d{color:var(--dem); border:1px solid var(--dem);}
+.pill.r{color:var(--rep); border:1px solid var(--rep);}
+
+.empty-note{
+  font-family:var(--font-ui);
+  font-size:0.88rem;
+  color:var(--ink-dim);
+  font-style:italic;
+  padding-block:8px;
+}
+
+.score-wrap{
+  overflow-x:auto;
+  border:1px solid var(--rule);
+  border-radius:6px;
+  background:var(--surface);
+}
+table.score{
+  width:100%;
+  border-collapse:collapse;
+  font-family:var(--font-mono);
+  font-size:0.82rem;
+  min-width:520px;
+}
+table.score th, table.score td{
+  padding:8px 12px;
+  text-align:left;
+  border-bottom:1px solid var(--rule);
+  font-variant-numeric: tabular-nums;
+}
+table.score th{
+  font-family:var(--font-ui);
+  font-size:0.7rem;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  background:var(--chip-bg);
+}
+table.score td.note{font-family:var(--font-ui); font-size:0.78rem; color:var(--ink-dim); white-space:normal; min-width:260px;}
+table.score tr:last-child td{border-bottom:none; font-weight:600;}
+.score-val{font-weight:700;}
+.score-val.pos{color:var(--dem);}
+.score-val.neg{color:var(--rep);}
+.score-val.zero{color:var(--flat);}
+
+.trend-line{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:14px;
+  font-family:var(--font-ui);
+  font-size:0.86rem;
+  color:var(--ink-dim);
+}
+.trend-line svg{flex:none;}
+
+.methodology{
+  font-family:var(--font-ui);
+  font-size:0.78rem;
+  color:var(--ink-dim);
+  margin-top:12px;
+  padding:12px 14px;
+  background:var(--chip-bg);
+  border-radius:6px;
+}
+
+footer{
+  margin-top:40px;
+  padding-top:16px;
+  border-top:1px solid var(--rule);
+  font-family:var(--font-ui);
+  font-size:0.76rem;
+  color:var(--ink-dim);
+}
+footer p{margin:4px 0;}
+
+@media (max-width: 480px){
+  .item-head{flex-direction:column; align-items:flex-start;}
+  table.score{font-size:0.76rem;}
+}
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <span>Issue No. 35</span>
+      <span>Daily Digest &middot; Nonpartisan Sourcing</span>
+    </div>
+    <h1 class="title">Midterm Election Digest</h1>
+    <div class="dateline">
+      <b>Sunday, October 18, 2026</b>
+      <span>&mdash; 16 days to Election Day (Nov. 3)</span>
+    </div>
+  </header>
+
+  <p class="lede">A quieter news day after two heavy rating-change batches this week. No new confirmed race-rating moves today — today's seat-change score is <strong>0</strong>. One competitive House debate and a tightening Georgia governor's poll below, plus the 7-day score ledger.</p>
+
+  <section class="dispatch">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Race developments</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <span class="item-title">IA-02 House: Hinson breaks with Trump on Russia diesel deal in final debate</span>
+        <span class="pill">House &middot; Toss-up</span>
+      </div>
+      <p>In the second and final debate between Rep. Ashley Hinson (R) and Democratic challenger Josh Turek, Hinson broke from the administration over its deal easing sanctions on Russian diesel, arguing fuel prices could come down without benefiting Putin. Turek countered that Hinson's tariff votes are pushing Iowa farmers toward a crisis. The seat (Trump won the district by 13 points in 2024) was moved to Toss-up by Cook on Oct. 9 and is one of several Iowa districts rated competitive this cycle.</p>
+      <div class="src">Oct. 13 debate, reported Oct. 14 &middot; <a href="https://www.axios.com/2026/10/14/senate-midterm-debates-ossoff-georgia-maine-iowa" target="_blank" rel="noopener">Axios</a></div>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <span class="item-title">Georgia governor: single new poll shows Jackson's lead inside the margin of error</span>
+        <span class="pill">Governor &middot; Toss-up</span>
+      </div>
+      <p>An InsiderAdvantage poll of 800 likely voters (Oct. 12&ndash;13) put Rick Jackson (R) at 49%, Keisha Lance Bottoms (D) at 47%, with the race's &plusmn;3.46% margin of error larger than the gap. One poll from one firm &mdash; not a rating change &mdash; but it's the freshest public read on a race Cook already rates a toss-up with early voting underway.</p>
+      <div class="src">Fielded Oct. 12&ndash;13, published Oct. 14 &middot; <a href="https://www.wrdw.com/2026/10/14/new-poll-shows-ga-governor-candidates-tight-race/" target="_blank" rel="noopener">WRDW (InsiderAdvantage poll)</a></div>
+    </div>
+
+    <div class="item">
+      <div class="item-head">
+        <span class="item-title">Kansas Senate: Trump rally venue for Marshall confirmed as Wichita date still unset</span>
+        <span class="pill">Senate &middot; Toss-up</span>
+      </div>
+      <p>Follow-up on the Trump rally for Sen. Roger Marshall first flagged Oct. 12&ndash;13: reporting now confirms the venue as the Heartland Credit Union Arena in Park City (Wichita), part of a roughly 10-state October swing. No firm date has been set yet. Cook's toss-up rating holds on a seat Kansas Republicans have not lost in roughly a century.</p>
+      <div class="src">Reported Oct. 13 &middot; <a href="https://www.kctv5.com/2026/10/13/potus-park-city-trump-rally-roger-marshall-heartland-credit-union-arena/" target="_blank" rel="noopener">KCTV5</a></div>
+    </div>
+
+    <p class="empty-note">Georgia and Maine Senate debate coverage (Ossoff&ndash;Collins, Collins&ndash;Jackson, both Oct. 13) is skipped today &mdash; already fully covered in the Oct. 16 issue with no materially new facts since.</p>
+  </section>
+
+  <section class="dispatch">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Polling &amp; forecasts</h2>
+    </div>
+    <p class="empty-note">No confirmed rating changes from Cook, Sabato, or Inside Elections found in the last 24&ndash;48 hours &mdash; a quiet stretch after this week's two large batches (Oct. 13 and Oct. 17). Generic ballot: Silver Bulletin's most recent confirmed reading remains D+8.9 as of Oct. 16, essentially flat since Oct. 12 (D+8.8); no fresher number located today. See Section 5 for the full rating-change ledger.</p>
+  </section>
+
+  <section class="dispatch">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Election administration &amp; security</h2>
+    </div>
+    <p class="empty-note">Nothing new and verified in this category in the last 24&ndash;48 hours. The Oct. 9 federal ruling vacating DOJ's nationwide voter-roll program (Judge Sooknanan, D.D.C.) and the Oct. 15 white-powder-letter mailings to secretary-of-state offices remain the most recent confirmed developments; both were covered in prior issues and nothing has moved on either since. No new court rulings, official statements, or verified security incidents turned up today. As always: no likelihood-of-stealing-the-election scoring here &mdash; that isn't something this digest quantifies.</p>
+  </section>
+
+  <section class="dispatch">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">Seat-change score</h2>
+    </div>
+    <p style="font-size:0.92rem; color:var(--ink-dim); margin-bottom:14px;">Flat &plusmn;1 per individual race-rating movement from a named nonpartisan rater (Cook, Sabato, Inside Elections), confirmed only &mdash; not polls, fundraising, endorsements, or aggregate probabilities. Positive = toward Democrats.</p>
+
+    <div class="score-wrap">
+      <table class="score">
+        <thead>
+          <tr><th>Date</th><th>Score</th><th class="note">What drove it</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Oct 12</td><td class="score-val zero">0</td><td class="note">None confirmed despite broad search; several ratings pages unreachable (PROVENANCE_REQUIRED).</td></tr>
+          <tr><td>Oct 13</td><td class="score-val pos">+18</td><td class="note">Cook's Oct. 9 House batch (18 races, all D-ward) finally corroborated via Newsweek/Axios/WaPo/Hill/CNN/CBS.</td></tr>
+          <tr><td>Oct 14</td><td class="score-val pos">+4</td><td class="note">Cook's Oct. 13 governor batch: AK, NE, OK, VT, all D-ward.</td></tr>
+          <tr><td>Oct 15</td><td class="score-val zero">0</td><td class="note">None confirmed; all ratings pages showed already-scored batches.</td></tr>
+          <tr><td>Oct 16</td><td class="score-val zero">0</td><td class="note">None confirmed; broad search surfaced only stale/already-scored items.</td></tr>
+          <tr><td>Oct 17</td><td class="score-val pos">+18</td><td class="note">Large IE (Oct. 15 batch) + Cook (Oct. 16 batch) reconciliation, 18 net-new D-ward moves after excluding duplicates.</td></tr>
+          <tr><td>Oct 18</td><td class="score-val zero">0</td><td class="note">None confirmed today &mdash; quiet day after two big batches this week.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="trend-line">
+      <svg width="220" height="40" viewBox="0 0 220 40" aria-hidden="true">
+        <polyline points="10,32 40,8 70,24 100,32 130,32 160,8 190,32" fill="none" stroke="var(--dem)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="10" cy="32" r="3" fill="var(--dem)"/>
+        <circle cx="40" cy="8" r="3" fill="var(--dem)"/>
+        <circle cx="70" cy="24" r="3" fill="var(--dem)"/>
+        <circle cx="100" cy="32" r="3" fill="var(--dem)"/>
+        <circle cx="130" cy="32" r="3" fill="var(--dem)"/>
+        <circle cx="160" cy="8" r="3" fill="var(--dem)"/>
+        <circle cx="190" cy="32" r="3" fill="var(--dem)"/>
+      </svg>
+      <span>7-day total: <strong style="color:var(--dem)">+40</strong>, all toward Democrats, concentrated in two batch days (Oct. 13, Oct. 17) rather than a steady daily drift.</span>
+    </div>
+
+    <div class="methodology">
+      Methodology note: a second rater repeating an already-scored move on the same race in the same direction is not re-scored. A rating change found days after it happened is scored on the day it's <em>found</em>, not the day it occurred (no retroactive backfill). Full methodology log lives in the running tracker this digest maintains.
+    </div>
+  </section>
+
+  <footer>
+    <p>Sources are linked inline. Nonpartisan raters and wire services only &mdash; AP, Reuters, Cook Political Report, Sabato's Crystal Ball, Inside Elections, official state election offices, and court dockets.</p>
+    <p>Compiled automatically for MK's daily midterm tracking. Issue No. 35 &middot; Oct. 18, 2026.</p>
+  </footer>
+
+</div>
+
+</body></html>

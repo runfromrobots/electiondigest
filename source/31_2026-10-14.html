@@ -1,0 +1,278 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<style>
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --border: #e4e0da;
+    --text: #1f1d1a;
+    --text-muted: #6b6560;
+    --accent-d: #2a5ca0;
+    --accent-d-bg: #eaf1fb;
+    --accent-r: #a02a2a;
+    --accent-r-bg: #fbeaea;
+    --accent-neutral: #8a7a4a;
+    --score-pos: #2a7a4a;
+    --score-pos-bg: #e9f5ee;
+    --score-zero: #6b6560;
+    --score-zero-bg: #f0eee9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171512;
+      --surface: #201d19;
+      --border: #3a352e;
+      --text: #ece8e2;
+      --text-muted: #a69e93;
+      --accent-d: #7fb0e8;
+      --accent-d-bg: #1c2b3d;
+      --accent-r: #e08a8a;
+      --accent-r-bg: #3a2020;
+      --accent-neutral: #cbb97a;
+      --score-pos: #7fcb9d;
+      --score-pos-bg: #1c3228;
+      --score-zero: #a69e93;
+      --score-zero-bg: #2a2722;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171512;
+    --surface: #201d19;
+    --border: #3a352e;
+    --text: #ece8e2;
+    --text-muted: #a69e93;
+    --accent-d: #7fb0e8;
+    --accent-d-bg: #1c2b3d;
+    --accent-r: #e08a8a;
+    --accent-r-bg: #3a2020;
+    --accent-neutral: #cbb97a;
+    --score-pos: #7fcb9d;
+    --score-pos-bg: #1c3228;
+    --score-zero: #a69e93;
+    --score-zero-bg: #2a2722;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 16px 64px;
+  }
+  header.masthead {
+    border-bottom: 2px solid var(--text);
+    padding-bottom: 14px;
+    margin-bottom: 24px;
+  }
+  .kicker {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  h1.title {
+    font-size: 26px;
+    margin: 4px 0 6px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .subline {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  section {
+    margin-bottom: 30px;
+  }
+  h2.section-head {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    margin: 0 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+  .item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .item:last-child { margin-bottom: 0; }
+  .item .headline {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .item .summary {
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .item .meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .item .meta a {
+    color: var(--accent-d);
+    text-decoration: none;
+  }
+  .item .meta a:hover { text-decoration: underline; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 5px;
+    letter-spacing: 0.02em;
+  }
+  .tag.d { background: var(--accent-d-bg); color: var(--accent-d); }
+  .tag.r { background: var(--accent-r-bg); color: var(--accent-r); }
+  .tag.neutral { background: var(--score-zero-bg); color: var(--text-muted); }
+  .note {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 10px 14px;
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+  }
+  table.score-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 13px;
+  }
+  table.score-table th, table.score-table td {
+    text-align: left;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  table.score-table th {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    background: var(--bg);
+  }
+  table.score-table tr:last-child td { border-bottom: none; }
+  table.score-table tr.today { background: var(--accent-d-bg); }
+  .score-cell {
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    border-radius: 5px;
+    padding: 2px 8px;
+    display: inline-block;
+    min-width: 28px;
+    text-align: center;
+  }
+  .score-cell.pos { background: var(--score-pos-bg); color: var(--score-pos); }
+  .score-cell.zero { background: var(--score-zero-bg); color: var(--score-zero); }
+  .score-cell.neg { background: var(--accent-r-bg); color: var(--accent-r); }
+  .trend-line {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  footer {
+    margin-top: 36px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .asof { font-size: 12px; color: var(--text-muted); margin-bottom: 2px; }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="kicker">MK's Midterm Election Digest &middot; Issue No. 31</div>
+    <h1 class="title">2026 Midterms — October 14, 2026</h1>
+    <div class="subline">Nonpartisan sourcing only (AP, Reuters, Cook Political Report, Sabato's Crystal Ball, official election offices, court dockets). Developments from roughly the last 24&ndash;48 hours.</div>
+  </header>
+
+  <section>
+    <h2 class="section-head">Race developments</h2>
+
+    <div class="item">
+      <div class="headline">Texas Senate — Talarico back on the trail, debunks "stress episode" rumor, challenges Paxton on debate</div>
+      <div class="summary">Democratic nominee James Talarico returned to campaigning Oct. 12 after nine days out with the flu. Conservative allies of Republican Ken Paxton had claimed he'd suffered a "stress-related episode" and was treated at an Ohio psychiatric center; the center said he was never a patient there. Talarico's campaign confirmed the flu diagnosis and called the claims a lie. Talarico used his return to press Paxton, who has not responded to a debate request in 85 days. He's slated for a CNN town hall tonight (Oct. 14).</div>
+      <div class="meta"><span class="tag neutral">TX-SEN</span> <a href="https://www.tpr.org/government-politics/2026-10-12/talarico-returns-to-campaign-trail-renewing-call-for-debate-with-paxton" target="_blank" rel="noopener">Texas Public Radio, Oct 12</a></div>
+    </div>
+
+    <div class="item">
+      <div class="headline">Alaska Governor — Cook cites Kreiss-Tomkins's ranked-choice math in moving race to Lean D</div>
+      <div class="summary">The rating change is detailed below under Polling &amp; Forecasts, but the underlying race dynamics are worth a note: Cook pointed to three recent polls (AARP, NYT/Siena, Alaska Survey Research) showing Democrat Jonathan Kreiss-Tomkins at 40&ndash;48% first-choice support in the four-way field, with ranked-choice simulations putting him over a majority (52&ndash;55%) once lower-finishing candidates are eliminated — a risk Cook flagged for Republicans given a divided GOP field (Bernadette Wilson and two other Republicans) under Alaska's ranked-choice system.</div>
+      <div class="meta"><span class="tag d">AK-GOV</span> <a href="https://alaskalandmine.com/landmines/cook-shifts-governors-race-to-lean-democrat/" target="_blank" rel="noopener">Alaska Landmine, Oct 13</a></div>
+    </div>
+
+    <div class="note">Searched specifically for genuine Republican-side movement (strong recruits, fundraising, endorsements) in the last 24&ndash;48 hours and didn't find anything that cleared the nonpartisan-sourcing bar — several RNC/DNC fundraising stories in circulation trace to October 2025 reporting, not this cycle, so they're excluded rather than risk misdating them. Will keep checking.</div>
+  </section>
+
+  <section>
+    <h2 class="section-head">Polling &amp; forecasts</h2>
+
+    <div class="item">
+      <div class="headline">Cook Political Report moves 4 governor's races toward Democrats — all same direction</div>
+      <div class="summary">Announced Oct. 13: Alaska moves <strong>Toss Up → Lean Democrat</strong>; Nebraska, Oklahoma, and Vermont all move <strong>Solid Republican → Likely Republican</strong>. Cook attributed the three red-state shifts to a "worsening national environment for Republicans," noting Democrats now have a longer-shot path to a majority of governorships for the first time since 2010. This is a genuine rating change (not a poll restatement) and scores under the seat-change methodology below.</div>
+      <div class="meta"><span class="tag d">4 races, D-ward</span> <a href="https://www.washingtonpost.com/politics/2026/10/13/cook-moves-three-red-state-governors-races-toward-democrats/" target="_blank" rel="noopener">Washington Post, Oct 13</a> &middot; <a href="https://alaskalandmine.com/landmines/cook-shifts-governors-race-to-lean-democrat/" target="_blank" rel="noopener">Alaska Landmine</a> &middot; <a href="https://thehill.com/homenews/campaign/6145770-cook-political-report-shifts-four-democrats/" target="_blank" rel="noopener">The Hill</a></div>
+    </div>
+
+    <div class="item">
+      <div class="headline">Generic ballot: no fresh move — still D+8.8</div>
+      <div class="summary">Silver Bulletin's average remains Democrats +8.8 (registered voters) / +9.5 (likely voters) as of Oct. 12 — the same reading already reported in yesterday's issue, essentially flat off the recent cycle high of D+9.1. Not a new shift; included for continuity only.</div>
+      <div class="meta"><span class="tag neutral">No change</span> <a href="https://www.natesilver.net/p/generic-ballot-average-2026-nate-silver-bulletin-congress-polls" target="_blank" rel="noopener">Silver Bulletin, as of Oct 12</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-head">Election administration &amp; security</h2>
+    <div class="note">Nothing new and confirmed in this window. DOJ's voter-roll lawsuit streak remains 26 losses, 0 wins (last change was Georgia's dismissal, confirmed Oct. 1-5; 4 cases still pending in DE, HI, ID, UT — no new filing or ruling found this run). The DNC's overseas-ballot suit and the mail-ballot executive-order challenge remain pending with no new hearings or rulings found. As always: no speculative "stolen election" scoring here — only what courts and election officials have actually found, and today that's "no material change."</div>
+  </section>
+
+  <section>
+    <h2 class="section-head">Seat-change score</h2>
+    <div class="item" style="margin-bottom:14px;">
+      <div class="headline">Today's score: <span class="score-cell pos" style="font-size:16px;">+4</span></div>
+      <div class="summary" style="margin-bottom:0;">Cook's Oct. 13 governor batch: Alaska Toss Up→Lean D (+1), Nebraska Solid R→Likely R (+1), Oklahoma Solid R→Likely R (+1), Vermont Solid R→Likely R (+1). All four are new races for the score log — no overlap with a previously scored move.</div>
+    </div>
+
+    <table class="score-table">
+      <thead>
+        <tr><th>Date</th><th>Score</th><th>What drove it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Oct 8</td><td><span class="score-cell pos">+4</span></td><td>Inside Elections' Oct 1-2 House batch (found late): MI-04, CA-22, IA-01, IA-03, all D-ward.</td></tr>
+        <tr><td>Oct 9</td><td><span class="score-cell zero">0</span></td><td>None confirmed.</td></tr>
+        <tr><td>Oct 10</td><td><span class="score-cell zero">0</span></td><td>None confirmed; ratings sources largely unreachable this run.</td></tr>
+        <tr><td>Oct 11</td><td><span class="score-cell zero">0</span></td><td>None confirmed; a Cook House date-stamp gap flagged, unresolved.</td></tr>
+        <tr><td>Oct 12</td><td><span class="score-cell zero">0</span></td><td>None confirmed; same House gap still unresolved.</td></tr>
+        <tr><td>Oct 13</td><td><span class="score-cell pos">+18</span></td><td>Cook's Oct. 9 House batch (the gap above) finally corroborated: 18 races, all D-ward (IA-01, IA-03, PA-07, PA-10, WA-03, IA-02, MI-04, NC-01, VA-01, KY-06, ME-02, PA-01, AR-02, IN-05, NV-03, NY-03, NY-04, NE-02).</td></tr>
+        <tr class="today"><td>Oct 14</td><td><span class="score-cell pos">+4</span></td><td>Cook's Oct. 13 governor batch: AK, NE, OK, VT — all D-ward (see above).</td></tr>
+      </tbody>
+    </table>
+    <div class="trend-line">Trend: every confirmed rating-change batch this week has moved toward Democrats, and only governor and House ratings have moved so far — no Senate rating change confirmed since Oct. 7. Three of the last seven days (Oct 9&ndash;11) show a literal 0, though note Oct 9's House gap turned out to reflect a real Oct 9 move that just wasn't corroborated until Oct 13 — so "0" on a given day means nothing confirmed <em>that day</em>, not that nothing happened.</div>
+  </section>
+
+  <footer>
+    <div class="asof">Compiled by Claude for MK's scheduled midterm digest &middot; sources linked inline &middot; archive of past issues kept in MK's tracker.</div>
+  </footer>
+</div>
+
+</body></html>

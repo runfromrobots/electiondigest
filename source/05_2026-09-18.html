@@ -1,0 +1,243 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>The Wednesday Count</title>
+<style>
+  :root{
+    --bg:#F5F6F8;
+    --surface:#FFFFFF;
+    --surface-2:#F0F1F4;
+    --ink:#1B2430;
+    --ink-soft:#525C6B;
+    --ink-faint:#8992A0;
+    --line:#DFE3E9;
+    --accent:#2E5590;
+    --accent-soft:#E7EDF6;
+    --amber:#9A5B12;
+    --amber-soft:#F6EDE0;
+    --tag-bg:#EDEFF3;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#12161C;
+      --surface:#191F27;
+      --surface-2:#1F262F;
+      --ink:#E7EAEE;
+      --ink-soft:#A9B2BF;
+      --ink-faint:#727C8A;
+      --line:#2B323D;
+      --accent:#7FA8DE;
+      --accent-soft:#20304A;
+      --amber:#D9A15E;
+      --amber-soft:#3A2E1C;
+      --tag-bg:#232B35;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#12161C;
+    --surface:#191F27;
+    --surface-2:#1F262F;
+    --ink:#E7EAEE;
+    --ink-soft:#A9B2BF;
+    --ink-faint:#727C8A;
+    --line:#2B323D;
+    --accent:#7FA8DE;
+    --accent-soft:#20304A;
+    --amber:#D9A15E;
+    --amber-soft:#3A2E1C;
+    --tag-bg:#232B35;
+  }
+
+  * { box-sizing:border-box; }
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    margin:0;
+    font-family:"IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+    padding-inline:20px;
+    padding-block:36px 64px;
+  }
+  .wrap{ max-width:720px; margin:0 auto; }
+
+  h1,h2,h3{ font-family:"Fraunces", Georgia, serif; text-wrap:balance; margin:0; }
+
+  header.masthead{
+    display:flex; flex-direction:column; gap:10px;
+    padding-bottom:22px; margin-bottom:28px;
+    border-bottom:2px solid var(--ink);
+  }
+  .kicker{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11.5px; letter-spacing:.11em; text-transform:uppercase;
+    color:var(--accent); font-weight:600;
+  }
+  header.masthead h1{ font-size:clamp(28px,6vw,38px); font-weight:600; line-height:1.05; }
+  .meta-row{
+    display:flex; flex-wrap:wrap; gap:8px 16px; align-items:baseline;
+    font-family:"IBM Plex Mono", monospace; font-size:12.5px; color:var(--ink-soft);
+  }
+  .meta-row b{ color:var(--ink); font-weight:600; }
+
+  section.block{ margin-bottom:38px; }
+  .block-head{
+    display:flex; align-items:baseline; gap:10px;
+    margin-bottom:14px;
+  }
+  .block-num{
+    font-family:"IBM Plex Mono", monospace; font-size:12px; color:var(--ink-faint);
+    border:1px solid var(--line); border-radius:20px; padding:2px 8px;
+    flex:none;
+  }
+  .block-head h2{ font-size:19px; font-weight:600; color:var(--ink); }
+  .block-sub{
+    font-size:13px; color:var(--ink-soft); margin:-6px 0 14px 0; line-height:1.5;
+  }
+
+  .item{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+    margin-bottom:10px;
+  }
+  .item + .item{ margin-top:10px; }
+  .item-top{
+    display:flex; justify-content:space-between; gap:12px; align-items:flex-start;
+    margin-bottom:6px;
+  }
+  .item-tag{
+    font-family:"IBM Plex Mono", monospace; font-size:10.5px; letter-spacing:.05em;
+    text-transform:uppercase; color:var(--accent); background:var(--accent-soft);
+    padding:2px 7px; border-radius:5px; white-space:nowrap; flex:none;
+  }
+  .item p{ margin:0; font-size:14.5px; line-height:1.55; color:var(--ink); }
+  .item .cite{
+    display:block; margin-top:8px; font-size:12px; color:var(--ink-faint);
+    font-family:"IBM Plex Mono", monospace;
+  }
+  .item .cite a{ color:var(--ink-soft); text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:2px; }
+  .item .cite a:hover{ color:var(--accent); text-decoration-color:var(--accent); }
+
+  .empty-note{
+    font-size:13.5px; color:var(--ink-soft); font-style:italic;
+    padding:12px 16px; border:1px dashed var(--line); border-radius:10px;
+  }
+
+  .follow{
+    font-size:13px; color:var(--ink-soft); background:var(--surface-2);
+    border-radius:8px; padding:10px 14px; margin-top:10px; line-height:1.5;
+  }
+  .follow b{ color:var(--ink); }
+
+  .flag{
+    font-size:13px; color:var(--amber); background:var(--amber-soft);
+    border-radius:8px; padding:10px 14px; margin-top:10px; line-height:1.5;
+    border:1px solid color-mix(in srgb, var(--amber) 35%, var(--line));
+  }
+  .flag b{ color:var(--ink); }
+
+  .share{
+    background:var(--amber-soft);
+    border:1px solid color-mix(in srgb, var(--amber) 35%, var(--line));
+    border-radius:10px; padding:16px 18px;
+  }
+  .share p{ font-size:14.5px; line-height:1.6; color:var(--ink); margin:0 0 8px 0; }
+  .share .cite{ color:var(--amber); }
+
+  footer{
+    margin-top:44px; padding-top:18px; border-top:1px solid var(--line);
+    font-size:12px; color:var(--ink-faint); font-family:"IBM Plex Mono", monospace;
+    line-height:1.6;
+  }
+
+  @media (max-width:480px){
+    .item-top{ flex-direction:column; gap:4px; }
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="kicker">Midterm Election Digest &middot; Issue No. 5</div>
+    <h1>The Wednesday Count</h1>
+    <div class="meta-row">
+      <span><b>September 18, 2026</b></span>
+      <span>&middot;</span>
+      <span>Covering roughly Sept 15&ndash;18</span>
+      <span>&middot;</span>
+      <span>For MK</span>
+    </div>
+  </header>
+
+  <section class="block">
+    <div class="block-head">
+      <span class="block-num">01</span>
+      <h2>Race developments</h2>
+    </div>
+    <div class="block-sub">Competitive Senate, House, and governor races &mdash; what actually moved.</div>
+
+    <div class="item">
+      <div class="item-top">
+        <p><b>Michigan Senate</b> &mdash; A new Emerson College poll (fielded Sept 12&ndash;14) has Abdul El-Sayed (D) at 48% and Mike Rogers (R) at 46%, with 4% undecided &mdash; a 2-point edge for El-Sayed, inside the &plusmn;3-point margin of error. It's the fourth or fifth public poll in a row to show this race essentially tied, regardless of which side leads by a nose.</p>
+        <span class="item-tag">Senate</span>
+      </div>
+      <span class="cite">Emerson College Polling, Sept 17, 2026 &middot; also covered by <a href="https://www.washingtonpost.com/politics/2026/09/17/michigan-senate-race-poll-finds-abdul-el-sayed-has-narrow-edge-over-mike-rogers/" target="_blank" rel="noopener">Washington Post</a></span>
+    </div>
+
+    <div class="item">
+      <div class="item-top">
+        <p><b>Oregon Governor</b> &mdash; A second straight independent poll shows Republican Christine Drazan narrowly ahead of Democratic Gov. Tina Kotek: DHM Research (fielded Sept 3&ndash;9) had it 43&ndash;41 Drazan on the initial ask, 45&ndash;43 after leaners, inside a &plusmn;4-point MOE. That's the poll that prompted Cook Political Report's move on this race from Likely D to Lean D (logged in the Sept 13 issue) &mdash; a real erosion for Democrats in a state they've held since 1987.</p>
+        <span class="item-tag">Governor</span>
+      </div>
+      <span class="cite"><a href="https://www.opb.org/article/2026/09/15/oregon-governors-race-tina-kotek-christine-drazan-poll/" target="_blank" rel="noopener">Oregon Public Broadcasting</a> &middot; Sept 15, 2026</span>
+    </div>
+
+    <div class="item">
+      <div class="item-top">
+        <p><b>Record congressional exodus</b> &mdash; NPR's retirement/defeat tracker now counts 99 House and Senate seats guaranteed to have a new member after 2026 (83 House, 16 Senate) &mdash; close to one in five lawmakers from the start of this Congress won't be back, a turnover level NPR says is rivaled only by 1992. Newest name: Sen. Amy Klobuchar (D-MN), now presumed to be running for governor instead of re-election, alongside Sen. Marsha Blackburn (R-TN) doing the same.</p>
+        <span class="item-tag">Congress</span>
+      </div>
+      <span class="cite"><a href="https://www.npr.org/2026/09/16/nx-s1-5971264/congress-retirement-2026-house-senate-primary-defeat" target="_blank" rel="noopener">NPR</a> &middot; Sept 16, 2026</span>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <span class="block-num">02</span>
+      <h2>Polling &amp; forecasts</h2>
+    </div>
+    <div class="block-sub">Ratings and forecast movement only &mdash; not a restatement of old numbers.</div>
+
+    <div class="flag">
+      <b>Couldn't verify a headline item:</b> Multiple outlets (The Hill, Newsmax, a Newsweek social post) reported Sept 17 that Sabato's Crystal Ball moved roughly 8 House ratings toward Democrats as part of a "Seven Weeks to Go" update. Crystal Ball's own site (centerforpolitics.org) returned access errors on every attempt to fetch it this run, so I can't confirm the specific districts or exact old&rarr;new ratings from the primary source. Flagging it rather than passing along secondhand specifics as fact &mdash; worth checking centerforpolitics.org/crystalball directly if you want the district list.
+    </div>
+
+    <p class="follow">Cook Political Report's ratings pages still show a Sept 11 last-updated stamp &mdash; no confirmed new rating change since the MO-05/MO-02/OR-Governor/AK-Governor moves already logged (Sept 10&ndash;13). Silver Bulletin's Senate-control figure (58.6% Democratic odds, Sept 14) also has no confirmed update since the Sept 17 issue.</p>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <span class="block-num">03</span>
+      <h2>Election administration &amp; security</h2>
+    </div>
+    <div class="block-sub">Factual, sourced reporting only. No speculative rigging or "stolen election" scoring &mdash; that isn't something this digest quantifies.</div>
+
+    <div class="item">
+      <div class="item-top">
+        <p><b>SAVE voter-database case now fully briefed at the Supreme Court</b> &mdash; The League of Women Voters and EPIC filed their opposition brief Sept 15, completing briefing in <i>DHS v. League of Women Voters</i>, the fight over the Trump administration's bid to revive its overhauled SAVE citizenship-screening database for use against state voter rolls. SCOTUSblog reports the court's decision "could come at any time." No ruling yet as of this issue; the lower-court injunction blocking the database remains in effect in the meantime.</p>
+        <span class="item-tag">SCOTUS</span>
+      </div>
+      <span class="cite"><a href="https://www.scotusblog.com/2026/09/decision-on-citizenship-database-expected-soon/" target="_blank" rel="noopener">SCOTUSblog</a> &middot; Sept 17, 2026</span>
+    </div>
+
+    <p class="follow">Beyond that update, no new court rulings, official statements, or verified security incidents turned up in the last 24&ndash;48 hours. The Virginia felony-disenfranchisement ruling and the SCOTUS mail-ballot decision from the Sept 16&ndash;17 issues are unchanged and not repeated here.</p>
+  </section>
+
+  <footer>
+    Sources checked: AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, SCOTUSblog, state election offices, and named outlets above. No "worth sharing" item ran today &mdash; nothing genuinely cleared the bar in the last 24&ndash;48 hours.
+  </footer>
+
+</div>
+
+</body></html>

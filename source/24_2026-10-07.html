@@ -1,0 +1,149 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<style>
+  :root{
+    --bg:#f7f5f0; --card:#ffffff; --ink:#1c1c1e; --sub:#5b5b5f;
+    --dem:#2a5ea8; --rep:#b3362b; --line:#e4e0d8; --accent:#8a6d3b;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#17171a; --card:#211f1d; --ink:#f0ede6; --sub:#b7b2a6; --line:#3a3734; --accent:#c9a86a; }
+  }
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--ink); margin:0; padding:0;
+    font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:32px 20px 80px;}
+  header.masthead{text-align:center; border-bottom:3px double var(--ink); padding-bottom:16px; margin-bottom:28px;}
+  header.masthead .kicker{
+    font-family: Helvetica, Arial, sans-serif; letter-spacing:.14em; text-transform:uppercase;
+    font-size:11px; color:var(--accent); margin-bottom:6px;
+  }
+  header.masthead h1{font-size:30px; margin:0 0 6px; letter-spacing:.01em;}
+  header.masthead .meta{
+    font-family: Helvetica, Arial, sans-serif; font-size:12.5px; color:var(--sub);
+  }
+  section{margin-bottom:34px;}
+  h2.sec-title{
+    font-family: Helvetica, Arial, sans-serif; font-size:13px; text-transform:uppercase;
+    letter-spacing:.1em; color:var(--accent); border-bottom:1px solid var(--line);
+    padding-bottom:8px; margin:0 0 16px;
+  }
+  .item{padding:12px 0; border-bottom:1px solid var(--line);}
+  .item:last-child{border-bottom:none;}
+  .item .tag{
+    font-family: Helvetica, Arial, sans-serif; font-size:10.5px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.06em; padding:2px 7px; border-radius:3px;
+    margin-right:8px; display:inline-block;
+  }
+  .tag.dev{background:rgba(42,94,168,.12); color:var(--dem);}
+  .tag.poll{background:rgba(138,109,59,.15); color:var(--accent);}
+  .tag.admin{background:rgba(91,91,95,.14); color:var(--sub);}
+  .item p{margin:6px 0 4px; font-size:15.5px; line-height:1.5;}
+  .item .src{
+    font-family: Helvetica, Arial, sans-serif; font-size:11.5px; color:var(--sub);
+  }
+  .item .src a{color:var(--sub); text-decoration:underline;}
+  .empty-note{
+    font-family: Helvetica, Arial, sans-serif; font-size:13.5px; color:var(--sub);
+    font-style:italic; padding:10px 0;
+  }
+  table.score{
+    width:100%; border-collapse:collapse; font-family: Helvetica, Arial, sans-serif;
+    font-size:13px; margin-top:10px;
+  }
+  table.score th, table.score td{
+    border-bottom:1px solid var(--line); padding:8px 6px; text-align:left; vertical-align:top;
+  }
+  table.score th{
+    text-transform:uppercase; font-size:10.5px; letter-spacing:.05em; color:var(--sub);
+  }
+  table.score td.score-val{font-weight:700; font-family: Georgia, serif; font-size:15px;}
+  .score-val.pos{color:var(--dem);}
+  .score-val.zero{color:var(--sub);}
+  .score-today{background:rgba(138,109,59,.08);}
+  .trend-box{
+    margin-top:14px; padding:14px 16px; background:var(--card); border:1px solid var(--line);
+    border-radius:8px; font-family: Helvetica, Arial, sans-serif; font-size:13.5px;
+  }
+  .trend-box b{color:var(--accent);}
+  .note{
+    font-family: Helvetica, Arial, sans-serif; font-size:12px; color:var(--sub);
+    background:var(--card); border:1px solid var(--line); border-left:3px solid var(--accent);
+    padding:10px 12px; border-radius:4px; margin-top:10px; line-height:1.5;
+  }
+  footer{
+    text-align:center; font-family: Helvetica, Arial, sans-serif; font-size:11px;
+    color:var(--sub); margin-top:40px; padding-top:16px; border-top:1px solid var(--line);
+  }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="kicker">Midterm Election Digest &middot; Issue No. 24</div>
+    <h1>2026 Midterm Election Digest</h1>
+    <div class="meta">Wednesday, October 7, 2026 &nbsp;&bull;&nbsp; Nonpartisan sourcing: AP, Reuters, Cook Political Report, Sabato's Crystal Ball, official election offices, court dockets</div>
+  </header>
+
+  <section>
+    <h2 class="sec-title">1. Race Developments</h2>
+    <div class="item">
+      <span class="tag dev">Senate &middot; AK</span>
+      <p>Alaska Senate: a new NYT/Siena poll (fielded Sept 24&ndash;Oct 1, 504 LV, &plusmn;5.1) has Mary Peltola (D) leading Dan Sullivan (R) 50&ndash;43, essentially unchanged despite a Sept. 23 NYT report in which former and current staffers accused Peltola of verbal and physical mistreatment, including slurs; her campaign denies the allegations and attributes her documented temper issues to grief after losing her mother and husband within months of each other in 2023. Voters appear not to be moving off her in response. This is the same race Sabato's Crystal Ball reclassified today (see Polling &amp; Forecasts below).</p>
+      <div class="src">Oct 5, 2026 &middot; <a href="https://www.newsweek.com/alaska-poll-gives-mary-peltola-7-point-lead-after-nyt-staffer-report-12523514">Newsweek</a></div>
+    </div>
+    <div class="note">Outside of the rating-change news below, reporting on individual races in the last 24&ndash;48 hours was thin &mdash; most Senate/House/Governor coverage found today was a repeat of fundraising and polling figures already surfaced in recent issues (Texas, Kansas, Georgia, Michigan Senate races), so it's skipped here per the no-repeat rule rather than padded out.</div>
+  </section>
+
+  <section>
+    <h2 class="sec-title">2. Polling &amp; Forecasts</h2>
+    <div class="item">
+      <span class="tag poll">Rating change &middot; Senate</span>
+      <p><b>Cook Political Report moved three Senate races toward Democrats on Oct. 6:</b> Kansas (Lean R &rarr; Toss Up), New Hampshire (Toss Up &rarr; Lean D), and North Carolina (Lean D &rarr; Likely D). Cook's own framing: Republicans retain a financial edge in most competitive states, but Trump is "a drag across the board" amid rising fuel prices and the cost of living. This batch was dated yesterday but missed by yesterday's digest run &mdash; caught today.</p>
+      <div class="src">Oct 6, 2026 &middot; <a href="https://www.cookpolitical.com/analysis/senate/senate-overview/senate-majority-squarely-democrats-sights-kansas-moves-toss-two">Cook Political Report</a>, corroborated by <a href="https://www.washingtonpost.com/politics/2026/10/06/three-senate-races-shift-toward-democrats-cook-ratings/">Washington Post</a></div>
+    </div>
+    <div class="item">
+      <span class="tag poll">Rating change &middot; Senate</span>
+      <p><b>Sabato's Crystal Ball moved two Senate races the same day (Oct. 6):</b> Alaska (Toss Up &rarr; Lean D) &mdash; notable since Alaska began this cycle rated Safe R, making this one of the larger directional swings of the cycle &mdash; and South Carolina (Safe R &rarr; Likely R, one notch more competitive). Also missed by yesterday's run; caught today.</p>
+      <div class="src">Oct 6, 2026 &middot; <a href="https://www.mediaite.com/media/news/sabatos-crystal-ball-moves-two-key-senate-races-toward-democrats-including-a-gop-flip/">Mediaite</a>, corroborated by <a href="https://politicalwire.com/2026/10/06/alaska-senate-race-now-leans-democratic/">Political Wire</a></div>
+    </div>
+    <div class="item">
+      <span class="tag poll">Generic ballot</span>
+      <p>Silver Bulletin's generic-ballot average held at D+8.9 (D+9.6 with the likely-voter adjustment) as of Oct. 6 &mdash; essentially flat versus the last several days' readings, still a cycle high-water mark for Democrats but not a fresh move this week.</p>
+      <div class="src">Oct 6, 2026 &middot; <a href="https://www.natesilver.net/p/generic-ballot-average-2026-nate-silver-bulletin-congress-polls">Silver Bulletin</a></div>
+    </div>
+    <div class="note">Direct fetches of Cook's own Senate/House/Governor ratings pages and the 270toWin mirrors were blocked today by unanswered site-permission prompts (this is an unattended scheduled run, so no one was available to approve them) &mdash; today's rating changes were instead confirmed via Cook's own dedicated analysis article (which loaded directly) plus independent secondary corroboration. Could not independently re-verify that nothing else moved on the House or Governor sides today.</div>
+  </section>
+
+  <section>
+    <h2 class="sec-title">3. Election Administration &amp; Security</h2>
+    <p class="empty-note">No new, independently verifiable developments found in the last 24&ndash;48 hours. Checked for fresh Secretary of State statements, court rulings on voting rules, and the ongoing ICE-at-polling-places litigation; everything that surfaced in searches today turned out to be a repeat of items already covered in recent issues (South Carolina's absentee-ballot-cap dismissal, Pennsylvania's ICE polling-buffer bill) or stale by weeks to months (a West Virginia Secretary of State statement and a Denver ICE lawsuit, both from this summer; an ACLU mail-voting ruling from June). Saying so plainly rather than manufacturing an item for this section.</p>
+  </section>
+
+  <section>
+    <h2 class="sec-title">4. Seat-Change Score</h2>
+    <p style="font-family:Helvetica,Arial,sans-serif; font-size:13px; color:var(--sub); margin-top:-6px;">
+      Flat &plusmn;1 per individual race-rating movement from a named nonpartisan rater (Cook, Sabato, Inside Elections), toward Democrats (+1) or Republicans (&minus;1). Polls, fundraising, endorsements, and aggregate probability/generic-ballot numbers don't count &mdash; see methodology log for full rules.
+    </p>
+    <table class="score">
+      <tr><th>Date</th><th>Score</th><th>Driver</th></tr>
+      <tr><td>Oct 1</td><td class="score-val pos">+11</td><td>Sabato 11-race House batch, all D-ward (KY-06, ME-02, MO-02, MT-01, VA-05, VA-01, NC-03, OH-15, PA-07, VA-02, CA-45)</td></tr>
+      <tr><td>Oct 2</td><td class="score-val pos">+1</td><td>Cook: TX Governor Likely R &rarr; Lean R</td></tr>
+      <tr><td>Oct 3</td><td class="score-val zero">0</td><td>None confirmed</td></tr>
+      <tr><td>Oct 4</td><td class="score-val zero">0</td><td>None confirmed</td></tr>
+      <tr><td>Oct 5</td><td class="score-val zero">0</td><td>None confirmed</td></tr>
+      <tr><td>Oct 6</td><td class="score-val zero">0</td><td>None confirmed <i>at the time</i> &mdash; see correction below</td></tr>
+      <tr class="score-today"><td>Oct 7</td><td class="score-val pos">+5</td><td>Caught today, dated Oct 6: Cook (KS Lean R&rarr;Toss Up, NH Toss Up&rarr;Lean D, NC Lean D&rarr;Likely D, +3) + Sabato (AK Toss Up&rarr;Lean D, SC Safe R&rarr;Likely R, +2)</td></tr>
+    </table>
+    <div class="trend-box">
+      <b>Trend:</b> +11, +1, 0, 0, 0, 0, +5 over the trailing 7 days &mdash; all net-Democratic movement, no Republican-favoring rating moves this week. Today's +5 is entirely a one-day-late catch of Monday's Cook/Sabato batch rather than a fresh Tuesday/Wednesday development; the underlying moves happened Oct 6, not Oct 7.
+    </div>
+    <div class="note"><b>Correction (found 2026-10-07):</b> Cook Political Report and Sabato's Crystal Ball each published a Senate rating-change batch on Oct 6 that yesterday's run searched for and missed (same pattern as the Sept 29&ndash;30 Sabato batch missed on Sept 30 and caught Oct 1). Per the no-retroactive-backfill rule established then, the Oct 6 log row above is left at 0 and the score is instead applied to today (Oct 7), the day it was actually found.</div>
+  </section>
+
+  <footer>
+    MK's daily midterm digest &middot; nonpartisan sources only &middot; built by an automated routine &mdash; verify anything load-bearing against the primary source before relying on it.
+  </footer>
+</div>
+
+</body></html>

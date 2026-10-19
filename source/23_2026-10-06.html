@@ -1,0 +1,248 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Midterm Digest No. 23</title>
+<style>
+/* Layout: masthead, then stacked sections as a single reading column (max 680px), each with
+   a small-caps label, cards for items, and a data table for the score — newspaper-brief rhythm */
+:root{
+  --bg:#f7f5f0; --surface:#ffffff; --fg:#1b1a17; --muted:#6b6660;
+  --accent:#8a1f2b; --accent-soft:#f1e3e0; --line:#ddd7cb;
+  --dem:#2a5ca8; --rep:#a8322a; --good:#2f6b3f;
+  font-variant-numeric: tabular-nums;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15140f; --surface:#1d1c16; --fg:#ece7da; --muted:#9b958a;
+    --accent:#e2875f; --accent-soft:#2b241c; --line:#3a362c;
+    --dem:#7fb0e8; --rep:#e2897f; --good:#7fc191;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15140f; --surface:#1d1c16; --fg:#ece7da; --muted:#9b958a;
+  --accent:#e2875f; --accent-soft:#2b241c; --line:#3a362c;
+  --dem:#7fb0e8; --rep:#e2897f; --good:#7fc191;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--bg); color:var(--fg);
+  font-family:'Source Serif 4', Georgia, 'Times New Roman', serif;
+  padding-inline:16px;
+}
+.wrap{max-width:680px; margin:0 auto; padding-block:28px 60px;}
+
+.masthead{border-bottom:3px solid var(--fg); padding-bottom:14px; margin-bottom:22px;}
+.masthead .kicker{
+  font-family:'Archivo', Arial, sans-serif; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; font-size:.72rem; color:var(--accent);
+}
+.masthead h1{
+  font-family:'Archivo', Arial, sans-serif; font-weight:800; font-size:1.9rem;
+  margin:.25em 0 .1em; letter-spacing:-.01em; text-wrap:balance;
+}
+.masthead .meta{
+  font-family:'Archivo', Arial, sans-serif; font-size:.82rem; color:var(--muted);
+  display:flex; gap:10px; flex-wrap:wrap;
+}
+.masthead .meta b{color:var(--fg); font-weight:600;}
+
+.section{margin-top:34px;}
+.section-label{
+  font-family:'Archivo', Arial, sans-serif; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; font-size:.78rem; color:var(--fg);
+  display:flex; align-items:baseline; gap:10px; margin-bottom:12px;
+}
+.section-label .n{
+  font-family:'Archivo', Arial, sans-serif; color:var(--accent); font-weight:800;
+}
+.section-label::after{content:""; flex:1; height:1px; background:var(--line); align-self:center;}
+
+.card{
+  background:var(--surface); border:1px solid var(--line); border-radius:3px;
+  padding:14px 16px; margin-bottom:10px;
+}
+.card .tag{
+  display:inline-block; font-family:'Archivo', Arial, sans-serif; font-weight:700;
+  font-size:.68rem; letter-spacing:.05em; text-transform:uppercase;
+  padding:2px 7px; border-radius:3px; margin-bottom:7px;
+}
+.tag.dem{background:var(--accent-soft); color:var(--dem);}
+.tag.rep{background:var(--accent-soft); color:var(--rep);}
+.tag.neutral{background:var(--accent-soft); color:var(--muted);}
+.card p{margin:0; line-height:1.5; font-size:.98rem;}
+.card .src{
+  display:block; margin-top:8px; font-family:'Archivo', Arial, sans-serif;
+  font-size:.76rem; color:var(--muted);
+}
+.card .src a{color:var(--muted); text-decoration:underline;}
+
+.empty-note{
+  font-family:'Archivo', Arial, sans-serif; font-size:.86rem; color:var(--muted);
+  font-style:italic; padding:10px 2px;
+}
+
+table.score{
+  width:100%; border-collapse:collapse; font-family:'Archivo', Arial, sans-serif;
+  font-size:.84rem; margin-top:4px;
+}
+table.score th, table.score td{
+  text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top;
+}
+table.score th{
+  font-weight:700; text-transform:uppercase; font-size:.7rem; letter-spacing:.06em; color:var(--muted);
+}
+table.score td.date{white-space:nowrap; font-weight:600;}
+table.score td.score-val{white-space:nowrap; font-weight:700; font-family:'Archivo',sans-serif;}
+.score-pos{color:var(--dem);}
+.score-neg{color:var(--rep);}
+.score-zero{color:var(--muted);}
+table.score tr.today td{background:var(--accent-soft);}
+.score-wrap{overflow-x:auto;}
+
+.trend-box{
+  display:flex; gap:18px; flex-wrap:wrap; margin:14px 0 18px;
+  font-family:'Archivo', Arial, sans-serif;
+}
+.trend-box .stat{background:var(--surface); border:1px solid var(--line); border-radius:3px; padding:10px 14px; flex:1; min-width:140px;}
+.trend-box .stat .label{font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted);}
+.trend-box .stat .val{font-size:1.4rem; font-weight:800; margin-top:2px;}
+
+footer{
+  margin-top:40px; padding-top:16px; border-top:1px solid var(--line);
+  font-family:'Archivo', Arial, sans-serif; font-size:.76rem; color:var(--muted);
+  line-height:1.6;
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Archivo:wght@500;600;700;800&display=swap">
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="kicker">Daily Digest · Issue No. 23</div>
+    <h1>2026 Midterm Election Digest</h1>
+    <div class="meta">
+      <span><b>Tuesday, October 6, 2026</b></span>
+      <span>·</span>
+      <span>Developments from the last 24–48 hours</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><span class="n">01</span> Race developments</div>
+
+    <div class="card">
+      <span class="tag rep">TX Senate</span>
+      <p>Ken Paxton raised $18M in Q3 — more than double his $9M Q2 haul and his best quarter yet — after becoming the uncontested GOP nominee and gaining access to joint fundraising with Senate Republican groups. He's still being outraised: James Talarico brought in $30M in Q2 and $27M in Q1 (Q3 not yet reported). On ad spending, Talarico has outspent Paxton on air $67M to $20M, though Republican outside groups have poured over $175M into the race backing Paxton.</p>
+      <span class="src">Texas Tribune, Oct 5 — <a href="https://www.texastribune.org/2026/10/05/ken-paxton-third-quarter-fundraising-texas-senate-race-2026/">texastribune.org</a></span>
+    </div>
+
+    <div class="card">
+      <span class="tag dem">GA Senate &amp; Governor</span>
+      <p>Two new polls out of Georgia: a YouGov survey has Jon Ossoff (D) leading Mike Collins (R) by roughly 10 points in the Senate race, while an InsiderAdvantage poll finds the governor's race between Keisha Lance Bottoms (D) and Rick Jackson (R) essentially tied, with about 7% undecided as early voting approaches.</p>
+      <span class="src">Atlanta News First, Oct 4 — <a href="https://www.atlantanewsfirst.com/2026/10/04/georgia-governors-race-virtually-tied-polls-show-ossoff-leading-collins-early-voting-nears/">atlantanewsfirst.com</a></span>
+    </div>
+
+    <div class="card">
+      <span class="tag dem">MI Senate</span>
+      <p>A new Mitchell Research poll (fielded Oct 1) has Abdul El-Sayed (D) at 45.6% to Mike Rogers (R) at 41.4% — a tighter gap than recent Marist polling but still a clear lead. The pollster flagged that Michigan Senate races have historically tightened "perhaps dramatically" in the final weeks, so treat this as one data point rather than a settled trend.</p>
+      <span class="src">CBS News Detroit, Oct 5 — <a href="https://www.cbsnews.com/detroit/news/michigan-voter-poll-abdul-el-sayed-mike-rogers/">cbsnews.com</a></span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><span class="n">02</span> Polling &amp; forecasts</div>
+
+    <div class="card">
+      <span class="tag neutral">Generic ballot</span>
+      <p>Silver Bulletin's generic-ballot average held at D+8.9 as of Oct 5 (D+9.6 with a likely-voter adjustment) — essentially flat versus the D+9.0 reading from Oct 2, not a fresh move. Silver's own framing: Democrats "recently broke 50% support for the first time" in the average, and the current level is "a high point for the party this cycle," but it isn't climbing further this week.</p>
+      <span class="src">Silver Bulletin, Oct 5 — <a href="https://www.natesilver.net/p/generic-ballot-average-2026-nate-silver-bulletin-congress-polls">natesilver.net</a></span>
+    </div>
+
+    <div class="card">
+      <span class="tag neutral">Rating check</span>
+      <p>No confirmed Cook Political Report, Sabato's Crystal Ball, or Inside Elections rating changes found today. Confirmed directly: Cook's Senate ratings page is unchanged since Sept 23, and Cook's Governor ratings page is unchanged since the Oct 1 TX/FL move (already scored). Several Sabato and Cook pieces surfaced in searches today but all dated to July–September and were already covered or are superseded — no new batch today.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><span class="n">03</span> Election administration &amp; security</div>
+
+    <div class="card">
+      <span class="tag neutral">South Carolina</span>
+      <p>A federal judge dismissed an NAACP/ACLU lawsuit challenging South Carolina's cap of five absentee ballots a person can help deliver, which plaintiffs argued burdens disabled voters in care facilities. The judge ruled the plaintiffs lacked standing, writing that "a fear founded on future choices is too fragile for federal jurisdiction." The ACLU hasn't said whether it will appeal.</p>
+      <span class="src">SC Daily Gazette, Oct 2 — <a href="https://scdailygazette.com/2026/10/02/federal-judge-dismisses-naacp-lawsuit-over-voter-assistance-limits-in-sc-absentee-ballot-law/">scdailygazette.com</a></span>
+    </div>
+
+    <div class="card">
+      <span class="tag neutral">Pennsylvania</span>
+      <p>State Rep. Malcolm Kenyatta (D-Philadelphia) introduced a bill to broaden Pennsylvania's existing 100-foot police-free buffer around polling places so it explicitly covers any "law enforcement officer," not just police — aimed at closing a perceived gap around ICE. Federal law already bars armed personnel at polling places, but DHS messaging on the subject has been inconsistent: one official told state election officials there'd be "no ICE presence at polling locations," while DHS separately said it isn't "planning" polling-place operations but might act on a "public safety threat."</p>
+      <span class="src">Votebeat, Oct 6 — <a href="https://www.votebeat.org/pennsylvania/2026/10/06/midterm-2026-ice-law-enforcement-polls-bill-kenyatta/">votebeat.org</a></span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label"><span class="n">04</span> Seat-change score</div>
+
+    <div class="trend-box">
+      <div class="stat">
+        <div class="label">Today</div>
+        <div class="val score-zero">0</div>
+      </div>
+      <div class="stat">
+        <div class="label">7-day sum</div>
+        <div class="val score-pos">+12</div>
+      </div>
+      <div class="stat">
+        <div class="label">Last move</div>
+        <div class="val" style="font-size:1rem; font-weight:700;">Oct 2 (+1)</div>
+      </div>
+    </div>
+
+    <div class="score-wrap">
+      <table class="score">
+        <thead>
+          <tr><th>Date</th><th>Score</th><th>What drove it</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="date">Sep 30</td><td class="score-val score-zero">0</td>
+            <td>No confirmed Cook/Sabato/Inside Elections moves.</td>
+          </tr>
+          <tr>
+            <td class="date">Oct 1</td><td class="score-val score-pos">+11</td>
+            <td>Sabato's Crystal Ball 11-race House batch, all D-ward (KY-06, ME-02, MO-02, MT-01, VA-05, VA-01, NC-03, OH-15, PA-07, VA-02, CA-45).</td>
+          </tr>
+          <tr>
+            <td class="date">Oct 2</td><td class="score-val score-pos">+1</td>
+            <td>Cook moved TX Governor Likely R → Lean R. (Cook's matching FL Governor move wasn't rescored — Inside Elections already counted that shift on Sep 22.)</td>
+          </tr>
+          <tr>
+            <td class="date">Oct 3</td><td class="score-val score-zero">0</td>
+            <td>No confirmed moves.</td>
+          </tr>
+          <tr>
+            <td class="date">Oct 4</td><td class="score-val score-zero">0</td>
+            <td>No confirmed moves.</td>
+          </tr>
+          <tr>
+            <td class="date">Oct 5</td><td class="score-val score-zero">0</td>
+            <td>No confirmed moves.</td>
+          </tr>
+          <tr class="today">
+            <td class="date">Oct 6</td><td class="score-val score-zero">0</td>
+            <td>No confirmed moves — checked Cook's Senate and Governor pages directly; both unchanged.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="empty-note" style="margin-top:10px;">All 7 days have data (tracker began Sep 20). Four straight days with no confirmed rating movement, after the two big single-day jumps (Oct 1 Sabato batch, Oct 2 Cook TX governor move) that account for the entire +12 weekly total.</p>
+  </div>
+
+  <footer>
+    Sources are limited to nonpartisan outlets and official records: AP, Reuters, Cook Political Report, Sabato's Crystal Ball, Silver Bulletin, state election offices, court dockets, and reporting from outlets like Axios, the Texas Tribune, Votebeat and local news affiliates. This digest does not estimate the likelihood of election fraud or interference — only confirmed, sourced developments. The seat-change score counts only confirmed individual race-rating changes from named nonpartisan raters; polls, fundraising, and endorsements never score.
+  </footer>
+
+</div>
+
+</body></html>

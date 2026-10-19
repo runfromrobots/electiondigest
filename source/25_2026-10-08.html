@@ -1,0 +1,153 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Midterm Digest — Oct 8</title>
+<style>
+/* layout: single-column newsletter, max 680px, stacked sections with a left rule per item */
+:root{
+  --bg:#f7f5f1; --surface:#ffffff; --ink:#1c1b19; --muted:#6b6560;
+  --accent:#8a3b2e; --accent-soft:#f1e3dd; --line:#e4ddd3;
+  --good:#2f6b4f; --good-soft:#e4efe8; --bad:#8a3b2e; --bad-soft:#f6e6e1;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#17150f; --surface:#211e17; --ink:#ecE7dd; --muted:#a39a8c;
+    --accent:#e08a6f; --accent-soft:#3a2520; --line:#332e24;
+    --good:#7fc3a0; --good-soft:#1e3328; --bad:#e08a6f; --bad-soft:#3a2520;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17150f; --surface:#211e17; --ink:#ecE7dd; --muted:#a39a8c;
+  --accent:#e08a6f; --accent-soft:#3a2520; --line:#332e24;
+  --good:#7fc3a0; --good-soft:#1e3328; --bad:#e08a6f; --bad-soft:#3a2520;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--ink); margin:0; font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;}
+.wrap{max-width:680px; margin:0 auto; padding-inline:20px; padding-block:40px 64px;}
+.masthead{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:28px;}
+.masthead .kicker{font-family:'Inter',system-ui,sans-serif; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:600;}
+.masthead h1{font-size:clamp(28px,6vw,38px); margin:6px 0 8px; line-height:1.08; text-wrap:balance;}
+.masthead .meta{font-family:'Inter',system-ui,sans-serif; font-size:13px; color:var(--muted);}
+section{margin-bottom:36px;}
+h2{font-family:'Inter',system-ui,sans-serif; font-size:13px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--ink); border-bottom:1px solid var(--line); padding-bottom:8px; margin:0 0 16px; display:flex; align-items:baseline; gap:8px;}
+h2 .num{color:var(--accent); font-variant-numeric:tabular-nums;}
+.item{padding:14px 0 14px 16px; border-left:3px solid var(--line); margin-bottom:2px;}
+.item + .item{border-top:1px solid var(--line);}
+.item p{margin:0 0 6px; font-size:16.5px; line-height:1.5;}
+.item .src{font-family:'Inter',system-ui,sans-serif; font-size:12.5px; color:var(--muted);}
+.item .src a{color:var(--muted); text-decoration:underline; text-decoration-color:var(--line);}
+.item .src a:hover{color:var(--accent);}
+.tag{display:inline-block; font-family:'Inter',system-ui,sans-serif; font-size:10.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:2px 7px; border-radius:3px; margin-right:6px; vertical-align:2px;}
+.tag.d{background:var(--good-soft); color:var(--good);}
+.tag.r{background:var(--bad-soft); color:var(--bad);}
+.tag.neutral{background:var(--accent-soft); color:var(--accent);}
+.note{font-family:'Inter',system-ui,sans-serif; font-size:13.5px; color:var(--muted); background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:12px 14px; line-height:1.55;}
+table{width:100%; border-collapse:collapse; font-family:'Inter',system-ui,sans-serif; font-size:13.5px; margin-bottom:12px;}
+th{text-align:left; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); font-weight:600; padding:0 10px 8px 0; border-bottom:1px solid var(--line);}
+td{padding:9px 10px 9px 0; border-bottom:1px solid var(--line); vertical-align:top; font-variant-numeric:tabular-nums;}
+td.date{white-space:nowrap; color:var(--muted);}
+td.score{font-weight:700; font-size:15px;}
+td.score.pos{color:var(--good);}
+td.score.zero{color:var(--muted);}
+.scorewrap{overflow-x:auto;}
+.trend{font-family:'Inter',system-ui,sans-serif; font-size:13.5px; color:var(--ink); background:var(--accent-soft); border-radius:6px; padding:10px 14px; line-height:1.55; margin-top:4px;}
+.sparkbar{display:flex; align-items:flex-end; gap:6px; height:60px; margin:14px 0 18px;}
+.sparkbar .col{flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; min-width:0;}
+.sparkbar .bar{width:100%; max-width:34px; background:var(--good); border-radius:3px 3px 0 0; min-height:3px;}
+.sparkbar .bar.zero{background:var(--line); min-height:3px;}
+.sparkbar .lbl{font-family:'Inter',system-ui,sans-serif; font-size:10px; color:var(--muted);}
+footer{font-family:'Inter',system-ui,sans-serif; font-size:12px; color:var(--muted); border-top:1px solid var(--line); padding-top:16px; margin-top:8px;}
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap">
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="kicker">2026 Midterm Election Digest</div>
+    <h1>Issue No. 25</h1>
+    <div class="meta">October 8, 2026 · Sources: AP, Reuters, Cook Political Report, Sabato's Crystal Ball, Inside Elections, official election offices, court filings</div>
+  </div>
+
+  <section>
+    <h2><span class="num">01</span> Race developments</h2>
+
+    <div class="item">
+      <p><span class="tag neutral">TX SENATE</span>Trump rallied for Ken Paxton at San Antonio's Freeman Coliseum Wednesday night, his third Texas visit in under a month; protesters interrupted the speech at least a dozen times and several were escorted out. Trump called Paxton "perhaps the greatest attorney general in the United States," but spent much of the speech on other topics and did not address Paxton's leaked audio (below). Gov. Abbott skipped the event for a hospital dedication 330 miles away.</p>
+      <p class="src">AP via ABC News, Oct 8</p>
+    </div>
+    <div class="item">
+      <p><span class="tag d">TX SENATE</span>A third leaked recording of Paxton surfaced this week (Axios, Oct 7): in private remarks to donors last month, he called the Iran war and high gas/diesel prices "by far our biggest problem" and said it explains his sliding numbers. Two earlier leaks from the same meeting ran via NYT (Sept 30) and Politico (Oct 5). His campaign called the latest one a "non-story." A recent NYT/Siena poll had Talarico at 51%, Paxton at 45%.</p>
+      <p class="src">Forbes (citing Axios), Oct 7</p>
+    </div>
+    <div class="item">
+      <p><span class="tag neutral">TX GOVERNOR</span>Abbott's rally no-show (above) drew Democratic criticism; he faces Democrat Gina Hinojosa in a race both sides call competitive. No new polling on this race surfaced in the last 48 hours.</p>
+      <p class="src">AP via ABC News, Oct 8</p>
+    </div>
+    <div class="note">Broad searches across GA, NC, MI, KS, OH, ME, AK, IA and several governors' races today mostly turned up items already covered in the Oct 5–7 issues (Cook's Oct 6 KS/NH/NC Senate shift, Sabato's Oct 6 AK/SC Senate shift, the Kansas ex-governor crossover endorsements, GA/MI polling) — not repeated here under the 3-day dedup rule. Maine's Collins-Jackson hold their second debate of the week tonight (8pm ET, Westbrook); too early to report an outcome.</div>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span> Polling &amp; forecasts</h2>
+
+    <div class="item">
+      <p><span class="tag d">RATING CHANGES — FOUND TODAY</span>Pulling Inside Elections' own ratings data directly (rather than press writeups) turned up a House batch dated Oct 1 that this tracker's searches had missed entirely. Most of it overlaps races already scored under Sabato's or Cook's earlier batches (OH-15, MT-01, VA-05, KY-06, CA-45, NY-21) — not double-counted. Four are genuinely new: <strong>MI-04</strong> Lean R → Tilt R (also reported by DCCC, Oct 2), <strong>CA-22</strong> Tilt R → Toss-up (DCCC, Oct 1), and <strong>IA-01</strong> and <strong>IA-03</strong> both Toss-up → Tilt D. All four D-ward; see the score section below for how they're counted.</p>
+      <p class="src">Inside Elections ratings data (direct); DCCC releases, Oct 1–2 (secondary confirmation)</p>
+    </div>
+    <div class="item">
+      <p><span class="tag neutral">GENERIC BALLOT</span>Silver Bulletin holds flat at D+8.9 (D+9.6 among likely voters) as of Oct 7 — unchanged from the Oct 7 issue, still this cycle's high-water mark for Democrats, not a fresh move.</p>
+      <p class="src">Silver Bulletin, Oct 7</p>
+    </div>
+    <div class="item">
+      <p><span class="tag neutral">COOK RATINGS — CHECKED, UNCHANGED</span>Direct fetch of Cook's own Senate, House, and Governor ratings pages today shows no movement beyond the already-scored Oct 6 Senate batch (KS/NH/NC) and the Sept 25 House batch.</p>
+      <p class="src">Cook Political Report, checked Oct 8</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">03</span> Election administration &amp; security</h2>
+
+    <div class="item">
+      <p><span class="tag neutral">ONGOING LITIGATION</span>The DNC's suit over the Pentagon/OMB's August change dropping the "never lived in the US" option from the overseas-voter registration postcard remains unresolved — still no ruling or hearing date as of this week.</p>
+      <p class="src">Hoodline, Oct 2 (status re-confirmed Oct 8)</p>
+    </div>
+    <div class="note">No new developments found today on the DOJ voter-roll dismissal count (still 26 straight losses, no 27th case located) or the ICE-at-polling-places dispute. Saying so plainly rather than skipping the section: today's searches came up empty here beyond re-confirming the DNC suit's pending status.</div>
+  </section>
+
+  <section>
+    <h2><span class="num">04</span> Seat-change score</h2>
+    <p style="font-family:'Inter',system-ui,sans-serif; font-size:13.5px; color:var(--muted); margin:0 0 14px;">Flat ±1 per individual race whose rating actually moved at a named nonpartisan rater (Cook, Sabato, Inside Elections) — not polls, fundraising, endorsements, or aggregate probability numbers. Today's score reflects races <em>found</em> today; see the note below on the Oct 1–2 Inside Elections batch.</p>
+
+    <div class="sparkbar">
+      <div class="col"><div class="bar" style="height:20%" ></div><div class="lbl">10/2<br>+1</div></div>
+      <div class="col"><div class="bar zero" ></div><div class="lbl">10/3<br>0</div></div>
+      <div class="col"><div class="bar zero" ></div><div class="lbl">10/4<br>0</div></div>
+      <div class="col"><div class="bar zero" ></div><div class="lbl">10/5<br>0</div></div>
+      <div class="col"><div class="bar zero" ></div><div class="lbl">10/6<br>0</div></div>
+      <div class="col"><div class="bar" style="height:100%"></div><div class="lbl">10/7<br>+5</div></div>
+      <div class="col"><div class="bar" style="height:80%"></div><div class="lbl">10/8<br>+4</div></div>
+    </div>
+
+    <div class="scorewrap">
+    <table>
+      <tr><th>Date</th><th>Score</th><th>What drove it</th></tr>
+      <tr><td class="date">Oct 2</td><td class="score pos">+1</td><td>Cook moved TX Governor Likely R → Lean R.</td></tr>
+      <tr><td class="date">Oct 3</td><td class="score zero">0</td><td>No confirmed changes.</td></tr>
+      <tr><td class="date">Oct 4</td><td class="score zero">0</td><td>No confirmed changes.</td></tr>
+      <tr><td class="date">Oct 5</td><td class="score zero">0</td><td>No confirmed changes (Cook/270toWin pages blocked this run).</td></tr>
+      <tr><td class="date">Oct 6</td><td class="score zero">0</td><td>No confirmed changes found this run — later revealed to be a miss (see Oct 7).</td></tr>
+      <tr><td class="date">Oct 7</td><td class="score pos">+5</td><td>Cook's Oct 6 KS/NH/NC Senate batch (+3) + Sabato's Oct 6 AK/SC Senate batch (+2), both caught a day late.</td></tr>
+      <tr><td class="date">Oct 8</td><td class="score pos">+4</td><td>Inside Elections' MI-04, CA-22, IA-01, IA-03 — dated Oct 1–2, caught today.</td></tr>
+    </table>
+    </div>
+
+    <div class="trend">Trend: +10 net over the trailing week, all of it D-ward — no rater has moved a single tracked race toward Republicans since this log started Sept 20. The week's pattern (Oct 6 and Oct 1–2 batches both missed on their actual day, caught 1–7 days later) says more about how hard these ratings pages are to monitor on an unattended schedule than about a sudden acceleration — scored on the day found, per this tracker's standing rule, not backdated.</div>
+  </section>
+
+  <footer>
+    Compiled from AP, Reuters, Cook Political Report, Sabato's Crystal Ball, Inside Elections, official election offices and court dockets. Partisan outlets and opinion pieces excluded as primary sources. This is a factual tracker — it does not estimate the likelihood of any election being "stolen."
+  </footer>
+
+</div>
+
+</body></html>

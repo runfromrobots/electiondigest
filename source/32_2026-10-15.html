@@ -1,0 +1,261 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midterm Election Digest — Oct 15, 2026</title>
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --card-bg: #ffffff;
+    --ink: #1a1a1a;
+    --ink-soft: #52525b;
+    --border: #e4e4e0;
+    --dem: #2f5fa8;
+    --dem-bg: #eaf1fb;
+    --rep: #b3382c;
+    --rep-bg: #fbeceb;
+    --neutral-bg: #f1f1ee;
+    --accent: #6b4fa0;
+    --warn-bg: #fdf3e0;
+    --warn-ink: #8a5a12;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15151a;
+      --card-bg: #1d1d23;
+      --ink: #f0f0f0;
+      --ink-soft: #b0b0b8;
+      --border: #32323a;
+      --dem: #7aa8e8;
+      --dem-bg: #1c2a40;
+      --rep: #e8847a;
+      --rep-bg: #3a2220;
+      --neutral-bg: #26262e;
+      --accent: #b39ddb;
+      --warn-bg: #3a2f1a;
+      --warn-ink: #e0b060;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15151a;
+    --card-bg: #1d1d23;
+    --ink: #f0f0f0;
+    --ink-soft: #b0b0b8;
+    --border: #32323a;
+    --dem: #7aa8e8;
+    --dem-bg: #1c2a40;
+    --rep: #e8847a;
+    --rep-bg: #3a2220;
+    --neutral-bg: #26262e;
+    --accent: #b39ddb;
+    --warn-bg: #3a2f1a;
+    --warn-ink: #e0b060;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 28px 16px 60px; }
+  header.top {
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 24px;
+  }
+  .masthead { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+  h1 { font-size: 26px; margin: 6px 0 4px; letter-spacing: -0.01em; }
+  .dateline { font-size: 14px; color: var(--ink-soft); }
+  section { margin-bottom: 34px; }
+  h2 {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin: 0 0 14px;
+  }
+  .item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .item .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-bottom: 6px;
+  }
+  .tag.dem { background: var(--dem-bg); color: var(--dem); }
+  .tag.rep { background: var(--rep-bg); color: var(--rep); }
+  .tag.neutral { background: var(--neutral-bg); color: var(--ink-soft); }
+  .item p { margin: 0 0 6px; font-size: 14.5px; }
+  .item .src {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+  .item .src a { color: var(--ink-soft); text-decoration: underline; }
+  .empty-note {
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-style: italic;
+    padding: 10px 2px;
+  }
+  .flag {
+    background: var(--warn-bg);
+    color: var(--warn-ink);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  table.score {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  table.score th, table.score td {
+    text-align: left;
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  table.score th {
+    background: var(--neutral-bg);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--ink-soft);
+  }
+  table.score tr:last-child td { border-bottom: none; }
+  .score-val { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .score-val.pos { color: var(--dem); }
+  .score-val.neg { color: var(--rep); }
+  .score-val.zero { color: var(--ink-soft); }
+  .score-today { background: var(--dem-bg); }
+  .trend-line {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .methodology {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: var(--neutral-bg);
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="masthead">Issue No. 32 · Daily midterm digest</div>
+    <h1>2026 Midterm Election Digest</h1>
+    <div class="dateline">Thursday, October 15, 2026 · covering roughly the last 24–48 hours</div>
+  </header>
+
+  <section>
+    <h2>Race developments</h2>
+
+    <div class="item">
+      <span class="tag dem">Poll · NC Senate</span>
+      <p><strong>Roy Cooper (D) 54% — Michael Whatley (R) 40%</strong>, 5% undecided, in a new WRAL/WSOC poll released Oct 13 — a notably wider lead than the Oct 7 YouGov/Catawba College reading (47–35), though both show Cooper comfortably ahead in the race for Thom Tillis's open seat.</p>
+      <div class="src">Source: WRAL/WSOC poll, Oct 13, via <a href="https://www.forbes.com/sites/saradorn/2026/10/13/hottest-2026-midterm-races-democrat-roy-cooper-has-double-digit-lead-over-former-rnc-chair-michael-whatley-updated-daily/" target="_blank" rel="noopener">Forbes midterm polling tracker</a></div>
+    </div>
+
+    <div class="item">
+      <span class="tag neutral">Poll · MN Senate (open seat)</span>
+      <p><strong>Peggy Flanagan (D) 47% — Michele Tafoya (R) 43%</strong>, 9% undecided, per a Star Tribune/KARE 11 poll released Oct 12, in the race to succeed retiring Sen. Tina Smith — single digits, worth watching though not yet rated a toss-up by the major forecasters.</p>
+      <div class="src">Source: Star Tribune/KARE 11 poll, Oct 12, via <a href="https://www.forbes.com/sites/saradorn/2026/10/13/hottest-2026-midterm-races-democrat-roy-cooper-has-double-digit-lead-over-former-rnc-chair-michael-whatley-updated-daily/" target="_blank" rel="noopener">Forbes midterm polling tracker</a></div>
+    </div>
+
+    <p class="empty-note">Nothing else cleared the bar for this section today beyond items already covered in recent issues (Talarico's return to the trail and the scheduled Fort Worth CNN/Jubilee town hall were reported Oct 14; no independent recap of that town hall, or of a reported Oct 13 Atlanta Press Club Ossoff–Collins rematch, could be confirmed as of this run).</p>
+  </section>
+
+  <section>
+    <h2>Polling &amp; forecasts</h2>
+
+    <div class="item">
+      <span class="tag neutral">Generic ballot</span>
+      <p>No fresher reading found. Silver Bulletin's last confirmed average remains <strong>D+8.8</strong> (D+9.5 among likely voters) as of Oct 12 — carried forward rather than reporting a possibly-stale number from today's fetch attempts.</p>
+      <div class="src">Source: Nate Silver, Silver Bulletin (reading as last independently confirmed Oct 12)</div>
+    </div>
+
+    <p class="empty-note">No confirmed race-rating changes today. Cook's Senate page is still unchanged since its Oct 6 batch; its House page is dated Oct 9 (the already-reported 18-race batch); its Governor page is dated Oct 13 (the already-reported Alaska/Nebraska/Oklahoma/Vermont batch). Sabato's dedicated rating-changes page and Inside Elections' ratings JSON both failed to load for this run (the JSON's internal "generated at" timestamp is still stuck on Oct 1, as in several prior runs) — so an update there can't be ruled out, but nothing new was independently confirmed by article search either.</p>
+  </section>
+
+  <section>
+    <h2>Election administration &amp; security</h2>
+
+    <div class="item">
+      <span class="tag dem">Court ruling — just surfaced</span>
+      <p><strong>A federal judge vacated DOJ's entire nationwide voter-roll data program.</strong> On Oct 9, U.S. District Judge Sparkle Sooknanan (D.D.C.) ruled for Common Cause that the Justice Department's "list maintenance" effort — demanding unredacted voter rolls from nearly all 50 states and checking them against the federal SAVE immigration database to flag people it considered ineligible — exceeded DOJ's authority under the Civil Rights Act of 1960, the NVRA, and HAVA. She vacated the policy nationwide under the Administrative Procedure Act, including for the roughly 18 states that had already complied, and barred DOJ from using that data or sharing it with DHS. She wrote the policy amounted to "the federal government's attempt to decide who gets to vote," a decision Congress left to the states. DOJ said it's reviewing the ruling; separately, federal law bars systematic roll purges within 90 days of a federal election, which may limit the practical effect before Nov. 3.</p>
+      <div class="flag">Flagging this now rather than on the day it happened: this ruling fell outside this digest's normal 24–48-hour window and was missed by every run since Oct 9 — it only turned up in a broader search today. It is reported on the day found, consistent with how this digest handles belatedly-discovered developments.</div>
+      <div class="src">Sources: <a href="https://www.aljazeera.com/news/2026/10/9/us-judge-rules-trump-administrations-use-of-voter-data-unlawful" target="_blank" rel="noopener">Al Jazeera, Oct 9</a> · <a href="https://www.democracydocket.com/news-alerts/federal-judge-shuts-down-trump-dojs-nationwide-voter-roll-crusade/" target="_blank" rel="noopener">Democracy Docket, Oct 9</a></div>
+    </div>
+
+    <div class="item">
+      <span class="tag neutral">Status check</span>
+      <p>DOJ's separate state-by-state voter-roll lawsuits remain dismissed in 26 of 30 cases (consistent with the figure cited in the Sooknanan ruling above); the 4 still pending — Delaware, Hawaii, Idaho, Utah — have no new rulings as of this run. No Supreme Court action found on any pending election-related emergency applications.</p>
+      <div class="src">Source: case dockets tracked via Democracy Docket; no new filings found this run</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Seat-change score</h2>
+    <p style="font-size:14px; color:var(--ink-soft); margin-top:-6px;">Today's score: <span class="score-val zero" style="font-size:16px;">0</span> — no confirmed nonpartisan race-rating changes found today (see Polling &amp; Forecasts above for what was checked).</p>
+
+    <table class="score">
+      <thead>
+        <tr><th>Date</th><th>Score</th><th>What drove it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Oct 9</td><td class="score-val zero">0</td><td>None confirmed.</td></tr>
+        <tr><td>Oct 10</td><td class="score-val zero">0</td><td>None confirmed — ratings sites largely unreachable this run.</td></tr>
+        <tr><td>Oct 11</td><td class="score-val zero">0</td><td>None confirmed; a Cook House date-gap flagged but unconfirmed.</td></tr>
+        <tr><td>Oct 12</td><td class="score-val zero">0</td><td>None confirmed despite broad search.</td></tr>
+        <tr><td>Oct 13</td><td class="score-val pos">+18</td><td>Cook's Oct 9 House batch (18 races, all D-ward) finally corroborated — resolved the Oct 11–12 gap.</td></tr>
+        <tr><td>Oct 14</td><td class="score-val pos">+4</td><td>Cook's Oct 13 governor batch: AK, NE, OK, VT, all D-ward.</td></tr>
+        <tr><td>Oct 15</td><td class="score-val zero score-today">0</td><td>None confirmed today.</td></tr>
+      </tbody>
+    </table>
+    <div class="trend-line">7-day trend: <strong>+22 net</strong>, all of it from two large confirmed batches (Oct 13 House, Oct 14 Governor) — otherwise a quiet week on rating changes.</div>
+
+    <div class="methodology">Methodology: each CONFIRMED race-rating change from a named nonpartisan rater (Cook, Sabato, Inside Elections) scores ±1 per race (D-ward +1, R-ward −1), regardless of how many notches it moved. Polls, fundraising, endorsements, and aggregate probability/generic-ballot numbers don't count, and neither do court rulings on their own. A race already scored under one rater isn't rescored when a second rater makes the identical move. Changes found days after they happened are scored on the day found, not the day they occurred.</div>
+  </section>
+
+  <footer>
+    Compiled from AP News, Reuters, Cook Political Report, Sabato's Crystal Ball, Inside Elections, official state election offices, and court filings. Nonpartisan sourcing only; this digest does not produce any "likelihood of a stolen election" assessment — that isn't something that can be meaningfully quantified.
+  </footer>
+
+</div>
+</body>
+</html>
+
+</body></html>
