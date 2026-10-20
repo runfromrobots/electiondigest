@@ -20,7 +20,7 @@ import json
 import re
 from pathlib import Path
 
-from bs4 import BeautifulSoup, Comment, NavigableString, Tag
+from bs4 import BeautifulSoup, Comment, Tag
 
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "source"

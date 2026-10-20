@@ -124,14 +124,7 @@ img { max-width: 100%; }
 .site-footer { border-top: 1px solid var(--line); margin-top: 64px; padding-block: 28px 40px; color: var(--muted); font-size: 13.5px; }
 .site-footer p { margin: 0 0 6px; max-width: 70ch; }
 
-/* ---------- home: hero */
-.hero { padding-block: 32px 24px; display: grid; gap: 14px 24px; }
-@media (min-width: 860px) { .hero { grid-template-columns: 1fr auto; align-items: end; } .hero .eyebrow, .hero h1, .hero-dek { grid-column: 1; } .countdown { grid-column: 2; grid-row: 1 / span 3; } }
-.hero h1 {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(28px, 4.4vw, 42px); line-height: 1.08; letter-spacing: -.015em;
-  margin: 0; max-width: 22ch; text-wrap: balance;
-}
+/* ---------- home: intro */
 .hero-dek { font-size: 17px; color: var(--ink-2); max-width: 58ch; margin: 0; }
 .countdown {
   display: flex; align-items: center; gap: 14px;

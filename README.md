@@ -15,7 +15,7 @@ assets/styles.css   shared styles, light and dark themes
 assets/app.js       chart, theme toggle, countdown, archive search
 assets/map.js       map rendering (d3 + us-atlas from jsDelivr)
 source/             raw daily issues as published, named NN_YYYY-MM-DD.html
-build.py            normalizes source/ into issues/ and regenerates index.html
+build.py            normalizes source/ into issues/, regenerates index.html and map.html
 ```
 
 ## Adding a new issue
